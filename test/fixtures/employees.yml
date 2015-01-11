@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee_id: 
+  is_active: false
+  last_name: MyString
+  first_name: MyString
+  birthdate: 2015-01-10
+  status: MyString
+  is_default: false
+  is_cyno: false
+  is_xray: false
+
+two:
+  employee_id: 
+  is_active: false
+  last_name: MyString
+  first_name: MyString
+  birthdate: 2015-01-10
+  status: MyString
+  is_default: false
+  is_cyno: false
+  is_xray: false
