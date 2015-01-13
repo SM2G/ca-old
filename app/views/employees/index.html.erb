@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <h1>Listing Employees</h1>
 
 <table>
@@ -21,7 +23,7 @@
   <tbody>
     <% @employees.each do |employee| %>
       <tr>
-        <td><%= employee.employee_id %></td>
+        <td><%= employee.id %></td>
         <td><%= employee.is_active %></td>
         <td><%= employee.last_name %></td>
         <td><%= employee.first_name %></td>
@@ -30,7 +32,8 @@
         <td><%= employee.is_default %></td>
         <td><%= employee.is_cyno %></td>
         <td><%= employee.is_xray %></td>
-        <td><%= link_to 'Show', employee %></td>
+        <td><%= link_to ' Show ', employee %></td>
+
         <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
         <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -39,5 +42,6 @@
 </table>
 
 <br>
-
+<button type="button" class="btn btn-xs btn-primary">
 <%= link_to 'New Employee', new_employee_path %>
+</button>
