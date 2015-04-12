@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @alert.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @alert.end_date %>
+</p>
+
+<p>
+  <strong>Paper:</strong>
+  <%= @alert.paper_id %>
+</p>
+
+<p>
+  <strong>Alert status:</strong>
+  <%= @alert.alert_status %>
+</p>
+
+<%= link_to 'Edit', edit_alert_path(@alert) %> |
+<%= link_to 'Back', alerts_path %>

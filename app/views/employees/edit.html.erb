@@ -1,6 +1,12 @@
-<h1>Editing Employee</h1>
+<h1>Employé <%= @employee.first_name %> <%= @employee.last_name %></h1>
 
 <%= render 'form' %>
+</br>
+<h2>Documents de <%= @employee.first_name %> <%= @employee.last_name %></h2>
+<%= render 'papers_for_employee' %>
 
-<%= link_to 'Show', @employee %> |
-<%= link_to 'Back', employees_path %>
+<div class="row">
+</br>
+<%= link_to 'Annuler', @employee , :class=>"btn btn-warning"%>
+<%= link_to 'Retour à la liste des employés', employees_path , :class=>"btn btn-default"%>
+</div>

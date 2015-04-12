@@ -27,13 +27,23 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 ## ==============================
 gem 'devise', '~> 3.4.0'
 
+
+## Bootswatch
+## ==============================
+# twitter bootstrap css & javascript toolkit
+gem 'twitter-bootswatch-rails', '~> 3.3.2'
+# twitter bootstrap helpers gem, e.g., alerts etc...
+gem 'twitter-bootswatch-rails-helpers'
+
 ## Images
 ## ==============================
 gem 'paperclip', '~> 4.2.1'
 
+gem 'therubyracer'  # If using Ruby
+gem 'less-rails-bootstrap'
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -47,6 +57,12 @@ group :development, :test do
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+
+
+## Cleanerlog développement 
+## ==============================
+#gem 'quiet_assets', group: :development
+gem 'quiet_assets'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

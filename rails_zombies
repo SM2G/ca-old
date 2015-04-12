@@ -1,0 +1,239 @@
+
+
+
+CRUD
+====
+Tweet.find(3)
+Tweet.find(3, 4, 5)
+
+# READING
+Tweet.count
+Tweet.order(:zombie)
+Tweet.limit(10)
+Tweet.where(zombie: "Ash")
+
+t=Tweet.new
+
+puts t.id
+puts t.status
+puts t.zombie      ...
+
+# SHOW A TWEET
+<%= link_to tweet.zombie.name, tweet.zombie %>
+<%= link_to text_to_whow, model_instance %>
+
+## CLASS
+## ==============================
+class Zombie <
+ActiveRecord::Base
+ has_many :tweets
+end
+
+class Tweet < ActiveRecord::Base
+ belongs_to :zombie
+ validates_presence_of :status
+ validates_numericality_of :fingers
+ validates_uniqueness_of :toothmarks
+ validates_confirmation_of :password
+ validates_acceptance_of :zombification
+ validates_length_of :password, minimum: 3
+ validates_format_of :email, with /regex/i
+ validates_inclusion_of :age, in: 21..99
+ validates_exclusion_of :age, in: 21..99, message: "Sorry you must be over 21"
+ validtes :status,
+          presence: true,
+          length: {minimum: 3}
+
+ validates  presence: true
+            uniqueness: true
+            length: { minimum: 0, maximum: 140 }
+            format: { with: /.*/ }
+            acceptance: true
+            confirmation: true
+
+end
+
+## VALIDATION
+## ==============================
+validates_presence_of :truc
+validates_numericality_of :fingers
+validates_uniqueness_of :toothmarks
+validates_confirmation_of :password
+validates_acceptance_of :zombification ???
+validates_length_of :password, minimum: 3
+validates_format_of :email, with: /regex/i
+validates_inclusion-of :age, in: 21..99
+validates_exclusion_of :age, in: 0..21, message: "sorry must be 21 or older"
+
+All in one line
+validates :status, presence: true, length: {minimum: 3}
+
+
+
+
+## Models relationships
+## ==============================
+class Zombie < ActiveRecord::Base
+  has_many :tweet
+end
+
+class Tweet < ActiveRecord::Base
+  belongs_to :zombie
+end
+
+
+## Initiate instances
+## ==============================
+ash = Zombie.find(1)
+t = Tweet.create(status: "jadorlabite!!", zombie: ash)
+
+
+
+TABLE
+=====
+<table>
+<tr>
+  <th> Status </th>
+  <th> Zombie </th>
+</tr>
+<tr>
+  <td> <%=tweet.status %> </td>
+  <td> <%=tweet.zombie.name %> </td>
+</tr>
+<% end %>
+</table>
+
+
+<ul>
+  <% zombies.each do |zombie| %>
+    <li>
+      <%= zombie.name %>
+      <% if zombie.tweets.size > 1 %>
+      SMART ZOMBIE
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+## Views
+## ==============================
+app/views/zombies/tweets/index.html.erb
+<!DOCTYPE html>
+<html>
+  <head><title>MyTitle</title></head>
+  <body>
+  <header></header>
+  <% tweet = Tweet.find(1) %> <--<% evaluate ruby %>
+
+  <h1><%= tweet.status %></h1> <--<%= evaluate ruby and print result %>
+
+  <p>Posted by <%= tweet.zombie.name %> </p>
+
+</body>
+</html>
+
+<% This is Ruby!! %>
+<%= This is Ruby answer %>
+
+In D.R.Y, move common HTML code to views/layout/application.html.erb
+
+
+## Link
+## ==========
+<%= link_to tweet.zombie.name, zombie_path(tweet.zombie) %>
+<%= link_to tweet.zombie.name, tweet.zombie %>
+<%= link_to tweet.zombie.name, tweet.zombie, confirm: "Are you sure?" %>
+
+
+## Loop
+## ==========
+<h1>Listing</h1>
+<table>
+  <tr>
+    <th>Status</th>
+    <th>Zombie</th>
+  </tr>
+  <% Tweet.all.each do |tweet| %>
+  <tr>
+    <td> <%= tweet.status %> </td>
+    <td> <%= tweet.zombie.name %> </td>
+  </tr>
+  <% end %>
+</table>
+
+## Loop w/ links
+## ==========
+<h1>Listing</h1>
+<table>
+  <tr>
+    <th>Status</th>
+    <th>Zombie</th>
+  </tr>
+  <% Tweet.all.each do |tweet| %>
+  <tr>
+    <td> <%= link_to tweet.status, tweet %> </td>
+    <td> <%= link_to tweet.zombie.name, tweet.zombie %> </td>
+  </tr>
+  <% end %>
+</table>
+
+
+## No data found
+## ==========
+<h1>Listing</h1>
+<table>
+  <tr>
+    <th>Status</th>
+    <th>Zombie</th>
+  </tr>
+  <% Tweet.all.each do |tweet| %>
+  <tr>
+    <td> <%= link_to tweet.status, tweet %> </td>
+    <td> <%= link_to tweet.zombie.name, tweet.zombie %> </td>
+  </tr>
+  <% end %>
+  <% if tweets.size == 0 %>
+    <em> No Tweets Found </em>
+  <% end %>
+</table>
+
+## Loop w/ edit/delete links
+## ==========
+<h1>Listing</h1>
+<table>
+  <tr>
+    <th>Status</th>
+    <th>Zombie</th>
+  </tr>
+  <% Tweet.all.each do |tweet| %>
+  <tr>
+    <td> <%= link_to tweet.status, tweet %> </td>
+    <td> <%= link_to tweet.zombie.name, tweet.zombie %> </td>
+    <td> <%= link_to "Edit", edit_tweet_path(tweet) %> </td>
+    <td> <%= link_to "Destroy", tweet, method::delete %> </td>
+  </tr>
+  <% end %>
+</table>
+
+
+## URL generators
+## ==========
+tweets_path            /tweets/         List all tweets
+new_tweet_path         /tweets/new      New tweet form
+tweet                  /tweets/1        Show a tweet
+edit_tweet_path(tweet) /tweets/1/edit   Edit a tweet
+tweet, method::delete  /tweets/1        Delete a tweet
+
+
+
+
+
+ROUTES
+======
+custom route: get '/maRouteCustom' => 'class#def' as:'name'  (class & method ???)
+
+Redirect:
+get '/maRoute' => redirect('/newRoute')
+
+root path:
+root to:

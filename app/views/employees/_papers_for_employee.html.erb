@@ -1,0 +1,61 @@
+<%= form_for(@employee) do |f| %>
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+      <ul>
+        <% @employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<form class="form-horizontal">
+<!--e.profile.document_ids.each do |ddd|
+aaa = Paper.new
+aaa.employee_id = 3
+aaa.document_id = ddd
+aaa.save
+end-->
+
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Nom du document</th>
+      <th>Date d'expiration</th>
+      <th>Validité</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @employee.papers.each do |one_paper| %>
+      <tr>
+        <td><%= one_paper.document.document_name %></td>
+        <td><!-- < %= f.date_select one_paper.expiration_date  %> -->
+        	<%= date_select one_paper.expiration_date, :expiration_date %> 
+        	<%= one_paper.id %> 
+        </td>
+
+        <td>  <div class="bs-component">
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" style="width: 70%"></div>
+                <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
+                <div class="progress-bar progress-bar-danger" style="width: 9%"></div>
+              </div>
+            </div>
+             <!-- [0% - 70% Ok][70% - 90% Warning][90% - 100% Critical]-->
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Cancel</button>
+          <%= f.submit "Valider les documents", :class => "btn btn-primary" %>
+      </div>
+    </div>
+  </fieldset>
+</form>
+
+<% end %>

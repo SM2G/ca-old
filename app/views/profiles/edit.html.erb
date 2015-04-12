@@ -1,0 +1,6 @@
+<h1>Profil <%= @profile.profile_name %></h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Annuler', @profile , :class=>"btn btn-warning"%>
+<%= link_to 'Retour à la liste des profils', profiles_path , :class=>"btn btn-default"%>

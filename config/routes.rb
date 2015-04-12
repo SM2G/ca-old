@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+ 
+
+  get 'admin', :to => "access#index"
+
+  get 'access/login'
+
+  resources :profiles
+
+  resources :papers
+
+  resources :documents
+
+  resources :alerts
+
   devise_for :users
   resources :employees
 
@@ -58,6 +72,15 @@ Rails.application.routes.draw do
   #   end
 
   ## For Devise
-  ## ==========
-  root to: "employees#index"
+  ## ==============================
+  #root to: "employees#index"
+  root 'pages#home'
+
+  ## Static pages
+  ## ==============================
+  get '/home' => 'pages#home'
+  get '/features' => 'pages#features'
+  get '/pricing' => 'pages#pricing'
+  get '/contact' => 'pages#contact'
+
 end

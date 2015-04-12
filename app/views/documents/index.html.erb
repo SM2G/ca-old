@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Types de Documents</h1>
+
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>Document name</th>
+      <th class="text-warning">Warning M/D</th>
+      <th class="text-danger">Critical M/D</th>
+      <th class="text-muted">Expire M/D</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @documents.each do |document| %>
+      <tr>
+        <td><%= document.document_name %></td>
+        <td class="text-warning"><%= document.warning_months %> mois et <%= document.warning_days %> jours. </td>
+        <td class="text-danger"><%= document.critical_months %> mois et <%= document.critical_days %> jours. </td>
+        <td class="text-muted"><%= document.expire_months %> mois et <%= document.expire_days %> jours. </td>
+        <td><%= link_to 'Détails', document , :class => "btn btn-default" %></td>
+        <td><%= link_to 'Modifier', edit_document_path(document) , :class => "btn btn-default" %></td>
+        <td><%= link_to 'Supprimer', document, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Document', new_document_path %>

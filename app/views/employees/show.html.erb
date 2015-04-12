@@ -1,49 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Employee:</strong>
-  <%= @employee.id %>
-</p>
+<div class="row">
+<h2><%= @employee.first_name %> <%= @employee.last_name %></h2>
+</div>
 
-<p>
-  <strong>Is active:</strong>
-  <%= @employee.is_active %>
-</p>
+<div class="row">
+  <strong>Is active: </strong>
+  <span class="<%= @employee.is_active ? "text-success" : "text-danger"%>">
+    <%= @employee.is_active ? "Employé actif" : "Employé inactif"%>
+  </span>
+</div>
 
+<div class="row">
 <p>
-  <strong>Last name:</strong>
-  <%= @employee.last_name %>
+  <strong>Date de naissance: </strong> <%= @employee.birthdate %>
 </p>
+</div>
 
+<!-- <p><strong>Status:</strong><%= @employee.status %></p> -->
+
+<div class="row">
 <p>
-  <strong>First name:</strong>
-  <%= @employee.first_name %>
+  <strong>Profil:</strong>
+  <%= @employee.profile.profile_name %>
 </p>
+</div>
 
-<p>
-  <strong>Birthdate:</strong>
-  <%= @employee.birthdate %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @employee.status %>
-</p>
-
-<p>
-  <strong>Is default:</strong>
-  <%= @employee.is_default %>
-</p>
-
-<p>
-  <strong>Is cyno:</strong>
-  <%= @employee.is_cyno %>
-</p>
-
-<p>
-  <strong>Is xray:</strong>
-  <%= @employee.is_xray %>
-</p>
-
-<%= link_to 'Edit', edit_employee_path(@employee) %> |
-<%= link_to 'Back', employees_path %>
+<div class="row">
+<%= link_to 'Retour à la liste', employees_path , :class=>"btn btn-default" %>
+<%= link_to 'Modifier', edit_employee_path(@employee) , :class=>"btn btn-primary"%>
+</div>

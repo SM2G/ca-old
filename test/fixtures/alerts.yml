@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  alert_id: 
-  alert_document_type: MyString
+  start_date: 2015-01-14
+  end_date: 2015-01-14
+  paper_id: 1
+  alert_status: MyString
 
 two:
-  alert_id: 
-  alert_document_type: MyString
+  start_date: 2015-01-14
+  end_date: 2015-01-14
+  paper_id: 1
+  alert_status: MyString
