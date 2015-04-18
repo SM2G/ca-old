@@ -1,4 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_filter_path(@filter) %> |
-<%= link_to 'Back', filters_path %>
+<div class="row">
+<h2>Filtre <%= @filter.id %></h2>
+</div>
+
+
+<div class="row">
+<p>
+  <strong>Type de filtre:</strong>
+  <%= @filter.filter_type %>
+</p>
+</div>
+
+Historique du filtre:
+
+Tableau TO_DO
+</br>
+
+
+<div class="row">
+<%= link_to 'Retour à la liste', filters_path , :class=>"btn btn-default" %>
+<%= link_to 'Modifier', edit_filter_path(@filter) , :class=>"btn btn-primary"%>
+</div>

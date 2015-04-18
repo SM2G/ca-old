@@ -1,20 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Filters</h1>
+<h1>Filtres</h1>
 
-<table>
+<table class="table table-striped table-hover ">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>Id</th>
+      <th>Type</th>
+      <th>Statut</th>
+      <th colspan="6"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @filters.each do |filter| %>
       <tr>
-        <td><%= link_to 'Show', filter %></td>
-        <td><%= link_to 'Edit', edit_filter_path(filter) %></td>
-        <td><%= link_to 'Destroy', filter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= filter.id %></td>
+        <td><%= filter.filter_type %></td>
+        <td> OK </td>
+        <td><%= link_to 'Détails', filter , :class => "btn btn-default" %></td>
+        <td><%= link_to 'Modifier', edit_filter_path(filter), :class => "btn btn-default" %></td>
+        <td><%= link_to 'Supprimer', filter, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New Filter', new_filter_path %>
+<%= link_to 'Nouveau Filtre', new_filter_path, :class=>"btn btn-primary" %>
