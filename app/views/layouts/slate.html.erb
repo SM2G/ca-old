@@ -34,21 +34,41 @@
                 <ul class="nav navbar-nav">
         <li class="<%= 'active' if current_page?(home_path) %>"><%= link_to "Accueil", home_path %></li>
         <li class="<%= 'active' if current_page?(pricing_path) %>"><%= link_to "Abonnements", pricing_path %></li>
-
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Employés <b class="caret"></b></a>
+          <ul class="dropdown-menu">
         <li class="<%= 'active' if current_page?(employees_path) %>"><%= link_to "Personnel", employees_path %></li>
         <li class="<%= 'active' if current_page?(profiles_path) %>"><%= link_to "Profils", profiles_path %></li>
         <li class="<%= 'active' if current_page?(documents_path) %>"><%= link_to "Documents", documents_path %></li>
-        <li><a href="#">Alertes en cours (TODO)</a></li>
-      </ul> 
+            <!-- <li class="divider"></li> -->
+            <!-- <li class="dropdown-header">Dropdown header</li> -->
+            <!-- <li><a href="#">Separated link</a></li> -->
+            <!-- <li><a href="#">One more separated link</a></li> -->
+          </ul>
+          <li class="<%= 'active' if current_page?(filters_path) %>"><%= link_to "Filtres", filters_path %></li>
+      </ul>
             <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><% if user_signed_in? %>
+          Welcome <strong><%= current_user.email %></strong>
+          <% else %>
+          Login
+          <% end %>
+          <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li class="divider"></li>
+            <% if user_signed_in? %>
+            Logged in as <strong><%= current_user.email %></strong>.
+            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+            <% else %>
+            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+            <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+            <% end %>
             <li><a href="#">Separated link</a></li>
           </ul>
             </li>
@@ -58,9 +78,15 @@
     </div>
 
   <div class="container">
-  </br>
-  </br>
-  </br>
+  <!-- Devise notice -->
+  <% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+</br>
+</br>
 
     <%= yield %>
   </div>

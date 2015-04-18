@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
  
 
+  resources :filter_boxes
+
+  resources :filters
+
   get 'admin', :to => "access#index"
 
   get 'access/login'
