@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   ## Force Devise auth
   ## ==============================
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
 
   layout 'slate'
 end
