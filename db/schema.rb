@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150425103241) do
+ActiveRecord::Schema.define(version: 20150501172005) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string "first_name",      limit: 25
@@ -39,14 +39,6 @@ ActiveRecord::Schema.define(version: 20150425103241) do
 
   add_index "assignments", ["document_id"], name: "index_assignments_on_document_id"
   add_index "assignments", ["profile_id"], name: "index_assignments_on_profile_id"
-
-  create_table "document_models", force: :cascade do |t|
-    t.date     "warning_date"
-    t.date     "critical_date"
-    t.date     "expire_date"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
 
   create_table "documents", force: :cascade do |t|
     t.string   "document_name"
@@ -130,8 +122,9 @@ ActiveRecord::Schema.define(version: 20150425103241) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "password_digest"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

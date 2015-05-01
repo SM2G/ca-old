@@ -138,6 +138,8 @@ app/views/zombies/tweets/index.html.erb
 In D.R.Y, move common HTML code to views/layout/application.html.erb
 
 
+
+
 ## Link
 ## ==========
 <%= link_to tweet.zombie.name, zombie_path(tweet.zombie) %>

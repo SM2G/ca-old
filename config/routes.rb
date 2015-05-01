@@ -87,5 +87,6 @@ Rails.application.routes.draw do
   get '/features' => 'pages#features'
   get '/pricing' => 'pages#pricing'
   get '/contact' => 'pages#contact'
+  get '/signup' => 'pages#signup'
 
 end
