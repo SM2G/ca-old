@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :sessions
-
-  resources :filter_boxes
-
-  resources :filters
-
   get 'admin', :to => "access#index"
 
   get 'access/login'
@@ -14,12 +8,29 @@ Rails.application.routes.draw do
 
   resources :papers
 
-  resources :documents
-
   resources :alerts
 
-  devise_for :users
+  resources :documents
+
   resources :employees
+
+  resources :filters
+
+  resources :filter_boxes
+
+  resources :sessions
+
+  resources :users
+
+
+## Static pages
+## ==============================
+root              'pages#home'
+get 'home'     => 'pages#home'
+get 'features' => 'pages#features'
+get 'pricing'  => 'pages#pricing'
+get 'contact'  => 'pages#contact'
+get 'signup'   => 'users#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -76,17 +87,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  ## For Devise
-  ## ==============================
-  #root to: "employees#index"
-  root 'pages#home'
-
-  ## Static pages
-  ## ==============================
-  get '/home' => 'pages#home'
-  get '/features' => 'pages#features'
-  get '/pricing' => 'pages#pricing'
-  get '/contact' => 'pages#contact'
-  get '/signup' => 'pages#signup'
 
 end
