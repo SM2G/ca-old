@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
 
 
+
+group :production do
+  gem 'puma',           '2.11.1'
+end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
@@ -25,8 +30,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 ## Authentication
 ## ==============================
-gem 'devise', '~> 3.4.0'
-
+#gem 'devise', '~> 3.4.0'
 
 ## Bootswatch
 ## ==============================
