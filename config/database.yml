@@ -21,8 +21,10 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: d3atraudk6ift0
+  host:     ec2-54-247-79-142.eu-west-1.compute.amazonaws.com
+  username: cbrvpnnxixieoo
 
 
 #development:
