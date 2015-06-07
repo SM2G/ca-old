@@ -22,10 +22,11 @@ test:
 
 production:
   adapter: postgresql
-  database: dfg4l4vi86u7e5
-  host:     ec2-54-247-170-228.eu-west-1.compute.amazonaws.com
-  username: lrnafghtmsvnso
-  password: thP1UGZwo2CFf4_v3BI1LIfNOV
+  database: d5rra3er0kjn2h
+  host:     ec2-54-217-202-108.eu-west-1.compute.amazonaws.com
+  username: zcykgkeqxsfzaz
+  port:     5432
+  password: E8Wg7d5OnKOraDt7R-TmChNsnU
 
 
 #development:
