@@ -22,9 +22,10 @@ test:
 
 production:
   adapter: postgresql
-  database: d3atraudk6ift0
-  host:     ec2-54-247-79-142.eu-west-1.compute.amazonaws.com
-  username: cbrvpnnxixieoo
+  database: dfg4l4vi86u7e5
+  host:     ec2-54-247-170-228.eu-west-1.compute.amazonaws.com
+  username: lrnafghtmsvnso
+  password: thP1UGZwo2CFf4_v3BI1LIfNOV
 
 
 #development:
