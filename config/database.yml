@@ -26,7 +26,6 @@ production:
   host:     ec2-54-217-202-108.eu-west-1.compute.amazonaws.com
   username: zcykgkeqxsfzaz
   port:     5432
-  password: E8Wg7d5OnKOraDt7R-TmChNsnU
 
 
 #development:
