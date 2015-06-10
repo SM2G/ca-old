@@ -36,14 +36,6 @@ class EmployeesController < ApplicationController
     respond_with(@employee)
   end
 
-#Useless#def bool_to_glyphicon(boolean)
-#Useless#   if boolean == 'yes'
-#Useless#     return '<span class="glyphicon glyphicon-ok" aria-hidden="true">'
-#Useless#   else
-#Useless#     return '<span class="glyphicon glyphicon-remove" aria-hidden="true">'
-#Useless#   end
-#Useless#end
-
   private
     def set_employee
       @employee = Employee.find(params[:id])
