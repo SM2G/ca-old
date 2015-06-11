@@ -1,5 +1,9 @@
 class Employee < ActiveRecord::Base
 
+## Bug
+## ==========
+# When first creating the db, employees#index results in bug.
+
   ## Relationships
   ## ==============================
   belongs_to :profile
