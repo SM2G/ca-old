@@ -23,19 +23,31 @@ class SessionsController < ApplicationController
 
   # POST /sessions
   # POST /sessions.json
-  def create
-    @session = Session.new(session_params)
 
-    respond_to do |format|
-      if @session.save
-        format.html { redirect_to @session, notice: 'Session was successfully created.' }
-        format.json { render :show, status: :created, location: @session }
-      else
-        format.html { render :new }
-        format.json { render json: @session.errors, status: :unprocessable_entity }
-      end
+
+  def create
+    user = User.find_by(email: params[:session][:email].downcase)
+    if user && user.authenticate(params[:session][:password])
+log_in user
+      redirect_to user
+    else
+      flash.now[:danger] = 'Invalid email/password combination'
+      render 'new'
     end
   end
+
+  #def create   Old version useless?
+  #  @session = Session.new(session_params)
+  #  respond_to do |format|
+  #    if @session.save
+  #      format.html { redirect_to @session, notice: 'Session was successfully created.' }
+  #      format.json { render :show, status: :created, location: @session }
+  #    else
+  #      format.html { render :new }
+  #      format.json { render json: @session.errors, status: :unprocessable_entity }
+  #    end
+  #  end
+  #end
 
   # PATCH/PUT /sessions/1
   # PATCH/PUT /sessions/1.json
