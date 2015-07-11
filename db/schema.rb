@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150502093810) do
+ActiveRecord::Schema.define(version: 20150711173522) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string "first_name",      limit: 25
@@ -90,25 +90,8 @@ ActiveRecord::Schema.define(version: 20150502093810) do
   end
 
   create_table "sessions", force: :cascade do |t|
-    t.datetime "session_start_datetime"
-    t.float    "session_temp"
-    t.float    "session_hygro"
-    t.integer  "employee_id"
-    t.integer  "dog_id"
-    t.integer  "slot_1_filter"
-    t.float    "slot_1_temp"
-    t.integer  "slot_2_filter"
-    t.float    "slot_2_temp"
-    t.integer  "slot_3_filter"
-    t.float    "slot_3_temp"
-    t.integer  "slot_4_filter"
-    t.float    "slot_4_temp"
-    t.integer  "slot_5_filter"
-    t.float    "slot_5_temp"
-    t.string   "result"
-    t.text     "comments"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

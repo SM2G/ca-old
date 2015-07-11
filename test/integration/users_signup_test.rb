@@ -20,6 +20,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                             email: "user@example.com",
     end
   assert_template 'users/show'
+  assert is_logged_in?
   end
-
 end

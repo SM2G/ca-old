@@ -35,20 +35,7 @@ class SessionsController < ApplicationController
       render 'new'
     end
   end
-
-  #def create   Old version useless?
-  #  @session = Session.new(session_params)
-  #  respond_to do |format|
-  #    if @session.save
-  #      format.html { redirect_to @session, notice: 'Session was successfully created.' }
-  #      format.json { render :show, status: :created, location: @session }
-  #    else
-  #      format.html { render :new }
-  #      format.json { render json: @session.errors, status: :unprocessable_entity }
-  #    end
-  #  end
-  #end
-
+  
   # PATCH/PUT /sessions/1
   # PATCH/PUT /sessions/1.json
   def update
@@ -65,12 +52,16 @@ class SessionsController < ApplicationController
 
   # DELETE /sessions/1
   # DELETE /sessions/1.json
+  #def destroy
+  #  @session.destroy
+  #  respond_to do |format|
+  #    format.html { redirect_to sessions_url, notice: 'Session was successfully destroyed.' }
+  #    format.json { head :no_content }
+  #  end
+  #end
   def destroy
-    @session.destroy
-    respond_to do |format|
-      format.html { redirect_to sessions_url, notice: 'Session was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    log_out
+    redirect_to root_url
   end
 
   private
