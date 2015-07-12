@@ -9,9 +9,9 @@ one:
   profile_id: 1
 
 two:
-  is_active: false
+  is_active: true
   last_name: MyString
   first_name: MyString
   birthdate: 2015-01-14
   status: MyString
-  profile_id: 1
+  profile_id: 2
