@@ -29,13 +29,14 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       log_in user
+      remember user
       redirect_to user
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
     end
   end
-  
+
   # PATCH/PUT /sessions/1
   # PATCH/PUT /sessions/1.json
   def update
@@ -50,17 +51,8 @@ class SessionsController < ApplicationController
     end
   end
 
-  # DELETE /sessions/1
-  # DELETE /sessions/1.json
-  #def destroy
-  #  @session.destroy
-  #  respond_to do |format|
-  #    format.html { redirect_to sessions_url, notice: 'Session was successfully destroyed.' }
-  #    format.json { head :no_content }
-  #  end
-  #end
   def destroy
-    log_out
+    log_out if logged_in?
     redirect_to root_url
   end
 

@@ -2,14 +2,12 @@
 
 one:
   document_name: MyString
-  profile_id: 1
   warning_days: 1
   critical_days: 1
   expire_days: 1
 
 two:
   document_name: MyString
-  profile_id: 1
   warning_days: 1
   critical_days: 1
   expire_days: 1
