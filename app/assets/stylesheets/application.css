@@ -12,6 +12,9 @@
  *
  */
 
+ //= depend_on_asset "favicon.ico"
+
+
  /*
  *= require twitter/bootstrap
  */
