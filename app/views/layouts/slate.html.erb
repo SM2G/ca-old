@@ -11,6 +11,7 @@
     <!-- Page 451 -->
 
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/slate/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <!-- Font Awesome -->
@@ -82,17 +83,9 @@
     </div>
 
   <div class="container">
-  <!-- Devise notice -->
 </br>
 </br>
 </br>
-
-  <!-- unused < % if notice % >
-  <p class="alert alert-success">< % = notice % ></p>
-  < % end % >
-  < % if alert % >
-  <p class="alert alert-danger">< % = alert % ></p>
-  < % end % >-->
 
   <% flash.each do |message_type, message| %>
     <div class="alert alert-dismissible alert-<%= message_type %>">
