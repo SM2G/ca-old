@@ -12,14 +12,6 @@
  *
  */
 
- //= depend_on_asset "favicon.ico"
-
-
-/*
- *= require slate/loader
- *= require slate/bootswatch
-*/
-
 /* sidebar */
 aside {
   section.user_info {

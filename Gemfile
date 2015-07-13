@@ -9,6 +9,7 @@ gem 'therubyracer'
 gem 'less-rails-bootstrap', '3.3.5.0'
 gem 'less-rails', '2.7.0'
 gem 'less', '2.6.0'
+gem 'sprockets', '3.2.0'
 
 gem 'rails', '4.2.0'
 gem 'responders', '~> 2.0'
