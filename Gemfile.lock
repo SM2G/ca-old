@@ -194,7 +194,9 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
-  less-rails-bootstrap
+  less (= 2.6.0)
+  less-rails (= 2.7.0)
+  less-rails-bootstrap (= 3.3.5.0)
   paperclip (~> 4.2.1)
   pg (= 0.18.1)
   puma (= 2.11.1)

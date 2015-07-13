@@ -6,7 +6,10 @@ gem 'twitter-bootswatch-rails', '~> 3.3.2'
 gem 'twitter-bootswatch-rails-helpers'
 gem 'paperclip', '~> 4.2.1'
 gem 'therubyracer'
-gem 'less-rails-bootstrap'
+gem 'less-rails-bootstrap', '3.3.5.0'
+gem 'less-rails', '2.7.0'
+gem 'less', '2.6.0'
+
 gem 'rails', '4.2.0'
 gem 'responders', '~> 2.0'
 # Use SCSS for stylesheets
