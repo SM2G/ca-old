@@ -20,7 +20,6 @@ class EmployeesControllerTest < ActionController::TestCase
     assert_difference('Employee.count') do
       post :create, employee: { birthdate: @employee.birthdate, first_name: @employee.first_name, is_active: @employee.is_active, last_name: @employee.last_name, profile_id: @employee.profile_id, status: @employee.status }
     end
-
     assert_redirected_to employee_path(assigns(:employee))
   end
 
