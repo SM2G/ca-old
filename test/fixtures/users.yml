@@ -4,8 +4,16 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+one:
+  email: <%= (((0...8).map { (65 + rand(26)).chr }.join)+'@email.com') %>
+  encrypted_password: MyString
+  sign_in_count: 0
+  created_at: <%= 3.days.ago.to_s(:db) %>
+  updated_at: <%= 3.hours.ago.to_s(:db) %>
+
+two:
+  email: <%= (((0...8).map { (65 + rand(26)).chr }.join)+'@email.com') %>
+  encrypted_password: MyString
+  sign_in_count: 0
+  created_at: <%= 3.days.ago.to_s(:db) %>
+  updated_at: <%= 3.hours.ago.to_s(:db) %>
