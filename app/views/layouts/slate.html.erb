@@ -1,93 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Cerbere App" %></title>
-    <%= favicon_link_tag 'favicon.ico' %>
-    <%= csrf_meta_tags %>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "Cerbere App" %></title>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= csrf_meta_tags %>
 
-    <!-- Page 451 -->
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-    <!-- CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/slate/bootstrap.min.css" rel="stylesheet">
+  <!-- CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/slate/bootstrap.min.css" rel="stylesheet">
 
     <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 
-  </head>
-  <body>
-
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Cerbere App</a>
-        </div>
-        <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-        <li class="<%= 'active' if current_page?(home_path) %>"><%= link_to "Accueil", home_path %></li>
-        <!--<li class="<%= 'active' if current_page?(pricing_path) %>"><%= link_to "Abonnements", pricing_path %></li>-->
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Employés <b class="caret"></b></a>
-          <ul class="dropdown-menu">
+</head>
+<body>
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Cerbere App</a>
+    </div>
+    <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+      <li class="<%= 'active' if current_page?(home_path) %>"><%= link_to "Accueil", home_path %></li>
+      <!--<li class="<%= 'active' if current_page?(pricing_path) %>"><%= link_to "Abonnements", pricing_path %></li>-->
+      <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Employés <b class="caret"></b></a>
+      <ul class="dropdown-menu">
         <li class="<%= 'active' if current_page?(employees_path) %>"><%= link_to "Personnel", employees_path %></li>
         <li class="<%= 'active' if current_page?(profiles_path) %>"><%= link_to "Profils", profiles_path %></li>
         <li class="<%= 'active' if current_page?(documents_path) %>"><%= link_to "Documents", documents_path %></li>
-            <!-- <li class="divider"></li> -->
-            <!-- <li class="dropdown-header">Dropdown header</li> -->
-            <!-- <li><a href="#">Separated link</a></li> -->
-            <!-- <li><a href="#">One more separated link</a></li> -->
-          </ul>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Validation <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-          <li class="<%= 'active' if current_page?(sessions_path) %>"><%= link_to "Nouvelle session", new_session_path %></li>
-          <li class="divider"></li>
-          <li class="<%= 'active' if current_page?(filters_path) %>"><%= link_to "Filtres", filters_path %></li>
-
-            </ul>
-
-
       </ul>
-            <ul class="nav navbar-nav navbar-right">
-        <!--<li><a href="#">Link</a></li>-->
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
         <li class="divider"></li>
-      <% if logged_in? %>
-      <li><a href="#"><%= current_user.name %></a></li>
-      <% else %>
-      <li><%= link_to "Log in", login_path %></li>
-      <% end %>
+          <% if logged_in? %>
+          <li><a href="#"><%= current_user.name %></a></li>
+          <% else %>
+          <li><%= link_to "Log in", login_path %></li>
+          <% end %>
         <li class="divider"></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-            </li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
+            <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Mon compte", users_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Se déconnecter", logout_path %></li>
+            </ul>
+          </li>
+        </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
 
-  <div class="container">
+<div class="container">
 </br>
 </br>
 </br>

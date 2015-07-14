@@ -7,11 +7,9 @@ Rails.application.routes.draw do
   resources :alerts
   resources :documents
   resources :employees
-  resources :filters
-  resources :filter_boxes
   resources :sessions
   resources :users
-  
+
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
