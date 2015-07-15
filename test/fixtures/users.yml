@@ -8,6 +8,7 @@ one:
   email: <%= (((0...8).map { (65 + rand(26)).chr }.join)+'@email.com') %>
   encrypted_password: MyString
   sign_in_count: 0
+  password_digest: <%= User.digest('password') %>
   created_at: <%= 3.days.ago.to_s(:db) %>
   updated_at: <%= 3.hours.ago.to_s(:db) %>
 
@@ -15,5 +16,14 @@ two:
   email: <%= (((0...8).map { (65 + rand(26)).chr }.join)+'@email.com') %>
   encrypted_password: MyString
   sign_in_count: 0
+  password_digest: <%= User.digest('password') %>
+  created_at: <%= 3.days.ago.to_s(:db) %>
+  updated_at: <%= 3.hours.ago.to_s(:db) %>
+
+michael:
+  name: Michael Example
+  email: michael@example.com
+  sign_in_count: 0
+  password_digest: <%= User.digest('password') %>
   created_at: <%= 3.days.ago.to_s(:db) %>
   updated_at: <%= 3.hours.ago.to_s(:db) %>

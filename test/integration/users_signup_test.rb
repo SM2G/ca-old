@@ -11,6 +11,7 @@ test "invalid signup information" do
                              password_confirmation: "bar" }
                            end
     assert_template 'users/new'
+    assert is_logged_in?
   end
 
 
