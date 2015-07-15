@@ -5,9 +5,5 @@ class ApplicationController < ActionController::Base
 
   include SessionsHelper
 
-  ## Force Devise auth
-  ## ==============================
-  #before_action :authenticate_user!
-
   layout 'slate'
 end

@@ -28,7 +28,6 @@ class AccessController < ApplicationController
   	#TODO: mark user as logged out
   	flash[:notice] = "Logged out"
   	redirect_to(:action => 'login')
-
   end
 
 end
