@@ -5,11 +5,11 @@ class SessionsControllerTest < ActionController::TestCase
     @session = sessions(:one)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:sessions)
-  end
+#  test "should get index" do
+#    get :index
+#    assert_response :success
+#    assert_not_nil assigns(:sessions)
+#  end
 
   test "should get new" do
     get :new
