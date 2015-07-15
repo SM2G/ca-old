@@ -1,29 +1,10 @@
 class SessionsController < ApplicationController
   before_action :set_session, only: [:show, :edit, :update, :destroy]
 
-  # GET /sessions
-  # GET /sessions.json
-  def index
-    @sessions = Session.all
-  end
-
-  # GET /sessions/1
-  # GET /sessions/1.json
-  def show
-  end
-
   # GET /sessions/new
   def new
     @session = Session.new
   end
-
-  # GET /sessions/1/edit
-  def edit
-  end
-
-  # POST /sessions
-  # POST /sessions.json
-
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
