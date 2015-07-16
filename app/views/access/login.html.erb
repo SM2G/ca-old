@@ -1,20 +1,25 @@
 <% @page_title = "Admin Login" %>
+<% provide(:title, "Log in") %> <h1>Log in</h1>
 
-<div class="login">
+<div class='col-md-6 col-md-offset-3 hidden-sm hidden-xs'>
+	<%= image_tag "logo/logo_v2.png" %>
+</div> 
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 	<%= form_tag(:action => 'attempt_login') do %>
-	<table>
-		<tr>
-			<td><%= label_tag(:username) %></td>
-			<td><%= label_field_tag(:username) %></td>
-		<tr>
-		<tr>
-			<td><%= label_tag(:password) %></td>
-			<td><%= label_field_tag(:password) %></td>
-		<tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td><%= submit_tag("Log In") %></td>
-		<tr>
-	</table>
+	<%= label_tag(:email) %></br>
+	<%= email_field :email, class: 'form-control' %></br>
+	<%= label_tag(:password) %></br>
+	<%= password_field :password, class: 'form-control' %></br>
+	<%= submit_tag("Log In", class: "btn btn-primary") %></br>
+	
 	<% end %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+	</div>
 </div>
