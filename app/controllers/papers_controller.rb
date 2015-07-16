@@ -1,4 +1,5 @@
 class PapersController < ApplicationController
+  before_action :confirm_logged_in
   before_action :set_paper, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
@@ -21,13 +22,13 @@ class PapersController < ApplicationController
   end
 
 
-  #def create @invoice = Invoice.new(params[:invoice]) @invoice.order_id = @session["order_id"] 
-  #  for item_id in params[:invoice_item][:item_id] do 
-  #    @invoice.invoice_items << InvoiceItem.new(:item_id => item_id) 
-  #  end if @invoice.save flash[:notice] = 'Invoice was successfully created.' 
-  #  redirect_to :action => 'list' else render :action => 'new' 
-  #  end 
-  #end 
+  #def create @invoice = Invoice.new(params[:invoice]) @invoice.order_id = @session["order_id"]
+  #  for item_id in params[:invoice_item][:item_id] do
+  #    @invoice.invoice_items << InvoiceItem.new(:item_id => item_id)
+  #  end if @invoice.save flash[:notice] = 'Invoice was successfully created.'
+  #  redirect_to :action => 'list' else render :action => 'new'
+  #  end
+  #end
 
 
   def create
