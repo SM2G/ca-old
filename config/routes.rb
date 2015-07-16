@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   get 'admin', :to => "access#index"
-  get 'access/login'
+
   resources :profiles
   resources :papers
   resources :alerts
@@ -10,11 +10,15 @@ Rails.application.routes.draw do
   resources :sessions
   resources :users
 
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
-  
-  get    'logout'  => 'sessions#destroy'
+## Default route
+## ==============================
+  match ':controller(/:action(/:id))', :via => [:get, :post]
+
+  get 'access/login' => 'sessions#new'
+  get    'login'     => 'sessions#new'
+  post   'login'     => 'sessions#create'
+  delete 'access/logout'    => 'sessions#destroy'
+
 
 ## Static pages
 ## ==============================
