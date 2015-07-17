@@ -12,9 +12,14 @@ Rails.application.routes.draw do
   get 'admin', :to => "access#index"
 
   get    'login'         => 'access#login'
-  post   'login'         => 'sessions#create'
-  delete 'access/logout' => 'sessions#destroy'
+#  post   'login'         => 'sessions#create'
+#  delete 'access/logout' => 'sessions#destroy'
 
+## Default route
+## ==============================
+  match ':controller(/:action(/:id))', :via => [:get, :post]
+
+  resources :admin_users
   resources :profiles
   resources :papers
   resources :alerts
@@ -22,10 +27,6 @@ Rails.application.routes.draw do
   resources :employees
   resources :sessions
   resources :users
-
-## Default route
-## ==============================
-  match ':controller(/:action(/:id))', :via => [:get, :post]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

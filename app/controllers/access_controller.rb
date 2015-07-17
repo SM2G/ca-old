@@ -20,7 +20,7 @@ class AccessController < ApplicationController
   	if authorized_user
   		# mark user as logged in
       session[:user_id] = authorized_user.id
-      session[:name] = authorized_user.name
+      session[:username] = authorized_user.username
   		flash[:notice] = "You are now logged in."
   		redirect_to(:action => 'index')
   	else
