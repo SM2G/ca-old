@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
 
   layout 'slate'
 
-
   private
 
   def confirm_logged_in
