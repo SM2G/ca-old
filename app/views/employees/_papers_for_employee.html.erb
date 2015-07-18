@@ -31,21 +31,20 @@ end-->
       <tr>
         <td><%= one_paper.document.document_name %></td>
         <td><!-- < %= f.date_select one_paper.expiration_date  %> -->
-        	<%= date_select one_paper.expiration_date, :expiration_date %> 
-        	<%= one_paper.id %> 
+        	<%= date_select one_paper.expiration_date, :expiration_date %>
+        	<%= one_paper.id %>
         </td>
 
         <td>  <div class="bs-component">
               <div class="progress">
                 <div class="progress-bar progress-bar-success" style="width: 70%"></div>
                 <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
-                <div class="progress-bar progress-bar-danger" style="width: 9%"></div>
+                <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
               </div>
             </div>
              <!-- [0% - 70% Ok][70% - 90% Warning][90% - 100% Critical]-->
         </td>
       </tr>
-    <% end %>
   </tbody>
 </table>
 
