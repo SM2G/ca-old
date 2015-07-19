@@ -1,20 +1,5 @@
 Rails.application.routes.draw do
 
-  ## Static pages
-  ## ==============================
-  root              'pages#home'
-  get 'home'     => 'pages#home'
-  get 'features' => 'pages#features'
-  get 'pricing'  => 'pages#pricing'
-  get 'contact'  => 'pages#contact'
-  get 'signup'   => 'pages#signup'
-
-  get 'admin', :to => "access#index"
-  get 'pages/admin', :to => "access#index"
-  get    'login'         => 'access#login'
-#  post   'login'         => 'sessions#create'
-#  delete 'access/logout' => 'sessions#destroy'
-
 
   resources :admin_users
   resources :profiles
@@ -24,6 +9,19 @@ Rails.application.routes.draw do
   resources :employees
   resources :sessions
   resources :users
+
+  ## Static pages
+  ## ==============================
+  root              'pages#home'
+  get 'home'     => 'pages#home'
+  get 'features' => 'pages#features'
+  get 'pricing'  => 'pages#pricing'
+  get 'contact'  => 'pages#contact'
+  get 'signup'   => 'pages#signup'
+
+  get 'admin', :to       => "access#index"
+  get 'pages/admin', :to => "access#index"
+  get    'login'         => 'access#login'
 
 ## Default route
 ## ==============================
