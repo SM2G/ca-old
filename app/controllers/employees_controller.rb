@@ -4,6 +4,8 @@ class EmployeesController < ApplicationController
 
   respond_to :html
 
+  include PapersHelper
+
   def index
     @employees = Employee.all
     respond_with(@employees)

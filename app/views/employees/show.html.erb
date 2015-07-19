@@ -10,6 +10,7 @@
     <p><strong>Profil:</strong> <%= @employee.profile.profile_name %></p>
   </div>
 
+<h2>Documents</h2>
   <table class="table table-striped table-hover ">
     <thead>
       <tr>
@@ -19,18 +20,18 @@
       </tr>
     </thead>
     <tbody>
-      <% @employee.papers.each do |one_paper| %>
+      <% @employee.papers.each do |paper| %>
         <tr>
-          <td> <%= one_paper.document.document_name %> </td>
-          <td> <%=  one_paper.expiration_date %> </td>
-          <td>  <div class="bs-component">
-                <div class="progress">
-                  <div class="progress-bar progress-bar-success" style="width: 70%"></div>
-                  <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
-                  <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
-                </div>
+          <td> <%= paper.document.document_name %> </td>
+          <td> <%= paper.days_to_expire %> </td>
+          <td>
+            <div class="bs-component">
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" style="width: 70%"></div>
+                <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
+                <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
               </div>
-               <!-- [0% - 70% Ok][70% - 90% Warning][90% - 100% Critical]-->
+            </div> <!-- [0% - 70% Ok][70% - 90% Warning][90% - 100% Critical]-->
           </td>
         </tr>
       <% end %>
