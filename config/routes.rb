@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   get 'admin', :to       => "access#index"
   get 'pages/admin', :to => "access#index"
-  get    'login'         => 'access#login'
+  get 'login'            => 'access#login'
 
 ## Default route
 ## ==============================

@@ -38,13 +38,16 @@
     <ul class="nav navbar-nav">
       <li class="<%= 'active' if current_page?(home_path) %>"><%= link_to "Accueil", home_path %></li>
       <!--<li class="<%= 'active' if current_page?(pricing_path) %>"><%= link_to "Abonnements", pricing_path %></li>-->
+      <% if logged_in? %>
       <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Employés <b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li class="<%= 'active' if current_page?(employees_path) %>"><%= link_to "Personnel", employees_path %></li>
         <li class="<%= 'active' if current_page?(profiles_path) %>"><%= link_to "Profils", profiles_path %></li>
-        <li class="<%= 'active' if current_page?(documents_path) %>"><%= link_to "Documents", documents_path %></li>
+        <li class="<%= 'active' if current_page?(papers_path) %>"><%= link_to "Documents", papers_path %></li>
+        <li class="<%= 'active' if current_page?(documents_path) %>"><%= link_to "Modèles de documents", documents_path %></li>
       </ul>
+      <% end %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
