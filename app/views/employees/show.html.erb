@@ -23,7 +23,7 @@
       <% @employee.papers.each do |paper| %>
         <tr>
           <td> <%= paper.document.document_name %> </td>
-          <td> <%= paper.days_to_expire %> </td>
+          <td> <%= paper.expiration_date %> </td>
           <td>
             <div class="bs-component">
               <div class="progress">
