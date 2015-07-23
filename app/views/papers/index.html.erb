@@ -2,11 +2,12 @@
 
 <h1>Listing Documents</h1>
 
-<table>
+<table class="table table-striped table-hover ">
   <thead>
     <tr>
+      <th>Employé</th>
       <th>Document</th>
-      <th>Expiration date</th>
+      <th>Date d'expiration</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,10 +15,10 @@
   <tbody>
     <% @papers.each do |paper| %>
       <tr>
+        <td><%= paper.employee.first_name %> <%= paper.employee.last_name %></td>
         <td><%= paper.document_id %></td>
         <td><%= paper.expiration_date %></td>
-        <td><%= link_to 'Show', paper %></td>
-        <td><%= link_to 'Edit', edit_paper_path(paper) %></td>
+        <td><%= link_to 'Edit', edit_paper_path(paper), :class => "btn btn-default" %></td>
         <!-- impossible to destroy papers
         <td><%= link_to 'Destroy', paper, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
@@ -26,5 +27,5 @@
 </table>
 
 <br>
-
-<%= link_to 'New Paper', new_paper_path %>
+<!-- impossible to destroy papers
+<%= link_to 'New Paper', new_paper_path %>-->
