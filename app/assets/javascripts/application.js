@@ -16,5 +16,8 @@
 // Bootstrap
 // ==========
 //= require jquery
-//= require jquery_ujs
+//= require slate
 //= require twitter/bootstrap
+
+//= require jquery.min.js
+//= require bootstrap.min.js
