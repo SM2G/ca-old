@@ -2,10 +2,11 @@
 
 <h1>Listing Papers</h1>
 
-<table>
+<table class="table table-striped table-hover ">
   <thead>
     <tr>
       <th>Document</th>
+      <th>Employé</th>
       <th>Expiration date</th>
       <th colspan="3"></th>
     </tr>
@@ -14,11 +15,14 @@
   <tbody>
     <% @papers.each do |paper| %>
       <tr>
-        <td><%= paper.document_id %></td>
-        <td><%= paper.expiration_date %></td>
-        <td><%= link_to 'Show', paper %></td>
-        <td><%= link_to 'Edit', edit_paper_path(paper) %></td>
-        <td><%= link_to 'Destroy', paper, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= paper.document.document_name %></td>
+        <td><%= paper.employee.last_name %> <%= paper.employee.first_name %></td>
+        <td><%= paper.expiration_date %> </td>
+        <!--<td><%= link_to 'Show', paper %></td>-->
+        <td><%= link_to 'Edit', edit_paper_path(paper), :class => "btn btn-default" %></td>
+      <!--
+      <td><%= link_to 'Destroy', paper, :class => "btn btn-danger", method: :delete, data:
+      { confirm: 'Are you sure?' } %></td> no delete -->
       </tr>
     <% end %>
   </tbody>
