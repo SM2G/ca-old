@@ -16,11 +16,14 @@ Cette page liste tous les documents dont la validité va bientôt expirer ou qui
   </thead>
 
   <tbody>
-    <% @papers.each do |paper| %>
+    <% @papers.order(:document_id, :expiration_date).each do |paper| %>
       <tr>
         <td><%= paper.document.document_name %></td>
-        <td><%= paper.employee.last_name %> <%= paper.employee.first_name %></td>
-        <td><%= paper. %></td>
+        <td><%= link_to paper.employee.last_name+" "+paper.employee.first_name , paper.employee %></td>
+        <td>
+          <p class="<%= paper.expiration_date < paper.document.warning_days ? "text-success" : "text-danger" %>">
+          <%= paper.expiration_date %>
+        </p></td>
         <td><%= time_ago_in_words(paper.expiration_date) %> (<%= paper.expiration_date %>) </td>
         <td><%= link_to 'Edit', edit_paper_path(paper), :class => "btn btn-default" %></td>
       </tr>
