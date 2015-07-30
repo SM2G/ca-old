@@ -20,13 +20,9 @@ Cette page liste tous les documents dont la validité va bientôt expirer ou qui
       <tr>
         <td><%= paper.document.document_name %></td>
         <td><%= paper.employee.last_name %> <%= paper.employee.first_name %></td>
-        <td><%= paper.expiration_date %></td>
+        <td><%= paper. %></td>
         <td><%= time_ago_in_words(paper.expiration_date) %> (<%= paper.expiration_date %>) </td>
-        <!--<td><%= link_to 'Show', paper %></td>-->
         <td><%= link_to 'Edit', edit_paper_path(paper), :class => "btn btn-default" %></td>
-      <!--
-      <td><%= link_to 'Destroy', paper, :class => "btn btn-danger", method: :delete, data:
-      { confirm: 'Are you sure?' } %></td> no delete -->
       </tr>
     <% end %>
   </tbody>
