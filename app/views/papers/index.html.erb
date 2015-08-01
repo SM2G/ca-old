@@ -21,7 +21,7 @@ Cette page liste tous les documents dont la validité va bientôt expirer ou qui
         <td><%= paper.document.document_name %></td>
         <td><%= link_to paper.employee.last_name+" "+paper.employee.first_name , paper.employee %></td>
         <td>
-          <p class="<%= paper.expiration_date < paper.document.warning_days ? "text-success" : "text-danger" %>">
+          <p class="<%= paper.expiration_date < Time.now - (paper.document.warning_days * 60 * 60 * 24) ? "text-success" : "text-danger" %>">
           <%= paper.expiration_date %>
         </p></td>
         <td><%= time_ago_in_words(paper.expiration_date) %> (<%= paper.expiration_date %>) </td>
