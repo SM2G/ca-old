@@ -1,34 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Liste des documents</h1>
-Cette page liste tous les documents dont la validité va bientôt expirer ou qui sont déjà expirés.
-</br>
+<h1>Listing Documents</h1>
 
 <table class="table table-striped table-hover ">
   <thead>
     <tr>
-      <th>Document</th>
       <th>Employé</th>
-      <th>Statut</th>
-      <th>Expiration date</th>
+      <th>Document</th>
+      <th>Date d'expiration</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @papers.order(:document_id, :expiration_date).each do |paper| %>
+    <% @papers.each do |paper| %>
       <tr>
-        <td><%= paper.document.document_name %></td>
-        <td><%= link_to paper.employee.last_name+" "+paper.employee.first_name , paper.employee %></td>
-        <td>
-          <p class="<%= paper.expiration_date < Time.now - (paper.document.warning_days * 60 * 60 * 24) ? "text-success" : "text-danger" %>">
-          <%= paper.expiration_date %>
-        </p></td>
-        <td><%= time_ago_in_words(paper.expiration_date) %> (<%= paper.expiration_date %>) </td>
+        <td><%= paper.employee.first_name %> <%= paper.employee.last_name %></td>
+        <td><%= paper.document_id %></td>
+        <td><%= paper.expiration_date %></td>
         <td><%= link_to 'Edit', edit_paper_path(paper), :class => "btn btn-default" %></td>
+        <!-- impossible to destroy papers
+        <td><%= link_to 'Destroy', paper, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<!-- < % = link_to 'New Paper', new_paper_path, :clas => "btn btn-default" %>-->
+<br>
+<!-- impossible to destroy papers
+<%= link_to 'New Paper', new_paper_path %>-->
