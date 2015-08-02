@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150717093009) do
+ActiveRecord::Schema.define(version: 20150802195409) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "first_name",      limit: 25
@@ -50,9 +50,6 @@ ActiveRecord::Schema.define(version: 20150717093009) do
     t.integer  "expire_days"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.integer  "warning_months"
-    t.integer  "critical_months"
-    t.integer  "expire_months"
   end
 
   create_table "employees", force: :cascade do |t|
