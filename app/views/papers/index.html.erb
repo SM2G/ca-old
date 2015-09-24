@@ -20,7 +20,11 @@
         <td><%= paper.document_id %></td>
         <td><p class="<%= paper.expiration_date < Time.now - (paper.document.warning_days * 60 * 60 * 24) ? "text-danger" : "text-success" %>">
           <%= paper.expiration_date %>
-          <%= ((Time.now.to_date - paper.expiration_date).to_i * -1) > 0 ? "reste ((Time.now.to_date - paper.expiration_date).to_i * -1) jours" : "" %>
+          <% if ((Time.now.to_date - paper.expiration_date).to_i * -1) > 0 %>
+          reste <%=((Time.now.to_date - paper.expiration_date).to_i * -1) %> jours
+          <% else %>
+          expiré depuis <%= ((Time.now.to_date - paper.expiration_date).to_i ) %> jours
+          <% end %>
         </p>
       </td>
       <td>
