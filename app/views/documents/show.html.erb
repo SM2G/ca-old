@@ -9,14 +9,14 @@
   <strong>Paramétrage:</strong>
   <p class="text-warning">
   	<span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
-  	Seuil <em> Warning</em> à <%= @document.warning_months %> mois et <%= @document.warning_days %> jours</p>
+  	Seuil <b> Warning</b> à <%= @document.warning_days %> jours</p>
   <p class="text-danger">
   	<span class="glyphicon glyphicon-alert" aria-hidden="true"></span>
-	Seuil <em> Critical</em> à <%= @document.critical_months %> mois et <%= @document.critical_days %> jours</p>
+	Seuil <b> Critical</b> à <%= @document.critical_days %> jours</p>
   <p class="text-muted">
   	<span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
-  	Le document <em> Expire</em> à <%= @document.expire_months %> mois et <%= @document.expire_days %> jours</p>
+  	Le document <b> Expire</b> à <%= @document.expire_days %> jours</p>
 </p>
 
-<%= link_to 'Edit', edit_document_path(@document) %> |
-<%= link_to 'Back', documents_path %>
+<%= link_to 'Modifier', edit_document_path(@document), :class=>"btn btn-primary"  %>
+<%= link_to 'Retour Liste', documents_path, :class=>"btn btn-default"  %>

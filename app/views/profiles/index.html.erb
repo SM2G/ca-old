@@ -5,8 +5,8 @@
 <table class="table table-striped table-hover ">
   <thead>
     <tr>
-      <th>Profile ID</th>
       <th>Nom du Profil</th>
+      <th>Nb personnel</th>
       <th>Documents</th>
       <th colspan="3"></th>
     </tr>
@@ -15,8 +15,8 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-        <td><%= profile.id %></td>
         <td><%= profile.profile_name %></td>
+        <td><%= profile.employees.count %></td>
         <td><b>Contient  <%= pluralize(profile.document_ids.count, "document") %> : </b>
         <ul>
           <% profile.documents.each do |d| %>
