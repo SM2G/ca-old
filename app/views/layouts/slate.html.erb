@@ -17,7 +17,7 @@
 
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
   <!-- offline mode -->
   <!--<%= stylesheet_link_tag "font-awesome.min" %>
@@ -66,9 +66,9 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Mon compte", :action => 'admin' %></li>
+              <li><%= link_to "Mon compte", :action => 'pages/admin' %></li>
               <li class="divider"></li>
-              <li><%= link_to("Déconnexion", :action => 'logout') %></li>
+              <li><%= link_to("Déconnexion", :action => "logout") %></li>
             </ul>
           </li>
           <% else %>
