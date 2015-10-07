@@ -19,9 +19,9 @@ Rails.application.routes.draw do
   get 'contact'  => 'pages#contact'
   get 'signup'   => 'pages#signup'
 
-  get 'admin', :to       => "access#index"
-  get 'pages/admin', :to => "access#index"
-  get 'login'            => 'access#login'
+  get 'admin', :to       => 'access#index'
+  get 'pages/admin', :to => 'access#index'
+  get 'login', :to       => "access#login"
 
 ## Default route
 ## ==============================

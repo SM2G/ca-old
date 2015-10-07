@@ -59,14 +59,14 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="divider"></li>
           <% if logged_in? %>
-          <li><%= link_to current_user.username, :action => 'admin' %></li>
+          <li><%= link_to current_user.username, :action => "admin" %></li>
 
         <li class="divider"></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Mon compte", :action => 'pages/admin' %></li>
+              <li><%= link_to "Mon compte", :action => "admin" %></li>
               <li class="divider"></li>
               <li><%= link_to("Déconnexion", :action => "logout") %></li>
             </ul>
@@ -87,6 +87,7 @@
   <% flash.each do |message_type, message| %>
     <div class="alert alert-dismissible alert-<%= message_type %>">
       <button type="button" class="close" data-dismiss="alert">×</button>
+      <h4><%= message_type %></h4>
       <%= message %>
     </div>
   <% end %>
@@ -94,13 +95,13 @@
     <%= yield %>
 
     <%= debug(params) if Rails.env.development? %>
-  </div>
-  <div class='footer'>
-    <div class='container'>
+</div>
+<div class='footer'>
+  <div class='container'>
   </br>
   </br>
   </br>
-      <div class="well well-lg">
+    <div class="well well-lg">
       <div class='row'>
         <div class='col-md-6 col-sm-4 col-xs-6'>
           <h4 class="lead">La société</h4>
@@ -111,20 +112,20 @@
 
         <div class='col-md-3 col-sm-2 col-xs-6'>
           <h4>Links</h4>
-            <ul>
-              <li><a href='/'>Home</a></li>
-              <li><a href='tickets.html'>Tickets</a></li>
-              <li><a href='stations.html'>Stations</a></li>
-            </ul>
-          </div>
+          <ul>
+            <li><a href='/'>Home</a></li>
+            <li><a href='tickets.html'>Tickets</a></li>
+            <li><a href='stations.html'>Stations</a></li>
+          </ul>
+        </div>
 
         <div class='col-md-3 col-sm-2 col-xs-6'>
           <h4>Social</h4>
-              <a href='http://twitter.com/cerbereapp'><%= image_tag "basic_social/colored/32/square/feed.png"%></a>
-              <a href='http://twitter.com/cerbereapp'><%= image_tag "basic_social/colored/32/square/email.png"%></a>
-              <a href='http://twitter.com/cerbereapp'><%= image_tag "basic_social/colored/32/square/twitter.png"%></a>
-              <a href='http://twitter.com/cerbereapp'><%= image_tag "basic_social/colored/32/square/instagram.png"%></a>
-              <a href='http://twitter.com/cerbereapp'><%= image_tag "basic_social/colored/32/square/facebook.png"%></a>
+          <a href='http://twitter.com/cerbereapp'><%= image_tag "basic_social/colored/32/square/feed.png"%></a>
+          <a href='http://twitter.com/cerbereapp'><%= image_tag "basic_social/colored/32/square/email.png"%></a>
+          <a href='http://twitter.com/cerbereapp'><%= image_tag "basic_social/colored/32/square/twitter.png"%></a>
+          <a href='http://twitter.com/cerbereapp'><%= image_tag "basic_social/colored/32/square/instagram.png"%></a>
+          <a href='http://twitter.com/cerbereapp'><%= image_tag "basic_social/colored/32/square/facebook.png"%></a>
           <h4>Partenaires</h4>
         </div>
       </div>

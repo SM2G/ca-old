@@ -14,9 +14,11 @@ class Employee < ActiveRecord::Base
   validates :first_name,
     presence: true,
     length: {minimum:3, maximum: 30}
-    validates :last_name,
+  validates :last_name,
     presence: true,
     length: {minimum:3, maximum: 30}
+  validates :profile_id,
+      presence: true
 
   def is_active?
     is_active.present?
