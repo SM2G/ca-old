@@ -31,7 +31,6 @@
             <li class="divider"></li>
             <li><%= link_to "Supprimer", employee, method: :delete, data: { confirm: 'Are you sure?' } %></li>
           </ul>
-          <%= link_to "Supprimer", {action: :destroy, id: employee.id},  onclick: 'return confirm("Are you sure?")', method: :delete %>
         </div>
         <!--<td><%= link_to 'Détails', employee , :class => "btn btn-default" %></td>-->
         <!--<td><%= link_to 'Modifier', edit_employee_path(employee), :class => "btn btn-default" %></td>-->

@@ -30,10 +30,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.1.5'
 
+gem 'pg',             '0.18.1'
+
 ## PROD
 ## ==========
 group :production do
-  gem 'pg',             '0.18.1'
   gem 'rails_12factor', '0.0.2'
   gem 'puma',           '2.11.1'
 end
@@ -41,7 +42,6 @@ end
 ## TEST
 ## ==========
 group :development, :test do
-  gem 'sqlite3',     '1.3.9'
   gem 'byebug',      '3.4.0'
   gem 'web-console', '~> 2.0'
   gem 'spring',      '~> 1.3'
