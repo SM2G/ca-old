@@ -7,24 +7,17 @@
   <title><%= content_for?(:title) ? yield(:title) : "Cerbere App" %></title>
   <%= favicon_link_tag 'favicon.ico' %>
   <%= csrf_meta_tags %>
-
   <!-- Font Awesome -->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
   <!-- CSS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/slate/bootstrap.min.css" rel="stylesheet">
-
-  <!-- jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
   <!-- offline mode -->
   <!--<%= stylesheet_link_tag "font-awesome.min" %>
   <%= stylesheet_link_tag "bootstrap.min" %>
   <%= stylesheet_link_tag "bootstrap.slate.min" %>
   <%= javascript_include_tag "application" %> -->
-
 
 </head>
 <body>
@@ -135,5 +128,7 @@
 <!-- Javascripts
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 </html>

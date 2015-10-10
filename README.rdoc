@@ -27,7 +27,7 @@ Things you may want to cover:
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
 
-## Models
+## Modèles
 ## ==============================
 Employee --> Un humain.
 Profile  --> Un ensemble de documents nécessaires en validité.
@@ -42,79 +42,3 @@ rails g scaffold Document document_name:string profile_id:integer warning_days:i
 rails g scaffold Paper document_id:integer expiration_date:date
 rails g scaffold Profile profile_name:string
 rails g scaffold Alert start_date:date end_date:date paper_id:integer alert_status:string
-
-
-
-
-## Structure
-## ==============================
-+---------------------+-------------+------+-----+---------+-------+
-| Field               | Type        | Null | Key | Default | Extra |
-+---------------------+-------------+------+-----+---------+-------+
-| alert_id            | int(11)     | NO   | PRI | NULL    |       |
-| alert_document_type | varchar(30) | NO   |     | NULL    |       |
-| alert_status        | varchar(30) | NO   |     | NULL    |       |
-| creation_date       | date        | NO   |     | NULL    |       |
-| change_date         | date        | NO   |     | NULL    |       |
-+---------------------+-------------+------+-----+---------+-------+
-
-+-----------------+-------------+------+-----+---------+----------------+
-| Field           | Type        | Null | Key | Default | Extra          |
-+-----------------+-------------+------+-----+---------+----------------+
-| document_id     | int(10)     | NO   | PRI | NULL    | auto_increment |
-| document_name   | varchar(50) | NO   |     | NULL    |                |
-| warning_months  | int(3)      | NO   |     | 0       |                |
-| warning_days    | int(3)      | NO   |     | NULL    |                |
-| critical_months | int(3)      | NO   |     | NULL    |                |
-| critical_days   | int(3)      | NO   |     | NULL    |                |
-| expire_months   | int(3)      | NO   |     | NULL    |                |
-| expire_days     | int(3)      | NO   |     | NULL    |                |
-| creation_date   | date        | YES  |     | NULL    |                |
-| change_date     | date        | YES  |     | NULL    |                |
-| profile_id      | int(10)     | YES  |     | NULL    |                |
-+-----------------+-------------+------+-----+---------+----------------+
-
-+---------------+-------------+------+-----+---------+----------------+
-| Field         | Type        | Null | Key | Default | Extra          |
-+---------------+-------------+------+-----+---------+----------------+
-| employee_id   | int(11)     | NO   | PRI | NULL    | auto_increment |
-| is_active     | int(11)     | NO   |     | 1       |                |
-| last_name     | varchar(30) | NO   |     | NULL    |                |
-| first_name    | varchar(30) | NO   |     | NULL    |                |
-| birthdate     | date        | NO   |     | NULL    |                |
-| hiredate      | date        | YES  |     | NULL    |                |
-| status        | varchar(30) | NO   |     | NOK     |                |
-| creation_date | date        | YES  |     | NULL    |                |
-| change_date   | date        | YES  |     | NULL    |                |
-| is_default    | int(1)      | NO   |     | 1       |                |
-| is_cyno       | int(1)      | NO   |     | 0       |                |
-| is_xray       | int(1)      | NO   |     | 0       |                |
-+---------------+-------------+------+-----+---------+----------------+
-
-+-----------------+-------------+------+-----+-------------------+-----------------------------+
-| Field           | Type        | Null | Key | Default           | Extra                       |
-+-----------------+-------------+------+-----+-------------------+-----------------------------+
-| employee_id     | int(10)     | NO   | PRI | NULL              |                             |
-| document_id     | int(10)     | NO   | PRI | NULL              |                             |
-| is_active       | int(11)     | NO   |     | 1                 |                             |
-| expiration_date | timestamp   | NO   |     | CURRENT_TIMESTAMP | on update CURRENT_TIMESTAMP |
-| comments        | varchar(50) | YES  |     | NULL              |                             |
-| creation_date   | date        | YES  |     | NULL              |                             |
-| change_date     | date        | YES  |     | NULL              |                             |
-+-----------------+-------------+------+-----+-------------------+-----------------------------+
-
-+-------------+---------+------+-----+---------+-------+
-| Field       | Type    | Null | Key | Default | Extra |
-+-------------+---------+------+-----+---------+-------+
-| employee_id | int(11) | YES  |     | NULL    |       |
-| profile_id  | int(11) | YES  |     | NULL    |       |
-+-------------+---------+------+-----+---------+-------+
-
-+---------------+-------------+------+-----+---------+-------+
-| Field         | Type        | Null | Key | Default | Extra |
-+---------------+-------------+------+-----+---------+-------+
-| profile_id    | int(10)     | NO   | PRI | NULL    |       |
-| profile_name  | varchar(30) | YES  |     | NULL    |       |
-| creation_date | date        | YES  |     | NULL    |       |
-| change_date   | date        | YES  |     | NULL    |       |
-+---------------+-------------+------+-----+---------+-------+

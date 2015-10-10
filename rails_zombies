@@ -1,8 +1,23 @@
-
-
-
 CRUD
 ====
+
+C create
+  GET   /employees/new (form) # new
+  POST  /employees (post data) # create
+
+R read listing + show
+  GET /employees  # index
+  GET /employees/:id # show
+
+U update
+  GET       /employees/:id/edit (form) # edit
+  PUT/PATCH /employees/:id (put/patch data) # update
+
+D delete
+  DELETE /employees/:id # destroy
+resources :employees, only: [:index, :show]
+
+
 Tweet.find(3)
 Tweet.find(3, 4, 5)
 
