@@ -6,7 +6,7 @@
 	<ul>
 		<li>Abonnement actuel: (TO DO) Abonnement Gold (lien vers abonnements)</li>
 		<li>Informations de facturation, nombre d'employés gérés, etc.</li>
-		<li>Nombre d'employés gérés: (TO DO) 20/50 </li>
+		<li>Nombre d'employés gérés: <%= Employee.count %>/50 </li>
 	</ul>
 </div>
-<%= link_to("Déconnexion", :action => "logout", :class => "btn btn-default") %>
+<%= link_to "Déconnexion", :action => "logout", :class => "btn btn-default" %>

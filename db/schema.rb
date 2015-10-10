@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150802195409) do
+ActiveRecord::Schema.define(version: 20151010172553) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "first_name",      limit: 25
@@ -39,17 +42,16 @@ ActiveRecord::Schema.define(version: 20150802195409) do
     t.datetime "updated_at"
   end
 
-  add_index "assignments", ["document_id"], name: "index_assignments_on_document_id"
-  add_index "assignments", ["profile_id"], name: "index_assignments_on_profile_id"
+  add_index "assignments", ["document_id"], name: "index_assignments_on_document_id", using: :btree
+  add_index "assignments", ["profile_id"], name: "index_assignments_on_profile_id", using: :btree
 
   create_table "documents", force: :cascade do |t|
     t.string   "document_name"
-    t.integer  "unused_prf_id_old"
     t.integer  "warning_days"
     t.integer  "critical_days"
     t.integer  "expire_days"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "employees", force: :cascade do |t|
@@ -103,7 +105,7 @@ ActiveRecord::Schema.define(version: 20150802195409) do
     t.string   "remember_digest"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
