@@ -7,15 +7,15 @@
 		<h2>Une solution de gestion de documents</h2>
 		Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor.
 		<ul class="nav nav-pills nav-stacked">
-  			<li role="presentation"><%= link_to "Accueil", home_path %></li>
-  			<li role="presentation"><%= link_to "Fonctionnalités", features_path %></li>
-  			<li role="presentation"><%= link_to "Abonnements", pricing_path %></li>
-  			<li role="presentation" class="active"><%= link_to "Contact", contact_path %></li>
+  			<li role="presentation"><%= link_to "Accueil", page_path('home') %></li>
+  			<li role="presentation"><%= link_to "Fonctionnalités", page_path('features') %></li>
+  			<li role="presentation"><%= link_to "Abonnements", page_path('pricing') %></li>
+  			<li role="presentation" class="active"><%= link_to "Contact", page_path('contact') %></li>
 		</ul>
 	</div>
 
 	<div class='col-md-6 hidden-sm hidden-xs'>
-		<%= image_tag "logo/logo_v2.png" %> 
+		<%= image_tag "logo/logo_v2.png" %>
 	</div> 
 
 </div>

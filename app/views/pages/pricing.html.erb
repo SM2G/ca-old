@@ -7,15 +7,15 @@
 		<h2>Une solution de gestion de documents</h2>
 		Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor.
 		<ul class="nav nav-pills nav-stacked">
-  			<li role="presentation"><%= link_to "Accueil", home_path %></li>
-  			<li role="presentation"><%= link_to "Fonctionnalités", features_path %></li>
-  			<li role="presentation" class="active"><%= link_to "Abonnements", pricing_path %></li>
-  			<li role="presentation"><%= link_to "Contact", contact_path %></li>
+  			<li role="presentation"><%= link_to "Accueil", page_path('home') %></li>
+  			<li role="presentation"><%= link_to "Fonctionnalités", page_path('features') %></li>
+  			<li role="presentation" class="active"><%= link_to "Abonnements", page_path('pricing') %></li>
+  			<li role="presentation"><%= link_to "Contact", page_path('contact') %></li>
 		</ul>
 	</div>
 
 	<div class='col-md-6 hidden-sm hidden-xs'>
-		<%= image_tag "logo/logo_v2.png" %> 
+		<%= image_tag "logo/logo_v2.png" %>
 	</div> 
 
 </div>
@@ -33,15 +33,15 @@
         		<tr>
           		<th>Fonctionalités</th>
           		<th class="success">Essai</th>
-          		<th class="warning">Keelut</th>
-          		<th class="warning">Luison</th>
-          		<th class="warning">Orthrus</th>
+          		<th class="warning">Silver</th>
+          		<th class="warning">Gold</th>
+          		<th class="warning">Platinium</th>
         		</tr>
       		</thead>
       		<tbody>
         	<tr>
   		        <th scope="row">Nombre de personnel maximum</th>
-  		        <td class="success">1 - 2</td>
+  		        <td class="success">1 - 3</td>
   		        <td class="warning">1 - 50</td>
   		        <td class="warning">1 - 100</td>
           		<td class="warning">illimité</td>

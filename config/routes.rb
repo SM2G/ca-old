@@ -13,11 +13,11 @@ Rails.application.routes.draw do
   ## Static pages
   ## ==============================
   root              'pages#home'
-  get 'home'     => 'pages#home'
-  get 'features' => 'pages#features'
-  get 'pricing'  => 'pages#pricing'
-  get 'contact'  => 'pages#contact'
-  get 'signup'   => 'pages#signup'
+  #get 'home'     => 'pages#home'
+  #get 'features' => 'pages#features'
+  #get 'pricing'  => 'pages#pricing'
+  #get 'contact'  => 'pages#contact'
+  #get 'signup'   => 'pages#signup'
 
   get 'admin', :to       => 'access#index'
   get 'pages/admin', :to => 'access#index'
