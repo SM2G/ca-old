@@ -73,18 +73,9 @@ ActiveRecord::Schema.define(version: 20151010172553) do
     t.integer  "employee_id"
   end
 
-  create_table "profiles", force: :cascade do |t|
-    t.string   "profile_name"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
   create_table "sessions", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "email"
-    t.string   "password"
-    t.integer  "remember_me"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -100,7 +91,6 @@ ActiveRecord::Schema.define(version: 20151010172553) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
-    t.string   "password_digest"
     t.string   "name",                   limit: 50
     t.string   "remember_digest"
   end
