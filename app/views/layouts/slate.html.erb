@@ -15,8 +15,7 @@
   <!-- offline mode -->
   <!--<%= stylesheet_link_tag "font-awesome.min" %>
   <%= stylesheet_link_tag "bootstrap.min" %>
-  <%= stylesheet_link_tag "bootstrap.slate.min" %>
-  <%= javascript_include_tag "application" %> -->
+  <%= stylesheet_link_tag "bootstrap.slate.min" %> -->
 
 </head>
 <body>
@@ -30,40 +29,38 @@
       <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">Cerbere App</a>
-      <!-- <a class="navbar-brand"><%= link_to "Cerbere App", :action => "home_path" %></a> -->
+      <!-- <a class="navbar-brand"><%= link_to "Cerbere App", root_path %></a> -->
     </div>
     <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav">
       <li class="<%= 'active' if current_page?(page_path('home')) %>"><%= link_to "Accueil", page_path('home') %></li>
-      <% if logged_in? %>
-      <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Employés <b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li class="<%= 'active' if current_page?(employees_path) %>"><%= link_to "Personnel", employees_path %></li>
-        <li class="<%= 'active' if current_page?(profiles_path) %>"><%= link_to "Profils", profiles_path %></li>
-        <li class="<%= 'active' if current_page?(papers_path) %>"><%= link_to "Documents", papers_path %></li>
-        <li class="<%= 'active' if current_page?(documents_path) %>"><%= link_to "Modèles de documents", documents_path %></li>
-      </ul>
+      <% if user_signed_in? %>
+        <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Employés <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li class="<%= 'active' if current_page?(employees_path) %>"><%= link_to "Personnel", employees_path %></li>
+          <li class="<%= 'active' if current_page?(profiles_path) %>"><%= link_to "Profils", profiles_path %></li>
+          <li class="<%= 'active' if current_page?(papers_path) %>"><%= link_to "Documents", papers_path %></li>
+          <li class="<%= 'active' if current_page?(documents_path) %>"><%= link_to "Modèles de documents", documents_path %></li>
+        </ul>
       <% end %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li class="divider"></li>
-          <% if logged_in? %>
-          <li><%= link_to current_user.username, :action => "admin" %></li>
-
-        <li class="divider"></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Mon compte", :action => "admin" %></li>
-              <li class="divider"></li>
-              <li><%= link_to("Déconnexion", :action => "logout") %></li>
-            </ul>
-          </li>
+          <% if user_signed_in? %>
+            <li class="divider"></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "Mon compte", '#' %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to("Déconnexion", destroy_user_session_path, method: 'delete') %></li>
+                </ul>
+            </li>
           <% else %>
-          <li><%= link_to "Connexion", login_path %></li>
+            <li><%= link_to "Connexion", new_user_session_path %></li>
           <% end %>
         </ul>
     </div><!--/.nav-collapse -->
@@ -85,7 +82,6 @@
 
     <%= yield %>
 
-    <%= debug(params) if Rails.env.development? %>
 </div>
 <div class='footer'>
   <div class='container'>
@@ -123,10 +119,11 @@
     </div>
   </div>
 </div>
-<!-- Javascripts
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- Javascripts
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <%= javascript_include_tag "application" %>
 </body>
 </html>

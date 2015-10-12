@@ -4,6 +4,7 @@ gem 'rails',        '4.2.0'
 gem 'pg',           '~> 0.18.1'
 
 gem 'bcrypt-ruby' , '~> 3.1.5' # Use ActiveModel has_secure_password
+gem 'devise',       '~> 3.5.2'
 gem 'high_voltage', '~> 2.4.0'
 gem 'paperclip',    '~> 4.2.1'
 gem 'responders',   '~> 2.0'

@@ -1,5 +1,6 @@
-## Root High voltage static pages (not working)
-## ==============================
-#HighVoltage.configure do |config|
-#  config.route_drawer = HighVoltage::RouteDrawers::Root
-#end
+## Root High voltage static pages
+HighVoltage.configure do |config|
+  config.home_page    = 'home'
+  config.layout       = 'slate'
+  config.route_drawer = HighVoltage::RouteDrawers::Root
+end

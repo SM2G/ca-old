@@ -1,1 +1,0 @@
-<% if @admin_users.errors.any? %><div class="alert alert-dismissible alert-danger">  <button type="button" class="close" data-dismiss="alert">×</button>  The form contains <%= pluralize(@admin_users.errors.count, "error") %>.  <ul>    <% @admin_users.errors.full_messages.each do |msg| %>    <li><%= msg %></li>    <% end %>  </ul></div><% end %>

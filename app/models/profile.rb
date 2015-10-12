@@ -1,5 +1,4 @@
 class Profile < ActiveRecord::Base
-
   ## To Documents
   ## ==============================
   has_many :assignments
@@ -9,9 +8,7 @@ class Profile < ActiveRecord::Base
   ## ==============================
   has_many :employees
 
-  
   def full_profile_naming
     "#{profile_name} (#{id})"
   end
-  
 end

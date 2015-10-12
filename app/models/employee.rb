@@ -1,8 +1,8 @@
 class Employee < ActiveRecord::Base
 
-## Bug
-## ==========
-# When first creating the db, employees#index results in bug.
+  ## Bug
+  ## ==========
+  # When first creating the db, employees#index results in bug.
 
   ## Relationships
   ## ==============================
@@ -19,10 +19,4 @@ class Employee < ActiveRecord::Base
     length: {minimum:3, maximum: 30}
   validates :profile_id,
       presence: true
-
-  def is_active?
-    is_active.present?
-  end
-
-
 end
