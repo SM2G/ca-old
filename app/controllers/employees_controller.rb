@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-  before_action :confirm_logged_in
+  before_action :authenticate_user!
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   respond_to :html

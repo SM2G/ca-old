@@ -1,32 +1,15 @@
 Rails.application.routes.draw do
+  devise_for :users
 
-
-  resources :admin_users
   resources :profiles
   resources :papers
   resources :alerts
   resources :documents
   resources :employees
-  resources :sessions
-  resources :users
 
-  ## Static pages
+  ## Admin
   ## ==============================
-  root              'pages#home'
-  #get 'home'     => 'pages#home'
-  #get 'features' => 'pages#features'
-  #get 'pricing'  => 'pages#pricing'
-  #get 'contact'  => 'pages#contact'
-  #get 'signup'   => 'pages#signup'
-
-  get 'admin', :to       => 'access#index'
-  get 'pages/admin', :to => 'access#index'
-  get 'login', :to       => "access#login"
-
-## Default route
-## ==============================
-  match ':controller(/:action(/:id))', :via => [:get, :post]
-
+  # FUTURE
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -82,6 +65,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-
 end
