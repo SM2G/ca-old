@@ -4,7 +4,8 @@ class CreateProfiles < ActiveRecord::Migration
       t.integer :profile_id
       t.integer :document_id
       t.timestamps
-  end
+    end
+
     add_index :assignments, :profile_id
     add_index :assignments, :document_id
   end
