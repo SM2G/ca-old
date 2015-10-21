@@ -35,5 +35,6 @@
 ehthumbs.db
 Thumbs.db
 
-# Ignore db config files
+# Ignore secret config files
 /config/database.yml
+/config/secrets.yml
