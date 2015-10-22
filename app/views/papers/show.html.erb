@@ -1,6 +1,16 @@
 <p>
   <strong>Document:</strong>
-  <%= @paper.document_id %>
+  <%= @paper.document.document_name %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @paper.employee.full_name %>
+</p>
+
+<p>
+  <strong>Document file:</strong>
+  <%= link_to @paper.document_file.original_filename, @paper.document_file.url, target: '_blank' %>
 </p>
 
 <p>

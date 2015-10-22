@@ -13,7 +13,7 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-        <td><%= profile.profile_name %></td>
+        <td><%= profile.name %></td>
         <td><%= profile.employees.count %></td>
         <td><b>Contient  <%= pluralize(profile.document_ids.count, "document") %> : </b>
         <ul>

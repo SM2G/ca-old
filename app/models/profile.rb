@@ -9,6 +9,6 @@ class Profile < ActiveRecord::Base
   has_many :employees
 
   def full_profile_naming
-    "#{profile_name} (#{id})"
+    "#{name} (#{id})"
   end
 end
