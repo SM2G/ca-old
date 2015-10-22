@@ -1,4 +1,4 @@
-class CreateProfiles < ActiveRecord::Migration
+class CreateAssignments < ActiveRecord::Migration
   def change
     create_table :assignments do |t|
       t.integer :profile_id

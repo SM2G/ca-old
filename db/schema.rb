@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151010172553) do
+ActiveRecord::Schema.define(version: 20151022173922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(version: 20151010172553) do
   end
 
   create_table "assignments", force: :cascade do |t|
-    t.integer  "profile_id"
     t.integer  "document_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "profile_id"
   end
 
   add_index "assignments", ["document_id"], name: "index_assignments_on_document_id", using: :btree
@@ -60,17 +60,29 @@ ActiveRecord::Schema.define(version: 20151010172553) do
     t.string   "first_name"
     t.date     "birthdate"
     t.string   "status"
-    t.integer  "profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "profile_id"
   end
+
+  add_index "employees", ["profile_id"], name: "index_employees_on_profile_id", using: :btree
 
   create_table "papers", force: :cascade do |t|
     t.integer  "document_id"
     t.date     "expiration_date"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "employee_id"
+    t.string   "document_file_file_name"
+    t.string   "document_file_content_type"
+    t.integer  "document_file_file_size"
+    t.datetime "document_file_updated_at"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sessions", force: :cascade do |t|
