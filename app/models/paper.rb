@@ -1,16 +1,29 @@
 class Paper < ActiveRecord::Base
+  VALID_CONTENT_TYPES = ['application/pdf', 'application/x-pdf']
 
+  ## DSL
+  ## ==============================
+  has_attached_file :document_file
 
-## Relationships
-## ==============================
-belongs_to :document
-belongs_to :employee
+  ## Relationships
+  ## ==============================
+  belongs_to :document
+  belongs_to :employee
 
+  ## Validations
+  ## ==============================
+  validates_presence_of :document_id
+  validates_presence_of :employee_id
 
-## Validations
-## ============================== 
-validates_presence_of :document_id
-validates_presence_of :employee_id
+  validates_attachment :document_file,  content_type: { content_type: [VALID_CONTENT_TYPES] },
+                                        size:         { in: 0..1.megabyte }
 
-
+  ## Callbacks
+  ## ==============================
+  before_validation do |paper|
+    if ['application/octet-stream', 'binary/octet-stream'].include?(paper.document_file_content_type)
+      mime_type = MIME::Types.type_for(paper.document_file_file_name)
+      paper.document_file_content_type = mime_type.first.content_type if mime_type.first
+    end
+  end
 end

@@ -43,7 +43,7 @@ class PapersController < ApplicationController
     end
 
     def paper_params
-      params.require(:paper).permit(:document_id, :expiration_date)
+      params.require(:paper).permit(:document_id, :employee_id, :expiration_date, :document_file)
     end
 
 end

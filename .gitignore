@@ -38,3 +38,4 @@ Thumbs.db
 # Ignore secret config files
 /config/database.yml
 /config/secrets.yml
+/public/system/*
