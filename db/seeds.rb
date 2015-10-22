@@ -26,33 +26,33 @@ Document.create(document_name:'Formation initiale CQP'            , warning_days
 Document.create(document_name:'Formation continue imagerie'       , warning_days:120 , critical_days:150 , expire_days:180)
 Document.create(document_name:'Formation continue hors imagerie'  , warning_days:120 , critical_days:150 , expire_days:180)
 
-p "#{Document.count} Documents créés."
+puts "#{Document.count} Documents créés."
 
 
 ## Profiles
 ## ==============================
-Profile.create(profile_name:'Agent de sécurité')
-Profile.create(profile_name:'Maitre chien')
-Profile.create(profile_name:'Opérateur rayons X')
+Profile.create(name:'Agent de sécurité')
+maitre_chien = Profile.create(name:'Maitre chien')
+Profile.create(name:'Opérateur rayons X')
 
-p "#{Profile.count} Profils créés."
+puts "#{Profile.count} Profils créés."
 
 
 ## Employees
 ## ==============================
-Employee.create(is_active:true , last_name:'Lynd', first_name:'Vesper'       , birthdate:'', status:'', profile_id:2 )
-Employee.create(is_active:true , last_name:'Brand', first_name:'Gala'        , birthdate:'', status:'', profile_id:2 )
-Employee.create(is_active:true , last_name:'Case', first_name:'Tiffany'      , birthdate:'', status:'', profile_id:2 )
-Employee.create(is_active:true , last_name:'Romanova', first_name:'Tatiana'  , birthdate:'', status:'', profile_id:2 )
-Employee.create(is_active:true , last_name:'Rider', first_name:'Honey'       , birthdate:'', status:'', profile_id:2 )
-Employee.create(is_active:true , last_name:'Masterton', first_name:'Tilly'   , birthdate:'', status:'', profile_id:2 )
-Employee.create(is_active:true , last_name:'Masterton', first_name:'Jill'    , birthdate:'', status:'', profile_id:2 )
-Employee.create(is_active:true , last_name:'Russell', first_name:'Mary Ann'  , birthdate:'', status:'', profile_id:2 )
-Employee.create(is_active:true , last_name:'Havelock', first_name:'Judy'     , birthdate:'', status:'', profile_id:2 )
-Employee.create(is_active:true , last_name:'Baum', first_name:'Lisl'         , birthdate:'', status:'', profile_id:2 )
-Employee.create(is_active:true , last_name:'Krest', first_name:'Liz'         , birthdate:'', status:'', profile_id:2 )
-Employee.create(is_active:true , last_name:'Suzuki', first_name:'Kissy'      , birthdate:'', status:'', profile_id:2 )
-Employee.create(is_active:true , last_name:'Goodnight', first_name:'Mary'    , birthdate:'', status:'', profile_id:2 )
-Employee.create(is_active:true , last_name:'Freudenstein', first_name:'Maria', birthdate:'', status:'', profile_id:2 )
+Employee.create(is_active: true, last_name: 'Lynd', first_name: 'Vesper'       , birthdate: '1975-01-27', status: '', profile: maitre_chien )
+Employee.create(is_active: true, last_name: 'Brand', first_name: 'Gala'        , birthdate: '1975-01-27', status: '', profile: maitre_chien )
+Employee.create(is_active: true, last_name: 'Case', first_name: 'Tiffany'      , birthdate: '1975-01-27', status: '', profile: maitre_chien )
+Employee.create(is_active: true, last_name: 'Romanova', first_name: 'Tatiana'  , birthdate: '1975-01-27', status: '', profile: maitre_chien )
+Employee.create(is_active: true, last_name: 'Rider', first_name: 'Honey'       , birthdate: '1975-01-27', status: '', profile: maitre_chien )
+Employee.create(is_active: true, last_name: 'Masterton', first_name: 'Tilly'   , birthdate: '1975-01-27', status: '', profile: maitre_chien )
+Employee.create(is_active: true, last_name: 'Masterton', first_name: 'Jill'    , birthdate: '1975-01-27', status: '', profile: maitre_chien )
+Employee.create(is_active: true, last_name: 'Russell', first_name: 'Mary Ann'  , birthdate: '1975-01-27', status: '', profile: maitre_chien )
+Employee.create(is_active: true, last_name: 'Havelock', first_name: 'Judy'     , birthdate: '1975-01-27', status: '', profile: maitre_chien )
+Employee.create(is_active: true, last_name: 'Baum', first_name: 'Lisl'         , birthdate: '1975-01-27', status: '', profile: maitre_chien )
+Employee.create(is_active: true, last_name: 'Krest', first_name: 'Liz'         , birthdate: '1975-01-27', status: '', profile: maitre_chien )
+Employee.create(is_active: true, last_name: 'Suzuki', first_name: 'Kissy'      , birthdate: '1975-01-27', status: '', profile: maitre_chien )
+Employee.create(is_active: true, last_name: 'Goodnight', first_name: 'Mary'    , birthdate: '1975-01-27', status: '', profile: maitre_chien )
+Employee.create(is_active: true, last_name: 'Freudenstein', first_name: 'Maria', birthdate: '1975-01-27', status: '', profile: maitre_chien )
 
-p "#{Employee.count} James bond girls créés."
+puts "#{Employee.count} James bond girls créés."
