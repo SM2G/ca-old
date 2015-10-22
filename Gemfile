@@ -8,6 +8,7 @@ gem 'devise',       '~> 3.5.2'
 gem 'high_voltage', '~> 2.4.0'
 gem 'paperclip',    '~> 4.2.1'
 gem 'responders',   '~> 2.0'
+gem 'simple_form',  '~> 3.2.0'
 
 ## ASSETS
 ## ==========
