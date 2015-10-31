@@ -44,6 +44,17 @@
               <li class="<%= 'active' if current_page?(documents_path) %>"><%= link_to "Modèles de documents", documents_path %></li>
             </ul>
             <% end %>
+
+
+            <% if not user_signed_in? %>
+        			<li class="<%= 'active' if current_page?(page_path('home')) %>"><%= link_to "Accueil", page_path('home') %></a></li>
+        			<li class="<%= 'active' if current_page?(page_path('features')) %>"><%= link_to "Fonctionnalités", page_path('features') %></li>
+        			<li class="<%= 'active' if current_page?(page_path('pricing')) %>"><%= link_to "Abonnements", page_path('pricing') %></li>
+        			<li class="<%= 'active' if current_page?(page_path('contact')) %>"><%= link_to "Contact", page_path('contact') %></li>
+
+            <% end %>
+
+
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
