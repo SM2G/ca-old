@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151022173922) do
+ActiveRecord::Schema.define(version: 20151110121827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,15 +24,6 @@ ActiveRecord::Schema.define(version: 20151022173922) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "alerts", force: :cascade do |t|
-    t.date     "start_date"
-    t.date     "end_date"
-    t.integer  "paper_id"
-    t.string   "alert_status"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
   end
 
   create_table "assignments", force: :cascade do |t|
