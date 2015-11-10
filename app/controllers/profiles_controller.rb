@@ -25,6 +25,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.save
     respond_with(@profile)
+    @profile.attributes = {'document_ids' =>[]}.merge(params[:profile] || {})
   end
 
   def update

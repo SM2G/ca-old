@@ -35,10 +35,9 @@ Document --> Un modèle de document.
 Paper    --> Un Document d'un employé.
 Alert    --> Un status non-valide à un instant donné.
 
-## Scaffold
+## Fonctionnalités
 ## ==============================
-rails g scaffold Employee is_active:boolean last_name:string first_name:string birthdate:date status:string profile_id:integer
-rails g scaffold Document document_name:string profile_id:integer warning_days:integer critical_days:integer expire_days:integer
-rails g scaffold Paper document_id:integer expiration_date:date
-rails g scaffold Profile profile_name:string
-rails g scaffold Alert start_date:date end_date:date paper_id:integer alert_status:string
+Création et mise à jour de modèles de documents sur modification d'un employé ou profil. (2h)
+Envoi email hebdo ou quotidien. (2h)
+Mise en place de Stripe pour abonnement. (3h)
+Graph de suivi par document (1h)

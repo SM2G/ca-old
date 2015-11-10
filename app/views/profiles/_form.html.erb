@@ -1,4 +1,4 @@
-<%= form_for(@profile) do |f| %>
+<%= simple_form_for(@profile) do |f| %>
 <% if @profile.errors.any? %>
 <div id="error_explanation">
 <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
@@ -10,33 +10,14 @@
 </div>
 <% end %>
 
-
-<div class="row">
-  <div class="col-lg-6">
-    <div class="well bs-component">
-    <form class="form-horizontal">
-    <fieldset>
-<strong> Nom du profil: </strong><%= f.text_field :name %>
-
-    <h2>Documents associés au profil</h2>
-    Sélectionner les documents correspondant au profil.
-<div class="row">
-      <!-- < %= check_box_tag(d.document_name) %> -->
-      <!-- < %= check_box_tag :document_ids, profile.document_ids, @document.document_ids.include?(d), :name => 'document[profile][]'%> -->
-
-<!-- < % @document.each do |t| % >
-  <input id="rumor_category_ids_< %= t.id -%>" name="rumor[category_ids][]" type="checkbox" value="< %= t.id -%>"
-  < % if @rumor.categories.include?(t) %>checked="checked"< % end %> />
-  <label for="rumor_category_ids_< %= t.id -%>">< %= t.name %></label> -->
+<%= f.input :name %>
+<h2>Documents associés au profil</h2>
+Sélectionner les documents correspondant au profil.
     <% Document.all.each do |d| %>
-      </br>
+    </br>
     <%= check_box_tag :document_ids, d.id, @profile.document_ids.include?(d.id), :name => 'profile[document_ids][]' %>
     <%= label_tag :document_ids, d.document_name %>
-    <!-- (< %= @profile.document_ids.include?(d.id) %>) -->
     <% end %>
-  </div>
+  </br>
 <%= submit_tag 'Valider', :class => "btn btn-primary" %>
 <% end %>
-  </div>
-  </div>
-  </div>
