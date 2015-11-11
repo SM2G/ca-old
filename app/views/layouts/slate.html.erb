@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/slate/bootstrap.min.css" rel="stylesheet">
-
+  <%= stylesheet_link_tag "carousel" %>
   <!-- offline mode -->
   <!--<%= stylesheet_link_tag "font-awesome.min" %>
   <%= stylesheet_link_tag "bootstrap.min" %>
@@ -28,7 +28,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "Cerbere App", root_path, :class=>"navbar-brand" %>
+      <%= link_to image_tag("logo/logo_v2_small.png", :border=>0), root_path, :class=>"navbar-brand" %>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
