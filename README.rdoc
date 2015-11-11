@@ -26,18 +26,3 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
-
-## Modèles
-## ==============================
-Employee --> Un humain.
-Profile  --> Un ensemble de documents nécessaires en validité.
-Document --> Un modèle de document.
-Paper    --> Un Document d'un employé.
-Alert    --> Un status non-valide à un instant donné.
-
-## Fonctionnalités
-## ==============================
-Création et mise à jour de modèles de documents sur modification d'un employé ou profil. (2h)
-Envoi email hebdo ou quotidien. (2h)
-Mise en place de Stripe pour abonnement. (3h)
-Graph de suivi par document (1h)

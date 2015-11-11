@@ -39,3 +39,4 @@ Thumbs.db
 /config/database.yml
 /config/secrets.yml
 /public/system/*
+/project_mgmt.txt
