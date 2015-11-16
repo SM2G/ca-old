@@ -1,0 +1,42 @@
+fr:
+  activerecord:
+    attributes:
+      admin_user:
+        email: Email
+        first_name: Prénom
+        last_name: Nom
+        username: Login
+      assignment:
+        document: Document
+        profile: Profil
+      document:
+        critical_days: Délai critique en jours
+        document_name: Nom
+        expire_days: Délai d'expiration en jours
+        warning_days: Délai d'alerte en jours
+      employee:
+        birthdate: Date de naissance
+        first_name: Prénom
+        is_active: Actif
+        last_name: Nom
+        profile: Profil
+        status: Statut
+      paper:
+        document: Document
+        document_file: Fichier
+        employee: Personnel
+        expiration_date: Date d'expiration
+      profile:
+        name: Nom
+      user:
+        email: Email
+        name: Nom
+    models:
+      admin_user: Administrateur
+      assignment: Assignement
+      document: Document
+      employee: Personnel
+      paper: Papier
+      profile: Profil
+      user: Utilisateur
+
