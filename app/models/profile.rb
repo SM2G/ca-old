@@ -8,6 +8,8 @@ class Profile < ActiveRecord::Base
   ## ==============================
   has_many :employees
 
+  accepts_nested_attributes_for :documents
+
   def full_profile_naming
     "#{name} (#{id})"
   end

@@ -45,6 +45,7 @@ class ProfilesController < ApplicationController
   def profile_params
     params.require(:profile).permit(
       :name,
+      document_ids: []
     )
   end
 end
