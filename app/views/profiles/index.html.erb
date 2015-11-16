@@ -22,9 +22,9 @@
           <%end%>
         </ul>
         </td>
-        <td><%= link_to 'Détails', profile, :class => "btn btn-default" %></td>
-        <td><%= link_to 'Modifier', edit_profile_path(profile), :class => "btn btn-default" %></td>
-        <td><%= link_to 'Supprimer', profile, method: :delete, data: { confirm: 'Are you sure?' } , :class => "btn btn-danger" %></td>
+        <td><%= link_to 'Détails', profile, class: "btn btn-default" %></td>
+        <td><%= link_to 'Modifier', edit_profile_path(profile), class: "btn btn-default" %></td>
+        <td><%= link_to 'Supprimer', profile, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'Nouveau Profil', new_profile_path, :class=>"btn btn-primary" %>
+<%= link_to 'Nouveau Profil', new_profile_path, class: "btn btn-primary" %>

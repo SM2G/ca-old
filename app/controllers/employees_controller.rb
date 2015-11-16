@@ -39,16 +39,13 @@ class EmployeesController < ApplicationController
     respond_with(@employee)
   end
 
-#e.profile.document_ids.each do |document_id|
-#  Paper.create (:document_id => document_id, :employee_id => "e.id")
-#end   TO DO!!!
-
   private
-    def set_employee
-      @employee = Employee.find(params[:id])
-    end
 
-    def employee_params
-      params.require(:employee).permit(:is_active, :last_name, :first_name, :birthdate, :status, :profile_id)
-    end
+  def set_employee
+    @employee = Employee.find(params[:id])
+  end
+
+  def employee_params
+    params.require(:employee).permit(:is_active, :last_name, :first_name, :birthdate, :status, :profile_id)
+  end
 end

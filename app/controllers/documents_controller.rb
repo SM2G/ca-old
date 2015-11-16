@@ -38,11 +38,12 @@ class DocumentsController < ApplicationController
   end
 
   private
-    def set_document
-      @document = Document.find(params[:id])
-    end
 
-    def document_params
-      params.require(:document).permit(:document_name, :profile_id, :warning_days, :critical_days, :expire_days, :warning_months, :critical_months, :expire_months)
-    end
+  def set_document
+    @document = Document.find(params[:id])
+  end
+
+  def document_params
+    params.require(:document).permit(:document_name, :profile_id, :warning_days, :critical_days, :expire_days, :warning_months, :critical_months, :expire_months)
+  end
 end

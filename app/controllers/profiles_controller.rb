@@ -3,7 +3,6 @@ class ProfilesController < ApplicationController
 
   respond_to :html
 
-
   def index
     @profiles = Profile.all
     respond_with(@profiles)
@@ -18,21 +17,18 @@ class ProfilesController < ApplicationController
     respond_with(@profile)
   end
 
-  def edit
-  end
-
   def create
     @profile = Profile.new(profile_params)
     @profile.save
     respond_with(@profile)
-    @profile.attributes = {'document_ids' =>[]}.merge(params[:profile] || {})
+  end
+
+  def edit
   end
 
   def update
     @profile.update(profile_params)
     respond_with(@profile)
-    @profile.attributes = {'document_ids' =>[]}.merge(params[:profile] || {})
-
   end
 
   def destroy
@@ -41,12 +37,14 @@ class ProfilesController < ApplicationController
   end
 
   private
-    def set_profile
-      @profile = Profile.find(params[:id])
-    end
 
-    def profile_params
-      params.require(:profile).permit(:name)
-    end
+  def set_profile
+    @profile = Profile.find(params[:id])
+  end
 
+  def profile_params
+    params.require(:profile).permit(
+      :name,
+    )
+  end
 end

@@ -1,7 +1,6 @@
 <div class="row">
-<h2>Profil <%= @profile.name %></h2>
+  <h2>Profil <%= @profile.name %></h2>
 </div>
-
 
 <div class="row">
   <strong>Documents Associés au profil <%= @profile.name %>:</strong>
@@ -13,6 +12,6 @@
 </div>
 
 <div class="row">
-<%= link_to 'Retour à la liste', profiles_path , :class=>"btn btn-default" %>
-<%= link_to 'Modifier', edit_profile_path(@profile) , :class=>"btn btn-primary"%>
+  <%= link_to 'Retour à la liste', profiles_path , class: "btn btn-default" %>
+  <%= link_to 'Modifier', edit_profile_path(@profile) , class: "btn btn-primary"%>
 </div>

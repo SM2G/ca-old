@@ -2,8 +2,8 @@
   <h1>Employé <%= @employee.first_name %> <%= @employee.last_name %></h1>
   <%= render 'form' %>
   </br>
-  <%= link_to 'Annuler', @employee , :class=>"btn btn-warning"%>
+  <%= link_to 'Annuler', @employee , class: "btn btn-warning"%>
 </br>
 </br>
-  <%= link_to 'Retour à la liste des employés', employees_path , :class=>"btn btn-default"%>
+  <%= link_to 'Retour à la liste des employés', employees_path , class: "btn btn-default"%>
   </div>
