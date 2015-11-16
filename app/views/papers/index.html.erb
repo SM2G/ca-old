@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @papers.order(:expiration_date).each do |paper| %>
+    <% @papers.each do |paper| %>
       <tr>
         <td><%= link_to "#{paper.employee.last_name} #{paper.employee.first_name}", paper.employee %></td>
         <td><%= paper.document.document_name %></td>

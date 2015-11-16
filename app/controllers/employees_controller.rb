@@ -7,7 +7,7 @@ class EmployeesController < ApplicationController
   include PapersHelper
 
   def index
-    @employees = Employee.all
+    @employees = Employee.order(is_active: :desc)
     respond_with(@employees)
   end
 

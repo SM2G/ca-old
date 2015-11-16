@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @employees.order(is_active: :desc).each do |employee| %>
+    <% @employees.each do |employee| %>
       <tr class='<%= "is_active" if employee.is_active? %>'>
         <td>
         <p class="<%= employee.is_active ? "text-success" : "text-danger"%>">

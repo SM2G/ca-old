@@ -5,7 +5,7 @@
     <span class="<%= @employee.is_active ? "text-success" : "text-danger"%>">
       <%= @employee.is_active ? "Employé actif" : "Employé inactif"%>
     </span>
-    <p><strong>Date de naissance: </strong> <%= @employee.birthdate %></p>
+    <p><strong>Date de naissance: </strong> <%= l(@employee.birthdate) %></p>
     <p><strong>Profil:</strong> <%= @employee.profile.name %></p>
   </div>
 
