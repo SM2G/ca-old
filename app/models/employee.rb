@@ -7,7 +7,8 @@ class Employee < ActiveRecord::Base
   ## Relationships
   ## ==============================
   belongs_to :profile
-  has_many :papers
+
+  has_many :papers, dependent: :destroy
 
   ## Validations
   ## ==============================

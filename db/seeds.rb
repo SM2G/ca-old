@@ -4,6 +4,7 @@ User.destroy_all
 Document.destroy_all
 Profile.destroy_all
 Employee.destroy_all
+Paper.destroy_all
 
 ## User models
 ## ==============================

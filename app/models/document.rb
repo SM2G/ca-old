@@ -1,15 +1,14 @@
 class Document < ActiveRecord::Base
+  ## Relationships
+  ## ==============================
+  has_many :assignments,  dependent: :destroy
+  has_many :papers,       dependent: :destroy
 
-## Relationships
-## ==============================
-has_many :assignments
-has_many :profiles, through: :assignments
-has_many :paper
+  has_many :profiles, through: :assignments
 
-
-## Structure
-## ==============================
-validates :document_name,
+  ## Structure
+  ## ==============================
+  validates :document_name,
     presence: true,
     length: { minimum: 2, maximum: 50 }
   validates :warning_days,
