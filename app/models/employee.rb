@@ -12,14 +12,9 @@ class Employee < ActiveRecord::Base
 
   ## Validations
   ## ==============================
-  validates :first_name,
-    presence: true,
-    length: {minimum:3, maximum: 30}
-  validates :last_name,
-    presence: true,
-    length: {minimum:3, maximum: 30}
-  validates :profile_id,
-      presence: true
+  validates :first_name,  presence: true, length: { minimum:3, maximum: 30 }
+  validates :last_name,   presence: true, length: { minimum:3, maximum: 30 }
+  validates :profile_id,  presence: true
 
   def full_name
     "#{first_name} #{last_name}"
