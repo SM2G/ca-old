@@ -28,7 +28,11 @@
             </td>
             <td><%= link_to 'Détails', profile, class: "btn btn-default" %></td>
             <td><%= link_to 'Modifier', edit_profile_path(profile), class: "btn btn-default" %></td>
-            <td><%= link_to 'Supprimer', profile, method: :delete, data: { confirm: 'Etes-vous sûr ?' } , class: "btn btn-danger" %></td>
+            <td>
+              <% if profile.employees.empty? %>
+                <%= link_to 'Supprimer', profile, method: :delete, data: { confirm: 'Etes-vous sûr ?' } , class: "btn btn-danger" %>
+              <% end %>
+              </td>
           </tr>
         <% end %>
       </tbody>

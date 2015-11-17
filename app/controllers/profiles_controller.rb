@@ -33,7 +33,7 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
-    @profile.destroy
+    Profiles::DestroyService.new(@profile).call
     respond_with(@profile)
   end
 
