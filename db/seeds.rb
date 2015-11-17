@@ -1,6 +1,6 @@
 ## Cleanup models
 ## ==============================
-User.destroy_all
+# User.destroy_all
 Document.destroy_all
 Profile.destroy_all
 Employee.destroy_all
@@ -8,21 +8,21 @@ Paper.destroy_all
 
 ## User models
 ## ==============================
-User.create!(email: 'manager@company.com', name: 'James Bond', password: '12345678', password_confirmation: '12345678')
+# User.create!(email: 'manager@company.com', name: 'James Bond', password: '12345678', password_confirmation: '12345678')
 
 ## Document models
 ## ==============================
-id_card             = Document.create!(name: 'Piece d\'identité',                 warning_days: 2,    critical_days: 0,   expire_days: 0)
-explosive_detection = Document.create!(name: 'Détection d\'explosifs',            warning_days: 0,    critical_days: 0,   expire_days: 0)
-xray_detection      = Document.create!(name: 'Détection rayons X',                warning_days: 0,    critical_days: 0,   expire_days: 0)
-cyno_init_formation = Document.create!(name: 'Formation initiale cyno',           warning_days: 0,    critical_days: 0,   expire_days: 0)
-tca_formation       = Document.create!(name: 'TCA ou habilitation préfectorale',  warning_days: 60,   critical_days: 660, expire_days: 720)
-cyno_formation      = Document.create!(name: 'Formation continue cyno',           warning_days: 22,   critical_days: 32,  expire_days: 42)
-cqp_formation       = Document.create!(name: 'CQP',                               warning_days: 0,    critical_days: 0,   expire_days: 0)
-professional_card   = Document.create!(name: 'Carte professionnelle',             warning_days: 0,    critical_days: 0,   expire_days: 0)
-cqp_init_formation  = Document.create!(name: 'Formation initiale CQP',            warning_days: 0,    critical_days: 0,   expire_days: 0)
-img_formation       = Document.create!(name: 'Formation continue imagerie',       warning_days: 120,  critical_days: 150, expire_days: 180)
-non_img_formation   = Document.create!(name: 'Formation continue hors imagerie',  warning_days: 120,  critical_days: 150, expire_days: 180)
+id_card             = Document.create!(name: 'Piece d\'identité',                 warning_days: 20,   critical_days: 7,   expire_days: 0)
+explosive_detection = Document.create!(name: 'Détection d\'explosifs',            warning_days: 15,   critical_days: 3,   expire_days: 0)
+xray_detection      = Document.create!(name: 'Détection rayons X',                warning_days: 15,   critical_days: 3,   expire_days: 0)
+cyno_init_formation = Document.create!(name: 'Formation initiale cyno',           warning_days: 30,   critical_days: 15,  expire_days: 0)
+tca_formation       = Document.create!(name: 'TCA ou habilitation préfectorale',  warning_days: 660,  critical_days: 60,  expire_days: 720)
+cyno_formation      = Document.create!(name: 'Formation continue cyno',           warning_days: 32,   critical_days: 22,  expire_days: 42)
+cqp_formation       = Document.create!(name: 'CQP',                               warning_days: 30,   critical_days: 15,  expire_days: 0)
+professional_card   = Document.create!(name: 'Carte professionnelle',             warning_days: 20,   critical_days: 7,   expire_days: 0)
+cqp_init_formation  = Document.create!(name: 'Formation initiale CQP',            warning_days: 30,   critical_days: 15,  expire_days: 0)
+img_formation       = Document.create!(name: 'Formation continue imagerie',       warning_days: 150,  critical_days: 120, expire_days: 180)
+non_img_formation   = Document.create!(name: 'Formation continue hors imagerie',  warning_days: 150,  critical_days: 120, expire_days: 180)
 
 puts "#{Document.count} Documents créés."
 
@@ -71,49 +71,54 @@ puts "#{Employee.count} James bond girls créées."
 
 ## Papers
 ## ==============================
-expiration_date = Date.current + 1.month
+expiration_cqp_formation     = Date.current + 1.month + cqp_formation.warning_days.days
+expiration_id_card           = Date.current + 1.month + id_card.warning_days.days
+expiration_img_formation     = Date.current + 1.month + img_formation.warning_days.days
+expiration_professional_card = Date.current + 1.month + professional_card.warning_days.days
+expiration_tca_formation     = Date.current + 1.month + tca_formation.warning_days.days
+expiration_xray_detection    = Date.current + 1.month + xray_detection.warning_days.days
 
-Paper.create!(employee: agent_brand,                document: id_card,           expiration_date: expiration_date)
-Paper.create!(employee: agent_brand,                document: cqp_formation,     expiration_date: expiration_date)
-Paper.create!(employee: agent_brand,                document: professional_card, expiration_date: expiration_date)
-Paper.create!(employee: agent_case,                 document: id_card,           expiration_date: expiration_date)
-Paper.create!(employee: agent_case,                 document: cqp_formation,     expiration_date: expiration_date)
-Paper.create!(employee: agent_case,                 document: professional_card, expiration_date: expiration_date)
-Paper.create!(employee: agent_lynd,                 document: id_card,           expiration_date: expiration_date)
-Paper.create!(employee: agent_lynd,                 document: cqp_formation,     expiration_date: expiration_date)
-Paper.create!(employee: agent_lynd,                 document: professional_card, expiration_date: expiration_date)
-Paper.create!(employee: agent_rider,                document: id_card,           expiration_date: expiration_date)
-Paper.create!(employee: agent_rider,                document: cqp_formation,     expiration_date: expiration_date)
-Paper.create!(employee: agent_rider,                document: professional_card, expiration_date: expiration_date)
-Paper.create!(employee: agent_romanova,             document: id_card,           expiration_date: expiration_date)
-Paper.create!(employee: agent_romanova,             document: cqp_formation,     expiration_date: expiration_date)
-Paper.create!(employee: agent_romanova,             document: professional_card, expiration_date: expiration_date)
+Paper.create!(employee: agent_brand,                document: id_card,           expiration_date: Date.current + id_card.critical_days.days)
+Paper.create!(employee: agent_brand,                document: cqp_formation,     expiration_date: Date.current + cqp_formation.warning_days.days)
+Paper.create!(employee: agent_brand,                document: professional_card, expiration_date: Date.current - 1.day)
+Paper.create!(employee: agent_case,                 document: id_card,           expiration_date: expiration_id_card)
+Paper.create!(employee: agent_case,                 document: cqp_formation,     expiration_date: expiration_cqp_formation)
+Paper.create!(employee: agent_case,                 document: professional_card, expiration_date: expiration_professional_card)
+Paper.create!(employee: agent_lynd,                 document: id_card,           expiration_date: expiration_id_card)
+Paper.create!(employee: agent_lynd,                 document: cqp_formation,     expiration_date: expiration_cqp_formation)
+Paper.create!(employee: agent_lynd,                 document: professional_card, expiration_date: expiration_professional_card)
+Paper.create!(employee: agent_rider,                document: id_card,           expiration_date: expiration_id_card)
+Paper.create!(employee: agent_rider,                document: cqp_formation,     expiration_date: expiration_cqp_formation)
+Paper.create!(employee: agent_rider,                document: professional_card, expiration_date: expiration_professional_card)
+Paper.create!(employee: agent_romanova,             document: id_card,           expiration_date: expiration_id_card)
+Paper.create!(employee: agent_romanova,             document: cqp_formation,     expiration_date: expiration_cqp_formation)
+Paper.create!(employee: agent_romanova,             document: professional_card, expiration_date: expiration_professional_card)
 
-Paper.create!(employee: dog_trainer_baum,           document: id_card,           expiration_date: expiration_date)
-Paper.create!(employee: dog_trainer_baum,           document: tca_formation,     expiration_date: expiration_date)
-Paper.create!(employee: dog_trainer_baum,           document: professional_card, expiration_date: expiration_date)
-Paper.create!(employee: dog_trainer_havelock,       document: id_card,           expiration_date: expiration_date)
-Paper.create!(employee: dog_trainer_havelock,       document: tca_formation,     expiration_date: expiration_date)
-Paper.create!(employee: dog_trainer_havelock,       document: professional_card, expiration_date: expiration_date)
-Paper.create!(employee: dog_trainer_masterton_j,    document: id_card,           expiration_date: expiration_date)
-Paper.create!(employee: dog_trainer_masterton_j,    document: tca_formation,     expiration_date: expiration_date)
-Paper.create!(employee: dog_trainer_masterton_j,    document: professional_card, expiration_date: expiration_date)
-Paper.create!(employee: dog_trainer_masterton_t,    document: id_card,           expiration_date: expiration_date)
-Paper.create!(employee: dog_trainer_masterton_t,    document: tca_formation,     expiration_date: expiration_date)
-Paper.create!(employee: dog_trainer_masterton_t,    document: professional_card, expiration_date: expiration_date)
-Paper.create!(employee: dog_trainer_russell,        document: id_card,           expiration_date: expiration_date)
-Paper.create!(employee: dog_trainer_russell,        document: tca_formation,     expiration_date: expiration_date)
-Paper.create!(employee: dog_trainer_russell,        document: professional_card, expiration_date: expiration_date)
+Paper.create!(employee: dog_trainer_baum,           document: id_card,           expiration_date: expiration_id_card)
+Paper.create!(employee: dog_trainer_baum,           document: tca_formation,     expiration_date: expiration_tca_formation)
+Paper.create!(employee: dog_trainer_baum,           document: professional_card, expiration_date: expiration_professional_card)
+Paper.create!(employee: dog_trainer_havelock,       document: id_card,           expiration_date: expiration_id_card)
+Paper.create!(employee: dog_trainer_havelock,       document: tca_formation,     expiration_date: expiration_tca_formation)
+Paper.create!(employee: dog_trainer_havelock,       document: professional_card, expiration_date: expiration_professional_card)
+Paper.create!(employee: dog_trainer_masterton_j,    document: id_card,           expiration_date: expiration_id_card)
+Paper.create!(employee: dog_trainer_masterton_j,    document: tca_formation,     expiration_date: expiration_tca_formation)
+Paper.create!(employee: dog_trainer_masterton_j,    document: professional_card, expiration_date: expiration_professional_card)
+Paper.create!(employee: dog_trainer_masterton_t,    document: id_card,           expiration_date: expiration_id_card)
+Paper.create!(employee: dog_trainer_masterton_t,    document: tca_formation,     expiration_date: expiration_tca_formation)
+Paper.create!(employee: dog_trainer_masterton_t,    document: professional_card, expiration_date: expiration_professional_card)
+Paper.create!(employee: dog_trainer_russell,        document: id_card,           expiration_date: expiration_id_card)
+Paper.create!(employee: dog_trainer_russell,        document: tca_formation,     expiration_date: expiration_tca_formation)
+Paper.create!(employee: dog_trainer_russell,        document: professional_card, expiration_date: expiration_professional_card)
 
-Paper.create!(employee: xray_operator_freudenstein, document: id_card,           expiration_date: expiration_date)
-Paper.create!(employee: xray_operator_freudenstein, document: xray_detection,    expiration_date: expiration_date)
-Paper.create!(employee: xray_operator_freudenstein, document: img_formation,     expiration_date: expiration_date)
-Paper.create!(employee: xray_operator_goodnight,    document: id_card,           expiration_date: expiration_date)
-Paper.create!(employee: xray_operator_goodnight,    document: xray_detection,    expiration_date: expiration_date)
-Paper.create!(employee: xray_operator_goodnight,    document: img_formation,     expiration_date: expiration_date)
-Paper.create!(employee: xray_operator_krest,        document: id_card,           expiration_date: expiration_date)
-Paper.create!(employee: xray_operator_krest,        document: xray_detection,    expiration_date: expiration_date)
-Paper.create!(employee: xray_operator_krest,        document: img_formation,     expiration_date: expiration_date)
-Paper.create!(employee: xray_operator_suzuki,       document: id_card,           expiration_date: expiration_date)
-Paper.create!(employee: xray_operator_suzuki,       document: xray_detection,    expiration_date: expiration_date)
-Paper.create!(employee: xray_operator_suzuki,       document: img_formation,     expiration_date: expiration_date)
+Paper.create!(employee: xray_operator_freudenstein, document: id_card,           expiration_date: expiration_id_card)
+Paper.create!(employee: xray_operator_freudenstein, document: xray_detection,    expiration_date: expiration_xray_detection)
+Paper.create!(employee: xray_operator_freudenstein, document: img_formation,     expiration_date: expiration_img_formation)
+Paper.create!(employee: xray_operator_goodnight,    document: id_card,           expiration_date: expiration_id_card)
+Paper.create!(employee: xray_operator_goodnight,    document: xray_detection,    expiration_date: expiration_xray_detection)
+Paper.create!(employee: xray_operator_goodnight,    document: img_formation,     expiration_date: expiration_img_formation)
+Paper.create!(employee: xray_operator_krest,        document: id_card,           expiration_date: expiration_id_card)
+Paper.create!(employee: xray_operator_krest,        document: xray_detection,    expiration_date: expiration_xray_detection)
+Paper.create!(employee: xray_operator_krest,        document: img_formation,     expiration_date: expiration_img_formation)
+Paper.create!(employee: xray_operator_suzuki,       document: id_card,           expiration_date: expiration_id_card)
+Paper.create!(employee: xray_operator_suzuki,       document: xray_detection,    expiration_date: expiration_xray_detection)
+Paper.create!(employee: xray_operator_suzuki,       document: img_formation,     expiration_date: expiration_img_formation)
