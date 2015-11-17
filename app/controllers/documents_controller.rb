@@ -5,7 +5,7 @@ class DocumentsController < ApplicationController
   respond_to :html
 
   def index
-    @documents = Document.all
+    @documents = Document.order(:name)
     respond_with(@documents)
   end
 
@@ -33,7 +33,7 @@ class DocumentsController < ApplicationController
   end
 
   def destroy
-    @document.destroy
+    Documents::DestroyService.new(@document).call
     respond_with(@document)
   end
 
