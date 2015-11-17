@@ -8,7 +8,7 @@ Paper.destroy_all
 
 ## User models
 ## ==============================
-User.create!(email: 'manager@company.com', password: '12345678', password_confirmation: '12345678')
+User.create!(email: 'manager@company.com', name: 'James Bond', password: '12345678', password_confirmation: '12345678')
 
 ## Document models
 ## ==============================
