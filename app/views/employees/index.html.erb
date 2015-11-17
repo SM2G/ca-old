@@ -18,10 +18,10 @@
         <% @employees.each do |employee| %>
           <tr class='<%= "is_active" if employee.is_active? %>'>
             <td>
-            <p class="<%= employee.is_active ? "text-success" : "text-danger"%>">
-              <span class="<%= employee.is_active ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"%> aria-hidden=true>"</span></td>
-            </p>
-
+              <p class="<%= employee.is_active ? "text-success" : "text-danger"%>">
+                <span class="<%= employee.is_active ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"%> aria-hidden=true>"</span>
+              </p>
+            </td>
             <td><%= employee.first_name %> <%= employee.last_name %></td>
             <td><%= employee.profile.documents.count %></td>
             <td><%= employee.profile.name %></td>

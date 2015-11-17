@@ -1,17 +1,15 @@
 <div class="row">
-  <h2>Profil <%= @profile.name %></h2>
-</div>
+  <div class="col-xs-12">
+    <h2>Profil <%= @profile.name %></h2>
 
-<div class="row">
-  <strong>Documents Associés au profil <%= @profile.name %>:</strong>
-    <ul>
-    <% @profile.documents.each do |document| %>
-      <li> <%= link_to document.name, document %> </li>
-    <% end %>
-  </ul>
-</div>
+    <strong>Documents Associés au profil <%= @profile.name %> :</strong>
+      <ul>
+      <% @profile.documents.each do |document| %>
+        <li> <%= link_to document.name, document %> </li>
+      <% end %>
+    </ul>
 
-<div class="row">
-  <%= link_to 'Retour à la liste', profiles_path , class: "btn btn-default" %>
-  <%= link_to 'Modifier', edit_profile_path(@profile) , class: "btn btn-primary"%>
+    <%= link_to 'Retour Liste', profiles_path , class: "btn btn-default" %>
+    <%= link_to 'Modifier', edit_profile_path(@profile) , class: "btn btn-primary"%>
+  </div>
 </div>
