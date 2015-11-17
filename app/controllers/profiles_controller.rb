@@ -28,7 +28,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile.update(profile_params)
+    Profiles::UpdateService.new(@profile, profile_params).call
     respond_with(@profile)
   end
 
@@ -44,9 +44,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(
-      :name,
-      document_ids: []
-    )
+    params.require(:profile).permit(:name, document_ids: [])
   end
 end

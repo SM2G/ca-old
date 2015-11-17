@@ -8,7 +8,9 @@ class Employee < ActiveRecord::Base
   ## ==============================
   belongs_to :profile
 
-  has_many :papers, dependent: :destroy
+  has_many :papers,     dependent: :destroy
+
+  has_many :documents,  through: :papers
 
   ## Validations
   ## ==============================

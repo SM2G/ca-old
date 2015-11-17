@@ -26,4 +26,9 @@ class Paper < ActiveRecord::Base
       paper.document_file_content_type = mime_type.first.content_type if mime_type.first
     end
   end
+
+  ## Scopes
+  ## ==============================
+  scope :for_profile,     -> (profile) { joins(document: :assignments).where(assignments: { profile_id: profile.id }) }
+  scope :not_for_profile, -> (profile) { where.not(id: for_profile(profile)) }
 end

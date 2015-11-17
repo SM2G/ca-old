@@ -7,7 +7,7 @@ class EmployeesController < ApplicationController
   include PapersHelper
 
   def index
-    @employees = Employee.order(is_active: :desc)
+    @employees = Employee.order(is_active: :desc, last_name: :asc)
     respond_with(@employees)
   end
 
@@ -24,13 +24,12 @@ class EmployeesController < ApplicationController
   end
 
   def create
-    @employee = Employee.new(employee_params)
-    @employee.save
+    @employee = Employees::CreateService.new(employee_params).call
     respond_with(@employee)
   end
 
   def update
-    @employee.update(employee_params)
+    Employees::UpdateService.new(@employee, employee_params).call
     respond_with(@employee)
   end
 

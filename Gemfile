@@ -35,8 +35,8 @@ group :production do
   gem 'rails_12factor', '0.0.2'
 end
 
-## TEST
-## ==========
+## DEVELOPMENT, TEST
+## ====================
 group :development, :test do
   gem "better_errors"
   gem 'byebug',      '3.4.0'
