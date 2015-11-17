@@ -6,17 +6,17 @@
     </p>
 
     <p>
-      <strong>Employee :</strong>
+      <strong>Personnel :</strong>
       <%= @paper.employee.full_name %>
     </p>
 
     <p>
-      <strong>Document file :</strong>
+      <strong>Fichier :</strong>
       <%= link_to @paper.document_file.original_filename, @paper.document_file.url, target: '_blank' %>
     </p>
 
     <p>
-      <strong>Expiration date :</strong>
+      <strong>Date d'expiration :</strong>
       <%= l(@paper.expiration_date) %>
     </p>
 

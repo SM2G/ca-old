@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12 col-md-9">
-    <h2>Profil <%= @profile.name %></h2>
+    <h1>Profil <%= @profile.name %></h1>
   </div>
 
   <div class="col-xs-12 col-md-3">
@@ -13,8 +13,8 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <strong>Documents Associés au profil <%= @profile.name %> :</strong>
-      <ul>
+    <h2>Documents Associés </h2>
+    <ul>
       <% @profile.documents.each do |document| %>
         <li> <%= link_to document.name, document %> </li>
       <% end %>
