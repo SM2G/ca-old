@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   resources :profiles
   resources :papers
-  resources :alerts
   resources :documents
   resources :employees
 end
