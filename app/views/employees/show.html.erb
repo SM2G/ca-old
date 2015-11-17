@@ -21,7 +21,7 @@
     <tbody>
       <% @employee.papers.each do |paper| %>
         <tr>
-          <td> <%= paper.document.document_name %> </td>
+          <td> <%= paper.document.name %> </td>
           <td> <%= paper.expiration_date %> </td>
           <td>
             <div class="bs-component">

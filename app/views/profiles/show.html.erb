@@ -6,7 +6,7 @@
   <strong>Documents Associés au profil <%= @profile.name %>:</strong>
     <ul>
     <% @profile.documents.each do |document| %>
-      <li> <%= link_to document.document_name, document %> </li>
+      <li> <%= link_to document.name, document %> </li>
     <% end %>
   </ul>
 </div>

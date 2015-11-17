@@ -15,7 +15,7 @@
   <h2>Documents associés au profil</h2>
   <p>Sélectionner les documents correspondant au profil.</p>
 
-  <%= f.association :documents, as: :check_boxes, label_method: :document_name %>
+  <%= f.association :documents, as: :check_boxes, label_method: :name %>
 
   <%= submit_tag 'Valider', class: "btn btn-primary" %>
 <% end %>

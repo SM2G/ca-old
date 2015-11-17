@@ -22,7 +22,7 @@
   <tbody>
     <% @employee.papers.each do |one_paper| %>
       <tr>
-        <td><%= one_paper.document.document_name %></td>
+        <td><%= one_paper.document.name %></td>
         <td><!-- < %= f.date_select one_paper.expiration_date  %> -->
         	<%= date_select one_paper.expiration_date, :expiration_date %>
         	<%= one_paper.id %>

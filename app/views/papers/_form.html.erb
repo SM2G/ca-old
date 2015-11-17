@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <%= f.association :document, label_method: :document_name %>
+  <%= f.association :document, label_method: :name %>
   <%= f.association :employee, label_method: :full_name %>
 
   <%= f.input :expiration_date %>

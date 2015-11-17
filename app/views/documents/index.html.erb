@@ -14,7 +14,7 @@
   <tbody>
     <% @documents.each do |document| %>
       <tr>
-        <td><%= document.document_name %></td>
+        <td><%= document.name %></td>
         <td class="text-warning"> <%= document.warning_days %> jours </td>
         <td class="text-danger"> <%= document.critical_days %> jours </td>
         <td class="text-muted"> <%= document.expire_days %> jours </td>

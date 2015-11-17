@@ -17,8 +17,8 @@
         <td><%= profile.employees.count %></td>
         <td><b>Contient  <%= pluralize(profile.document_ids.count, "document") %> : </b>
         <ul>
-          <% profile.documents.each do |d| %>
-          <li><%= d.document_name %></li>
+          <% profile.documents.each do |document| %>
+            <li><%= document.name %></li>
           <%end%>
         </ul>
         </td>

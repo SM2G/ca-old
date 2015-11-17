@@ -15,7 +15,7 @@
     <% @papers.each do |paper| %>
       <tr>
         <td><%= link_to "#{paper.employee.last_name} #{paper.employee.first_name}", paper.employee %></td>
-        <td><%= paper.document.document_name %></td>
+        <td><%= paper.document.name %></td>
         <td><p class="<%= paper.expiration_date < Time.now - (paper.document.warning_days * 60 * 60 * 24) ? "text-danger" : "text-success" %>">
           <%= paper.expiration_date %>
           <% if ((Time.now.to_date - paper.expiration_date).to_i * -1) > 0 %>

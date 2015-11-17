@@ -11,8 +11,8 @@ fr:
         profile: Profil
       document:
         critical_days: Délai critique en jours
-        document_name: Nom
         expire_days: Délai d'expiration en jours
+        name: Nom
         warning_days: Délai d'alerte en jours
       employee:
         birthdate: Date de naissance

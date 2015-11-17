@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151117093519) do
+ActiveRecord::Schema.define(version: 20151117094036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20151117093519) do
   add_index "assignments", ["profile_id"], name: "index_assignments_on_profile_id", using: :btree
 
   create_table "documents", force: :cascade do |t|
-    t.string   "document_name"
+    t.string   "name"
     t.integer  "warning_days"
     t.integer  "critical_days"
     t.integer  "expire_days"

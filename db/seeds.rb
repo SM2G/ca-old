@@ -12,17 +12,17 @@ User.create!(email: 'manager@company.com', password: '12345678', password_confir
 
 ## Document models
 ## ==============================
-Document.create!(document_name: 'Piece d\'identité',                 warning_days: 2,    critical_days: 0,   expire_days: 0)
-Document.create!(document_name: 'Détection d\'explosifs',            warning_days: 0,    critical_days: 0,   expire_days: 0)
-Document.create!(document_name: 'Détection rayons X',                warning_days: 0,    critical_days: 0,   expire_days: 0)
-Document.create!(document_name: 'Formation initiale cyno',           warning_days: 0,    critical_days: 0,   expire_days: 0)
-Document.create!(document_name: 'TCA ou habilitation préfectorale',  warning_days: 60,   critical_days: 660, expire_days: 720)
-Document.create!(document_name: 'Formation continue cyno',           warning_days: 22,   critical_days: 32,  expire_days: 42)
-Document.create!(document_name: 'CQP',                               warning_days: 0,    critical_days: 0,   expire_days: 0)
-Document.create!(document_name: 'Carte professionnelle',             warning_days: 0,    critical_days: 0,   expire_days: 0)
-Document.create!(document_name: 'Formation initiale CQP',            warning_days: 0,    critical_days: 0,   expire_days: 0)
-Document.create!(document_name: 'Formation continue imagerie',       warning_days: 120,  critical_days: 150, expire_days: 180)
-Document.create!(document_name: 'Formation continue hors imagerie',  warning_days: 120,  critical_days: 150, expire_days: 180)
+Document.create!(name: 'Piece d\'identité',                 warning_days: 2,    critical_days: 0,   expire_days: 0)
+Document.create!(name: 'Détection d\'explosifs',            warning_days: 0,    critical_days: 0,   expire_days: 0)
+Document.create!(name: 'Détection rayons X',                warning_days: 0,    critical_days: 0,   expire_days: 0)
+Document.create!(name: 'Formation initiale cyno',           warning_days: 0,    critical_days: 0,   expire_days: 0)
+Document.create!(name: 'TCA ou habilitation préfectorale',  warning_days: 60,   critical_days: 660, expire_days: 720)
+Document.create!(name: 'Formation continue cyno',           warning_days: 22,   critical_days: 32,  expire_days: 42)
+Document.create!(name: 'CQP',                               warning_days: 0,    critical_days: 0,   expire_days: 0)
+Document.create!(name: 'Carte professionnelle',             warning_days: 0,    critical_days: 0,   expire_days: 0)
+Document.create!(name: 'Formation initiale CQP',            warning_days: 0,    critical_days: 0,   expire_days: 0)
+Document.create!(name: 'Formation continue imagerie',       warning_days: 120,  critical_days: 150, expire_days: 180)
+Document.create!(name: 'Formation continue hors imagerie',  warning_days: 120,  critical_days: 150, expire_days: 180)
 
 puts "#{Document.count} Documents créés."
 

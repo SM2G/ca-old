@@ -44,6 +44,6 @@ class DocumentsController < ApplicationController
   end
 
   def document_params
-    params.require(:document).permit(:document_name, :profile_id, :warning_days, :critical_days, :expire_days, :warning_months, :critical_months, :expire_months)
+    params.require(:document).permit(:name, :profile_id, :warning_days, :critical_days, :expire_days, :warning_months, :critical_months, :expire_months)
   end
 end
