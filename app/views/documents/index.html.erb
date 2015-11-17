@@ -20,7 +20,7 @@
         <td class="text-muted"> <%= document.expire_days %> jours </td>
         <td><%= link_to 'Détails', document , class: "btn btn-default" %></td>
         <td><%= link_to 'Modifier', edit_document_path(document) , class: "btn btn-default" %></td>
-        <td><%= link_to 'Supprimer', document, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        <td><%= link_to 'Supprimer', document, method: :delete, data: { confirm: 'Etes-vous sûr ?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
