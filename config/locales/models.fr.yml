@@ -31,6 +31,8 @@ fr:
       user:
         email: Email
         name: Nom
+        password: Mot de passe
+        password_confirmation: Confirmation mot de passe
     models:
       admin_user: Administrateur
       assignment: Assignement
