@@ -8,29 +8,34 @@ Paper.destroy_all
 
 ## User models
 ## ==============================
-# User.create!(email: 'manager@company.com', name: 'James Bond', password: '12345678', password_confirmation: '12345678')
+user = User.where(email: 'manager@company.com').first_or_initialize
+
+if user.new_record?
+  user.assign_attributes(name: 'James Bond', password: '12345678', password_confirmation: '12345678')
+  user.save!
+end
 
 ## Document models
 ## ==============================
-id_card             = Document.create!(name: 'Piece d\'identité',                 warning_days: 20,   critical_days: 7,   expire_days: 0)
-explosive_detection = Document.create!(name: 'Détection d\'explosifs',            warning_days: 15,   critical_days: 3,   expire_days: 0)
-xray_detection      = Document.create!(name: 'Détection rayons X',                warning_days: 15,   critical_days: 3,   expire_days: 0)
-cyno_init_formation = Document.create!(name: 'Formation initiale cyno',           warning_days: 30,   critical_days: 15,  expire_days: 0)
-tca_formation       = Document.create!(name: 'TCA ou habilitation préfectorale',  warning_days: 660,  critical_days: 60,  expire_days: 720)
-cyno_formation      = Document.create!(name: 'Formation continue cyno',           warning_days: 32,   critical_days: 22,  expire_days: 42)
-cqp_formation       = Document.create!(name: 'CQP',                               warning_days: 30,   critical_days: 15,  expire_days: 0)
-professional_card   = Document.create!(name: 'Carte professionnelle',             warning_days: 20,   critical_days: 7,   expire_days: 0)
-cqp_init_formation  = Document.create!(name: 'Formation initiale CQP',            warning_days: 30,   critical_days: 15,  expire_days: 0)
-img_formation       = Document.create!(name: 'Formation continue imagerie',       warning_days: 150,  critical_days: 120, expire_days: 180)
-non_img_formation   = Document.create!(name: 'Formation continue hors imagerie',  warning_days: 150,  critical_days: 120, expire_days: 180)
+id_card             = user.documents.create!(name: 'Piece d\'identité',                 warning_days: 20,   critical_days: 7,   expire_days: 0)
+explosive_detection = user.documents.create!(name: 'Détection d\'explosifs',            warning_days: 15,   critical_days: 3,   expire_days: 0)
+xray_detection      = user.documents.create!(name: 'Détection rayons X',                warning_days: 15,   critical_days: 3,   expire_days: 0)
+cyno_init_formation = user.documents.create!(name: 'Formation initiale cyno',           warning_days: 30,   critical_days: 15,  expire_days: 0)
+tca_formation       = user.documents.create!(name: 'TCA ou habilitation préfectorale',  warning_days: 660,  critical_days: 60,  expire_days: 720)
+cyno_formation      = user.documents.create!(name: 'Formation continue cyno',           warning_days: 32,   critical_days: 22,  expire_days: 42)
+cqp_formation       = user.documents.create!(name: 'CQP',                               warning_days: 30,   critical_days: 15,  expire_days: 0)
+professional_card   = user.documents.create!(name: 'Carte professionnelle',             warning_days: 20,   critical_days: 7,   expire_days: 0)
+cqp_init_formation  = user.documents.create!(name: 'Formation initiale CQP',            warning_days: 30,   critical_days: 15,  expire_days: 0)
+img_formation       = user.documents.create!(name: 'Formation continue imagerie',       warning_days: 150,  critical_days: 120, expire_days: 180)
+non_img_formation   = user.documents.create!(name: 'Formation continue hors imagerie',  warning_days: 150,  critical_days: 120, expire_days: 180)
 
 puts "#{Document.count} Documents créés."
 
 ## Profiles
 ## ==============================
-security_agent = Profile.create!(name: 'Agent de sécurité')
-dog_trainer    = Profile.create!(name: 'Maitre chien')
-xray_operator  = Profile.create!(name: 'Opérateur rayons X')
+security_agent = user.profiles.create!(name: 'Agent de sécurité')
+dog_trainer    = user.profiles.create!(name: 'Maitre chien')
+xray_operator  = user.profiles.create!(name: 'Opérateur rayons X')
 
 puts "#{Profile.count} Profils créés."
 

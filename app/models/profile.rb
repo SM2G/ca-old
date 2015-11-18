@@ -1,8 +1,10 @@
 class Profile < ActiveRecord::Base
-  has_many :assignments,  dependent: :destroy
-  has_many :employees,    dependent: :nullify
+  belongs_to :user
 
-  has_many :documents,    through: :assignments
+  has_many   :assignments, dependent: :destroy
+  has_many   :employees,   dependent: :nullify
+
+  has_many   :documents,   through:   :assignments
 
   accepts_nested_attributes_for :documents
 

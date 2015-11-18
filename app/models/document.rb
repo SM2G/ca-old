@@ -1,10 +1,12 @@
 class Document < ActiveRecord::Base
   ## Relationships
   ## ==============================
-  has_many :assignments,  dependent: :destroy
-  has_many :papers,       dependent: :destroy
+  belongs_to :user
 
-  has_many :profiles, through: :assignments
+  has_many   :assignments, dependent: :destroy
+  has_many   :papers,      dependent: :destroy
+
+  has_many   :profiles,    through:   :assignments
 
   ## Structure
   ## ==============================
