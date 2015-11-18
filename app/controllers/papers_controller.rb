@@ -5,7 +5,7 @@ class PapersController < ApplicationController
   respond_to :html
 
   def index
-    @papers = Paper.all
+    @papers = Paper.order(:expiration_date)
     respond_with(@papers)
   end
 
@@ -38,12 +38,12 @@ class PapersController < ApplicationController
   end
 
   private
-    def set_paper
-      @paper = Paper.find(params[:id])
-    end
 
-    def paper_params
-      params.require(:paper).permit(:document_id, :employee_id, :expiration_date, :document_file)
-    end
+  def set_paper
+    @paper = Paper.find(params[:id])
+  end
 
+  def paper_params
+    params.require(:paper).permit(:expiration_date, :document_file)
+  end
 end

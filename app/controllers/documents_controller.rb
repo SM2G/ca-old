@@ -5,7 +5,7 @@ class DocumentsController < ApplicationController
   respond_to :html
 
   def index
-    @documents = Document.all
+    @documents = Document.order(:name)
     respond_with(@documents)
   end
 
@@ -33,16 +33,17 @@ class DocumentsController < ApplicationController
   end
 
   def destroy
-    @document.destroy
+    Documents::DestroyService.new(@document).call
     respond_with(@document)
   end
 
   private
-    def set_document
-      @document = Document.find(params[:id])
-    end
 
-    def document_params
-      params.require(:document).permit(:document_name, :profile_id, :warning_days, :critical_days, :expire_days, :warning_months, :critical_months, :expire_months)
-    end
+  def set_document
+    @document = Document.find(params[:id])
+  end
+
+  def document_params
+    params.require(:document).permit(:name, :profile_id, :warning_days, :critical_days, :expire_days, :warning_months, :critical_months, :expire_months)
+  end
 end

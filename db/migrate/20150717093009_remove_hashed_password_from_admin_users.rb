@@ -4,6 +4,6 @@ class RemoveHashedPasswordFromAdminUsers < ActiveRecord::Migration
   end
 
   def down
-  	add_column "admin_users", "hashed_password", :string, :limit => 40
+  	add_column "admin_users", "hashed_password", :string, limit: 40
   end
 end

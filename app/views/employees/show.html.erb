@@ -1,43 +1,52 @@
 <div class="row">
-  <div class="form-group">
-    <h2><%= @employee.first_name %> <%= @employee.last_name %></h2>
-    <strong>Statut: </strong>
+  <div class="col-xs-12 col-md-9">
+    <h1><%= @employee.first_name %> <%= @employee.last_name %></h1>
+  </div>
+  <div class="col-xs-12 col-md-3">
+    <span class="pull-right">
+      <%= link_to "Supprimer", @employee, method: :delete, data: { confirm: 'Etes-vous sûr ?' }, class: "btn btn-danger" %>
+    </span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <strong>Statut :</strong>
     <span class="<%= @employee.is_active ? "text-success" : "text-danger"%>">
       <%= @employee.is_active ? "Employé actif" : "Employé inactif"%>
     </span>
-    <p><strong>Date de naissance: </strong> <%= @employee.birthdate %></p>
-    <p><strong>Profil:</strong> <%= @employee.profile.name %></p>
+
+    <p><strong>Date de naissance :</strong> <%= l(@employee.birthdate) %></p>
+    <p><strong>Profil :</strong> <%= @employee.profile.name %></p>
+
+    <h2>Documents</h2>
+      <table class="table table-striped table-hover ">
+        <thead>
+          <tr>
+            <th>Nom du document</th>
+            <th>Date d'expiration</th>
+            <th>Validité</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @employee.papers.each do |paper| %>
+            <tr>
+              <td> <%= paper.document.name %> </td>
+              <td> <%= l(paper.expiration_date) %> </td>
+              <td>
+                <div class="bs-component">
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-success" style="width: 70%"></div>
+                    <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
+                    <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
+                  </div>
+                </div> <!-- [0% - 70% Ok][70% - 90% Warning][90% - 100% Critical]-->
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    <%= link_to 'Retour Liste', employees_path , class: "btn btn-default" %>
+    <%= link_to 'Modifier', edit_employee_path(@employee) , class: "btn btn-primary"%>
   </div>
-
-<h2>Documents</h2>
-  <table class="table table-striped table-hover ">
-    <thead>
-      <tr>
-        <th>Nom du document</th>
-        <th>Date d'expiration</th>
-        <th>Validité</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @employee.papers.each do |paper| %>
-        <tr>
-          <td> <%= paper.document.document_name %> </td>
-          <td> <%= paper.expiration_date %> </td>
-          <td>
-            <div class="bs-component">
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" style="width: 70%"></div>
-                <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
-                <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
-              </div>
-            </div> <!-- [0% - 70% Ok][70% - 90% Warning][90% - 100% Critical]-->
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-</br>
-  <%= link_to 'Retour à la liste', employees_path , :class=>"btn btn-default" %>
-  <%= link_to 'Modifier', edit_employee_path(@employee) , :class=>"btn btn-primary"%>
 </div>

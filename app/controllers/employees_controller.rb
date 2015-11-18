@@ -7,7 +7,7 @@ class EmployeesController < ApplicationController
   include PapersHelper
 
   def index
-    @employees = Employee.all
+    @employees = Employee.order(is_active: :desc, last_name: :asc)
     respond_with(@employees)
   end
 
@@ -24,13 +24,12 @@ class EmployeesController < ApplicationController
   end
 
   def create
-    @employee = Employee.new(employee_params)
-    @employee.save
+    @employee = Employees::CreateService.new(employee_params).call
     respond_with(@employee)
   end
 
   def update
-    @employee.update(employee_params)
+    Employees::UpdateService.new(@employee, employee_params).call
     respond_with(@employee)
   end
 
@@ -39,16 +38,13 @@ class EmployeesController < ApplicationController
     respond_with(@employee)
   end
 
-#e.profile.document_ids.each do |document_id|
-#  Paper.create (:document_id => document_id, :employee_id => "e.id")
-#end   TO DO!!!
-
   private
-    def set_employee
-      @employee = Employee.find(params[:id])
-    end
 
-    def employee_params
-      params.require(:employee).permit(:is_active, :last_name, :first_name, :birthdate, :status, :profile_id)
-    end
+  def set_employee
+    @employee = Employee.find(params[:id])
+  end
+
+  def employee_params
+    params.require(:employee).permit(:is_active, :last_name, :first_name, :birthdate, :status, :profile_id)
+  end
 end

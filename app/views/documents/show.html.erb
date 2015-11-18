@@ -1,20 +1,38 @@
-<p>
-  <strong>Nom du Document:</strong>
-  <%= @document.document_name %>
-</p>
+<div class="row">
+  <div class="col-xs-12 col-md-9">
+    <p>
+      <strong>Nom du Document :</strong>
+      <%= @document.name %>
+    </p>
+  </div>
+  <div class="col-xs-12 col-md-3">
+    <% if @document.profiles.empty? %>
+      <span class="pull-right">
+        <%= link_to "Supprimer", @document, method: :delete, data: { confirm: 'Etes-vous sûr ?' }, class: "btn btn-danger" %>
+      </span>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <p>
+      <strong>Profils attachés :</strong>
+      <%= @document.profiles.count %>
+    </p>
+    <p>
+      <strong>Paramétrage :</strong>
+      <p class="text-warning">
+      	<span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+      	Seuil <b> Warning</b> à <%= @document.warning_days %> jours</p>
+      <p class="text-danger">
+      	<span class="glyphicon glyphicon-alert" aria-hidden="true"></span>
+    	Seuil <b> Critical</b> à <%= @document.critical_days %> jours</p>
+      <p class="text-muted">
+      	<span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+      	Le document <b> Expire</b> à <%= @document.expire_days %> jours</p>
+    </p>
 
-<p>
-  <strong>Paramétrage:</strong>
-  <p class="text-warning">
-  	<span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
-  	Seuil <b> Warning</b> à <%= @document.warning_days %> jours</p>
-  <p class="text-danger">
-  	<span class="glyphicon glyphicon-alert" aria-hidden="true"></span>
-	Seuil <b> Critical</b> à <%= @document.critical_days %> jours</p>
-  <p class="text-muted">
-  	<span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
-  	Le document <b> Expire</b> à <%= @document.expire_days %> jours</p>
-</p>
-
-<%= link_to 'Modifier', edit_document_path(@document), :class=>"btn btn-primary"  %>
-<%= link_to 'Retour Liste', documents_path, :class=>"btn btn-default"  %>
+    <%= link_to 'Retour Liste', documents_path, class: "btn btn-default"  %>
+    <%= link_to 'Modifier', edit_document_path(@document), class: "btn btn-primary"  %>
+  </div>
+</div>

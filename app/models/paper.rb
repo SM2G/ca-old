@@ -12,8 +12,8 @@ class Paper < ActiveRecord::Base
 
   ## Validations
   ## ==============================
-  validates_presence_of :document_id
-  validates_presence_of :employee_id
+  validates :document_id, presence: true
+  validates :employee_id, presence: true
 
   validates_attachment :document_file,  content_type: { content_type: [VALID_CONTENT_TYPES] },
                                         size:         { in: 0..1.megabyte }
@@ -26,4 +26,9 @@ class Paper < ActiveRecord::Base
       paper.document_file_content_type = mime_type.first.content_type if mime_type.first
     end
   end
+
+  ## Scopes
+  ## ==============================
+  scope :for_profile,     -> (profile) { joins(document: :assignments).where(assignments: { profile_id: profile.id }) }
+  scope :not_for_profile, -> (profile) { where.not(id: for_profile(profile)) }
 end

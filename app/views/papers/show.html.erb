@@ -1,22 +1,26 @@
-<p>
-  <strong>Document:</strong>
-  <%= @paper.document.document_name %>
-</p>
+<div class="row">
+  <div class="col-xs-12">
+    <p>
+      <strong>Document :</strong>
+      <%= @paper.document.name %>
+    </p>
 
-<p>
-  <strong>Employee:</strong>
-  <%= @paper.employee.full_name %>
-</p>
+    <p>
+      <strong>Personnel :</strong>
+      <%= @paper.employee.full_name %>
+    </p>
 
-<p>
-  <strong>Document file:</strong>
-  <%= link_to @paper.document_file.original_filename, @paper.document_file.url, target: '_blank' %>
-</p>
+    <p>
+      <strong>Fichier :</strong>
+      <%= link_to @paper.document_file.original_filename, @paper.document_file.url, target: '_blank' %>
+    </p>
 
-<p>
-  <strong>Expiration date:</strong>
-  <%= @paper.expiration_date %>
-</p>
+    <p>
+      <strong>Date d'expiration :</strong>
+      <%= l(@paper.expiration_date) %>
+    </p>
 
-<%= link_to 'Edit', edit_paper_path(@paper) %> |
-<%= link_to 'Back', papers_path %>
+    <%= link_to 'Retour Liste', papers_path, class: "btn btn-default" %>
+    <%= link_to 'Editer', edit_paper_path(@paper), class: "btn btn-primary" %>
+  </div>
+</div>

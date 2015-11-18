@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151110121827) do
+ActiveRecord::Schema.define(version: 20151117094036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20151110121827) do
   add_index "assignments", ["profile_id"], name: "index_assignments_on_profile_id", using: :btree
 
   create_table "documents", force: :cascade do |t|
-    t.string   "document_name"
+    t.string   "name"
     t.integer  "warning_days"
     t.integer  "critical_days"
     t.integer  "expire_days"
@@ -46,13 +46,13 @@ ActiveRecord::Schema.define(version: 20151110121827) do
   end
 
   create_table "employees", force: :cascade do |t|
-    t.boolean  "is_active"
+    t.boolean  "is_active",  default: true
     t.string   "last_name"
     t.string   "first_name"
     t.date     "birthdate"
     t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "profile_id"
   end
 
@@ -70,13 +70,11 @@ ActiveRecord::Schema.define(version: 20151110121827) do
     t.datetime "document_file_updated_at"
   end
 
+  add_index "papers", ["document_id"], name: "index_papers_on_document_id", using: :btree
+  add_index "papers", ["employee_id"], name: "index_papers_on_employee_id", using: :btree
+
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -101,4 +99,6 @@ ActiveRecord::Schema.define(version: 20151110121827) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "papers", "documents"
+  add_foreign_key "papers", "employees"
 end

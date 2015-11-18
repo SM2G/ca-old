@@ -1,47 +1,47 @@
-<h1>Documents</h1>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>Documents</h1>
 
-<table class="table table-striped table-hover ">
-  <thead>
-    <tr>
-      <th>Employé</th>
-      <th>Document</th>
-      <th>Date d'expiration</th>
-      <th>Statut</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th>Employé</th>
+          <th>Document</th>
+          <th>Date d'expiration</th>
+          <th>Statut</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @papers.order(:expiration_date).each do |paper| %>
-      <tr>
-        <td><%= link_to "#{paper.employee.last_name} #{paper.employee.first_name}", paper.employee %></td>
-        <td><%= paper.document.document_name %></td>
-        <td><p class="<%= paper.expiration_date < Time.now - (paper.document.warning_days * 60 * 60 * 24) ? "text-danger" : "text-success" %>">
-          <%= paper.expiration_date %>
-          <% if ((Time.now.to_date - paper.expiration_date).to_i * -1) > 0 %>
-          reste <%=((Time.now.to_date - paper.expiration_date).to_i * -1) %> jours
-          <% else %>
-          expiré depuis <%= ((Time.now.to_date - paper.expiration_date).to_i ) %> jours
-          <% end %>
-        </p>
-      </td>
-      <td>
-          <div class="bs-component">
-            <div class="progress">
-              <div class="progress-bar progress-bar-success" style="width: 70%"></div>
-              <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
-              <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
-            </div>
-          </div> <!-- [0% - 70% Ok][70% - 90% Warning][90% - 100% Critical]-->
-        </td>
-        <td><%= link_to 'Edit', edit_paper_path(paper), :class => "btn btn-default" %></td>
-        <!-- impossible to destroy papers
-        <td><%= link_to 'Destroy', paper, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @papers.each do |paper| %>
+          <tr>
+            <td><%= link_to "#{paper.employee.last_name} #{paper.employee.first_name}", paper.employee %></td>
+            <td><%= paper.document.name %></td>
+            <td><p class="<%= paper_status_css_class(paper) %>">
+              <%= l(paper.expiration_date) %>
 
-<br>
-<!-- impossible to destroy papers
-<%= link_to 'New Paper', new_paper_path %>-->
+              <% if paper.expiration_date > Date.current %>
+                reste <%= paper_days_to_expire(paper) %> <%= 'jour'.pluralize(paper_days_to_expire(paper)) %>
+              <% else %>
+                expiré depuis <%= paper_expiration_days(paper) %> <%= 'jour'.pluralize(paper_expiration_days(paper)) %>
+              <% end %>
+            </p>
+          </td>
+          <td>
+            <div class="bs-component">
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" style="width: 70%"></div>
+                <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
+                <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
+              </div>
+            </div> <!-- [0% - 70% Ok][70% - 90% Warning][90% - 100% Critical]-->
+          </td>
+          <td><%= link_to 'Détails', paper, class: "btn btn-default" %></td>
+          <td><%= link_to 'Edit', edit_paper_path(paper), class: "btn btn-default" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

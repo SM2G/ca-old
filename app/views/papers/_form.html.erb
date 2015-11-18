@@ -11,11 +11,8 @@
     </div>
   <% end %>
 
-  <%= f.association :document, label_method: :document_name %>
-  <%= f.association :employee, label_method: :full_name %>
-
   <%= f.input :expiration_date %>
   <%= f.input :document_file %>
 
-  <%= f.button :submit %>
+  <%= f.button :submit, 'Valider', class: 'btn btn-primary' %>
 <% end %>

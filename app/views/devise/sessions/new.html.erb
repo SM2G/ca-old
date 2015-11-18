@@ -1,7 +1,7 @@
 <h2>Log in</h2>
 
 <div class='col-md-6 hidden-sm hidden-xs'>
-  <%= image_tag "logo/logo_v2.png",  :class => "img-responsive"%>
+  <%= image_tag "logo/logo_v2.png",  class: "img-responsive"%>
 </div> 
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -24,7 +24,7 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" , :class=>"btn btn-primary" %>
+    <%= f.submit "Log in" , class: "btn btn-primary" %>
   </div>
 <% end %>
 

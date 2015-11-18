@@ -26,10 +26,10 @@ class ActiveSupport::TestCase
     end
   end
 
-private
+  private
+
   # Returns true inside an integration test.
   def integration_test?
     defined?(post_via_redirect)
   end
-
 end
