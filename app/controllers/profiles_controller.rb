@@ -1,11 +1,12 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :set_documents, only: [:new,  :create, :edit,   :update]
+  before_action :set_profile,   only: [:show, :edit,   :update, :destroy]
 
   respond_to :html
 
   def index
-    @profiles = Profile.all
+    @profiles = current_user.profiles
     respond_with(@profiles)
   end
 
@@ -19,7 +20,7 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.new(profile_params)
+    @profile = current_user.profiles.new(profile_params)
     @profile.save
     respond_with(@profile)
   end
@@ -39,11 +40,20 @@ class ProfilesController < ApplicationController
 
   private
 
+  def set_documents
+    @documents = current_user.documents
+  end
+
   def set_profile
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profiles.find(params[:id])
   end
 
   def profile_params
-    params.require(:profile).permit(:name, document_ids: [])
+    documents      = current_user.documents.where(id: params[:profile][:document_ids])
+    profile_params = params.require(:profile).permit(:name)
+
+    profile_params[:document_ids] = documents.pluck(:id)
+
+    profile_params
   end
 end

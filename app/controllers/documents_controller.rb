@@ -5,7 +5,7 @@ class DocumentsController < ApplicationController
   respond_to :html
 
   def index
-    @documents = Document.order(:name)
+    @documents = current_user.documents.order(:name)
     respond_with(@documents)
   end
 
@@ -22,7 +22,7 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    @document = Document.new(document_params)
+    @document = current_user.documents.new(document_params)
     @document.save
     respond_with(@document)
   end
@@ -40,10 +40,15 @@ class DocumentsController < ApplicationController
   private
 
   def set_document
-    @document = Document.find(params[:id])
+    @document = current_user.documents.find(params[:id])
   end
 
   def document_params
-    params.require(:document).permit(:name, :profile_id, :warning_days, :critical_days, :expire_days, :warning_months, :critical_months, :expire_months)
+    params.require(:document).permit(
+      :critical_days,
+      :expire_days,
+      :name,
+      :warning_days
+    )
   end
 end

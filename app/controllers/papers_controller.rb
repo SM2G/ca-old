@@ -5,7 +5,7 @@ class PapersController < ApplicationController
   respond_to :html
 
   def index
-    @papers = Paper.order(:expiration_date)
+    @papers = current_user.papers.order(:expiration_date)
     respond_with(@papers)
   end
 
@@ -13,18 +13,7 @@ class PapersController < ApplicationController
     respond_with(@paper)
   end
 
-  def new
-    @paper = Paper.new
-    respond_with(@paper)
-  end
-
   def edit
-  end
-
-  def create
-    @paper = Paper.new(paper_params)
-    @paper.save
-    respond_with(@paper)
   end
 
   def update
@@ -40,7 +29,7 @@ class PapersController < ApplicationController
   private
 
   def set_paper
-    @paper = Paper.find(params[:id])
+    @paper = current_user.papers.find(params[:id])
   end
 
   def paper_params

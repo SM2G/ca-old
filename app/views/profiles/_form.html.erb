@@ -15,7 +15,13 @@
   <h2>Documents associés</h2>
   <p>Sélectionner les documents correspondant au profil.</p>
 
-  <%= f.association :documents, as: :check_boxes, label_method: :name %>
+  <% if @documents.exists? %>
+    <%= f.association :documents, collection: @documents, as: :check_boxes, label_method: :name %>
+  <% else %>
+    <div>
+      <%= link_to 'Créer des documents', new_document_path, class: 'btn btn-warning' %>
+    </div>
+  <% end %>
 
   <%= submit_tag 'Valider', class: "btn btn-primary" %>
 <% end %>
