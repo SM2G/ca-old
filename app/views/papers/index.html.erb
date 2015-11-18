@@ -12,33 +12,38 @@
           <th colspan="2"></th>
         </tr>
       </thead>
-
       <tbody>
-        <% @papers.each do |paper| %>
-          <tr>
-            <td><%= link_to "#{paper.employee.last_name} #{paper.employee.first_name}", paper.employee %></td>
-            <td><%= paper.document.name %></td>
-            <td><p class="<%= paper_status_css_class(paper) %>">
-              <%= l(paper.expiration_date) %>
+        <% if @papers.exists? %>
+          <% @papers.each do |paper| %>
+            <tr>
+              <td><%= link_to "#{paper.employee.last_name} #{paper.employee.first_name}", paper.employee %></td>
+              <td><%= paper.document.name %></td>
+              <td><p class="<%= paper_status_css_class(paper) %>">
+                <%= l(paper.expiration_date) %>
 
-              <% if paper.expiration_date > Date.current %>
-                reste <%= paper_days_to_expire(paper) %> <%= 'jour'.pluralize(paper_days_to_expire(paper)) %>
-              <% else %>
-                expiré depuis <%= paper_expiration_days(paper) %> <%= 'jour'.pluralize(paper_expiration_days(paper)) %>
-              <% end %>
-            </p>
-          </td>
-          <td>
-            <div class="bs-component">
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" style="width: 70%"></div>
-                <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
-                <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
-              </div>
-            </div> <!-- [0% - 70% Ok][70% - 90% Warning][90% - 100% Critical]-->
-          </td>
-          <td><%= link_to 'Détails', paper, class: "btn btn-default" %></td>
-          <td><%= link_to 'Edit', edit_paper_path(paper), class: "btn btn-default" %></td>
+                <% if paper.expiration_date > Date.current %>
+                  reste <%= paper_days_to_expire(paper) %> <%= 'jour'.pluralize(paper_days_to_expire(paper)) %>
+                <% else %>
+                  expiré depuis <%= paper_expiration_days(paper) %> <%= 'jour'.pluralize(paper_expiration_days(paper)) %>
+                <% end %>
+              </p>
+            </td>
+            <td>
+              <div class="bs-component">
+                <div class="progress">
+                  <div class="progress-bar progress-bar-success" style="width: 70%"></div>
+                  <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
+                  <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
+                </div>
+              </div> <!-- [0% - 70% Ok][70% - 90% Warning][90% - 100% Critical]-->
+            </td>
+            <td><%= link_to 'Détails', paper, class: "btn btn-default" %></td>
+            <td><%= link_to 'Edit', edit_paper_path(paper), class: "btn btn-default" %></td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan="6">Aucun document</td>
           </tr>
         <% end %>
       </tbody>

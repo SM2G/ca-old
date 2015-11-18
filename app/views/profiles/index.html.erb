@@ -13,26 +13,31 @@
           <th colspan="3"></th>
         </tr>
       </thead>
-
       <tbody>
-        <% @profiles.each do |profile| %>
-          <tr>
-            <td><%= profile.name %></td>
-            <td><%= profile.employees.count %></td>
-            <td><b>Contient  <%= pluralize(profile.document_ids.count, "document") %> : </b>
-            <ul>
-              <% profile.documents.each do |document| %>
-                <li><%= document.name %></li>
-              <%end%>
-            </ul>
-            </td>
-            <td><%= link_to 'Détails', profile, class: "btn btn-default" %></td>
-            <td><%= link_to 'Modifier', edit_profile_path(profile), class: "btn btn-default" %></td>
-            <td>
-              <% if profile.employees.empty? %>
-                <%= link_to 'Supprimer', profile, method: :delete, data: { confirm: 'Etes-vous sûr ?' } , class: "btn btn-danger" %>
-              <% end %>
+        <% if @profiles.exists? %>
+          <% @profiles.each do |profile| %>
+            <tr>
+              <td><%= profile.name %></td>
+              <td><%= profile.employees.count %></td>
+              <td><b>Contient  <%= pluralize(profile.document_ids.count, "document") %> : </b>
+              <ul>
+                <% profile.documents.each do |document| %>
+                  <li><%= document.name %></li>
+                <%end%>
+              </ul>
               </td>
+              <td><%= link_to 'Détails', profile, class: "btn btn-default" %></td>
+              <td><%= link_to 'Modifier', edit_profile_path(profile), class: "btn btn-default" %></td>
+              <td>
+                <% if profile.employees.empty? %>
+                  <%= link_to 'Supprimer', profile, method: :delete, data: { confirm: 'Etes-vous sûr ?' } , class: "btn btn-danger" %>
+                <% end %>
+                </td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan="6">Aucun profil</td>
           </tr>
         <% end %>
       </tbody>

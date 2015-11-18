@@ -17,20 +17,26 @@
       </thead>
 
       <tbody>
-        <% @documents.each do |document| %>
+        <% if @documents.exists? %>
+          <% @documents.each do |document| %>
+            <tr>
+              <td><%= document.name %></td>
+              <td><%= document.profiles.count %></td>
+              <td class="text-warning"> <%= document.warning_days %> jours </td>
+              <td class="text-danger"> <%= document.critical_days %> jours </td>
+              <td class="text-muted"> <%= document.expire_days %> jours </td>
+              <td><%= link_to 'Détails', document, class: "btn btn-default" %></td>
+              <td><%= link_to 'Modifier', edit_document_path(document) , class: "btn btn-default" %></td>
+              <td>
+                <% if document.profiles.empty? %>
+                  <%= link_to 'Supprimer', document, method: :delete, data: { confirm: 'Etes-vous sûr ?' }, class: "btn btn-danger" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        <% else %>
           <tr>
-            <td><%= document.name %></td>
-            <td><%= document.profiles.count %></td>
-            <td class="text-warning"> <%= document.warning_days %> jours </td>
-            <td class="text-danger"> <%= document.critical_days %> jours </td>
-            <td class="text-muted"> <%= document.expire_days %> jours </td>
-            <td><%= link_to 'Détails', document, class: "btn btn-default" %></td>
-            <td><%= link_to 'Modifier', edit_document_path(document) , class: "btn btn-default" %></td>
-            <td>
-              <% if document.profiles.empty? %>
-                <%= link_to 'Supprimer', document, method: :delete, data: { confirm: 'Etes-vous sûr ?' }, class: "btn btn-danger" %>
-              <% end %>
-            </td>
+            <td colspan="8">Aucun modèle de document</td>
           </tr>
         <% end %>
       </tbody>
