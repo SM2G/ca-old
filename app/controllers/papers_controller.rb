@@ -5,7 +5,7 @@ class PapersController < ApplicationController
   respond_to :html
 
   def index
-    @papers = current_user.papers.order(:expiration_date)
+    @papers = current_user.papers.order(expiration_date: :asc)
     respond_with(@papers)
   end
 
