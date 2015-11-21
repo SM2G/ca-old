@@ -14,33 +14,45 @@
       </thead>
       <tbody>
         <% if @employees.exists? %>
-          <% @employees.each do |employee| %>
-            <tr class='<%= "is_active" if employee.is_active? %>'>
-              <td>
-                <p class="<%= employee.is_active ? "text-success" : "text-danger"%>">
-                  <span class="<%= employee.is_active ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"%> aria-hidden=true>"</span>
-                </p>
-              </td>
-              <td><%= employee.first_name %> <%= employee.last_name %></td>
-              <td><%= employee.profile.documents.count %></td>
-              <td><%= employee.profile.name %></td>
-              <td>
-                <div class="btn-group">
-                  <%= link_to 'Détails', employee, class: "btn btn-default" %></a>
-                  <a aria-expanded="false" href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><%= link_to "Modifier", edit_employee_path(employee) %></li>
-                    <li class="divider"></li>
-                    <li><%= link_to "Supprimer", employee, method: :delete, data: { confirm: 'Etes-vous sûr ?' }, class: "btn btn-danger" %></li>
-                  </ul>
-                </div>
-              </td>
-            </tr>
-          <% end %>
+        <% @employees.each do |employee| %>
+        <tr class='<%= "is_active" if employee.is_active? %>'>
+          <td>
+            <p class="<%= employee.is_active ? "text-success" : "text-danger"%>">
+              <span class="<%= employee.is_active ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"%> aria-hidden=true>"</span>
+            </p>
+          </td>
+          <td><%= employee.first_name %> <%= employee.last_name %></td>
+          <td><%= employee.profile.documents.count %>
+          <!--  <% if employee.profile.documents.count > 0 %>
+            <p class="text-primary"><%= employee.profile.documents.count %></p>
+            <% end %>
+
+            <% if employee.profile.documents.count > 0 %>
+            <p class="text-primary"><%= employee.profile.documents.count %></p>
+            <% end %>
+
+            <% if employee.profile.documents.count > 0 %>
+            <p class="text-primary"><%= employee.profile.documents.count %></p>
+            <% end %>-->
+          </td>
+          <td><%= employee.profile.name %></td>
+          <td>
+            <div class="btn-group">
+              <%= link_to 'Détails', employee, class: "btn btn-default" %></a>
+              <a aria-expanded="false" href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Modifier", edit_employee_path(employee) %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Supprimer", employee, method: :delete, data: { confirm: 'Etes-vous sûr ?' }, class: "btn btn-danger" %></li>
+              </ul>
+            </div>
+          </td>
+        </tr>
+        <% end %>
         <% else %>
-          <tr>
-            <td colspan="5">Aucun personnel</td>
-          </tr>
+        <tr>
+          <td colspan="5">Aucun personnel</td>
+        </tr>
         <% end %>
       </tbody>
     </table>
