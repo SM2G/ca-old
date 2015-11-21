@@ -15,7 +15,7 @@
     <%= f.input :last_name %>
     <%= f.input :birthdate %>
     <%= f.input :is_active %>
-    <%= f.association :profile %>
+    <%= f.association :profile, collection: @profiles %>
 
     <%= f.button :submit, 'Valider', class: 'btn btn-primary' %>
 

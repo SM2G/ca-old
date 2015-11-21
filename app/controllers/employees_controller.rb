@@ -1,5 +1,6 @@
 class EmployeesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_profiles, only: [:new, :create, :edit, :update]
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
@@ -7,7 +8,7 @@ class EmployeesController < ApplicationController
   include PapersHelper
 
   def index
-    @employees = Employee.order(is_active: :desc, last_name: :asc)
+    @employees = current_user.employees.order(is_active: :desc, last_name: :asc)
     respond_with(@employees)
   end
 
@@ -41,10 +42,25 @@ class EmployeesController < ApplicationController
   private
 
   def set_employee
-    @employee = Employee.find(params[:id])
+    @employee = current_user.employees.find(params[:id])
+  end
+
+  def set_profiles
+    @profiles = current_user.profiles
   end
 
   def employee_params
-    params.require(:employee).permit(:is_active, :last_name, :first_name, :birthdate, :status, :profile_id)
+    profile         = @profiles.find(params[:employee][:profile_id])
+    employee_params = params.require(:employee).permit(
+      :birthdate,
+      :first_name,
+      :is_active,
+      :last_name,
+      :status
+    )
+
+    employee_params[:profile_id] = profile.id
+
+    employee_params
   end
 end

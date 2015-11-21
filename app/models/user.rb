@@ -7,4 +7,10 @@ class User < ActiveRecord::Base
           :rememberable,
           :trackable,
           :validatable
+
+  has_many :documents,   dependent: :destroy
+  has_many :profiles,    dependent: :destroy
+
+  has_many :employees,   through: :profiles
+  has_many :papers,      through: :employees
 end
