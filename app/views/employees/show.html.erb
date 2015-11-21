@@ -12,13 +12,11 @@
   <div class="col-xs-12">
     <strong>Statut :</strong>
     <span class="<%= @employee.is_active ? "text-success" : "text-danger"%>">
-      <%= @employee.is_active ? "Employé actif" : "Employé inactif"%>
-    </span>
+      <%= @employee.is_active ? "Employé actif" : "Employé inactif"%></span></br>
+      <strong>Date de naissance :</strong> <%= l(@employee.birthdate) %></br>
+      <strong>Profil :</strong> <%= @employee.profile.name %>
 
-    <p><strong>Date de naissance :</strong> <%= l(@employee.birthdate) %></p>
-    <p><strong>Profil :</strong> <%= @employee.profile.name %></p>
-
-    <h2>Documents</h2>
+      <h2>Documents</h2>
       <table class="table table-striped table-hover ">
         <thead>
           <tr>
@@ -29,24 +27,24 @@
         </thead>
         <tbody>
           <% @employee.papers.each do |paper| %>
-            <tr>
-              <td> <%= paper.document.name %> </td>
-              <td> <%= l(paper.expiration_date) %> </td>
-              <td>
-                <div class="bs-component">
-                  <div class="progress">
-                    <div class="progress-bar progress-bar-success" style="width: 70%"></div>
-                    <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
-                    <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
-                  </div>
-                </div> <!-- [0% - 70% Ok][70% - 90% Warning][90% - 100% Critical]-->
-              </td>
-            </tr>
+          <tr>
+            <td> <%= paper.document.name %> </td>
+            <td> <%= l(paper.expiration_date) %> </td>
+            <td>
+              <div class="bs-component">
+                <div class="progress">
+                  <div class="progress-bar progress-bar-success" style="width: 70%"></div>
+                  <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
+                  <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
+                </div>
+              </div> <!-- [0% - 70% Ok][70% - 90% Warning][90% - 100% Critical]-->
+            </td>
+          </tr>
           <% end %>
         </tbody>
       </table>
 
-    <%= link_to 'Retour Liste', employees_path , class: "btn btn-default" %>
-    <%= link_to 'Modifier', edit_employee_path(@employee) , class: "btn btn-primary"%>
+      <%= link_to 'Retour Liste', employees_path , class: "btn btn-default" %>
+      <%= link_to 'Modifier', edit_employee_path(@employee) , class: "btn btn-primary"%>
+    </div>
   </div>
-</div>

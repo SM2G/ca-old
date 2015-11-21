@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
   respond_to :html
 
   def index
-    @profiles = current_user.profiles
+    @profiles = current_user.profiles.order(name: :desc)
     respond_with(@profiles)
   end
 
