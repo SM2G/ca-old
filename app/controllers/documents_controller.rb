@@ -36,7 +36,7 @@ class DocumentsController < ApplicationController
     Documents::DestroyService.new(@document).call
     respond_with(@document)
   end
-  
+
   private
 
   def set_document
@@ -45,10 +45,10 @@ class DocumentsController < ApplicationController
 
   def document_params
     params.require(:document).permit(
-    :critical_days,
-    :expire_days,
-    :name,
-    :warning_days
+      :critical_days,
+      :expire_days,
+      :name,
+      :warning_days
     )
   end
 end

@@ -20,9 +20,9 @@
               <td><%= document.name %></td>
               <td>
                 <% if document.profiles.count > 0 %>
-                <p class="text-primary"><%= document.profiles.count %></p>
+                  <p class="text-primary"><%= document.profiles.count %></p>
                 <% else %>
-                <p class="text-success">Modèle non assigné</p>
+                  <p class="text-success">Modèle non assigné</p>
                 <% end %>
               </td>
               <td class="text-warning"> <%= document.warning_days %> jours </td>
@@ -33,7 +33,7 @@
               <td>
                 <% if document.profiles.empty? %>
                   <%= link_to 'Supprimer', document, method: :delete, data: { confirm: 'Etes-vous sûr ?' }, class: "btn btn-danger" %>
-                  <% else %>
+                <% else %>
                   <button type="button" class="btn btn-danger disabled">Supprimer</button>
                 <% end %>
               </td>

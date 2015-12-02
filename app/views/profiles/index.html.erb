@@ -18,9 +18,9 @@
               <td><%= profile.name %></td>
               <td>
                 <% if profile.employees.count > 0 %>
-                <p class="text-primary"><%= profile.employees.count %></p>
+                  <p class="text-primary"><%= profile.employees.count %></p>
                 <% else %>
-                <p class="text-success">Profil non assigné</p>
+                  <p class="text-success">Profil non assigné</p>
                 <% end %>
               </td>
               <td><b>Contient  <%= pluralize(profile.document_ids.count, "document") %> : </b>
@@ -34,7 +34,7 @@
               <td>
                 <% if profile.employees.empty? %>
                   <%= link_to 'Supprimer', profile, method: :delete, data: { confirm: 'Etes-vous sûr ?' } , class: "btn btn-danger" %>
-                  <% else %>
+                <% else %>
                   <button type="button" class="btn btn-danger disabled">Supprimer</button>
                 <% end %>
                 </td>

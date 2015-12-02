@@ -12,39 +12,40 @@
   <div class="col-xs-12">
     <strong>Statut :</strong>
     <span class="<%= @employee.is_active ? "text-success" : "text-danger"%>">
-      <%= @employee.is_active ? "Employé actif" : "Employé inactif"%></span></br>
-      <strong>Date de naissance :</strong> <%= l(@employee.birthdate) %></br>
-      <strong>Profil :</strong> <%= @employee.profile.name %>
+      <%= @employee.is_active ? "Employé actif" : "Employé inactif"%>
+    </span></br>
+    <strong>Date de naissance :</strong> <%= l(@employee.birthdate) %></br>
+    <strong>Profil :</strong> <%= @employee.profile.name %>
 
-      <h2>Documents</h2>
-      <table class="table table-striped table-hover ">
-        <thead>
-          <tr>
-            <th>Nom du document</th>
-            <th>Date d'expiration</th>
-            <th>Validité</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @employee.papers.each do |paper| %>
-          <tr>
-            <td> <%= paper.document.name %> </td>
-            <td> <p class="<%= paper_status_css_class(paper) %>"><%= l(paper.expiration_date) %> </p></td>
-            <td>
-              <div class="bs-component">
-                <div class="progress">
-                  <div class="progress-bar progress-bar-success" style="width: 70%"></div>
-                  <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
-                  <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
-                </div>
-              </div> <!-- [0% - 70% Ok][70% - 90% Warning][90% - 100% Critical]-->
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <h2>Documents</h2>
+    <table class="table table-striped table-hover ">
+      <thead>
+        <tr>
+          <th>Nom du document</th>
+          <th>Date d'expiration</th>
+          <th>Validité</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @employee.papers.each do |paper| %>
+        <tr>
+          <td> <%= paper.document.name %> </td>
+          <td> <p class="<%= paper_status_css_class(paper) %>"><%= l(paper.expiration_date) %> </p></td>
+          <td>
+            <div class="bs-component">
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" style="width: 70%"></div>
+                <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
+                <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
+              </div>
+            </div> <!-- [0% - 70% Ok][70% - 90% Warning][90% - 100% Critical]-->
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-      <%= link_to 'Retour Liste', employees_path , class: "btn btn-default" %>
-      <%= link_to 'Modifier', edit_employee_path(@employee) , class: "btn btn-primary"%>
-    </div>
+    <%= link_to 'Retour Liste', employees_path , class: "btn btn-default" %>
+    <%= link_to 'Modifier', edit_employee_path(@employee) , class: "btn btn-primary"%>
   </div>
+</div>

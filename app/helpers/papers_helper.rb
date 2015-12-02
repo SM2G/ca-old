@@ -13,7 +13,7 @@ module PapersHelper
     on_warning_period  = Date.current >= (paper.expiration_date - paper.document.warning_days.days)
 
     if expired
-      "text-primary" 
+      "text-primary"
     elsif  on_critical_period
       "text-danger"
     elsif on_warning_period
