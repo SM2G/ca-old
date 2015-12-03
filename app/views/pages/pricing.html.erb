@@ -1,8 +1,7 @@
 <div class="row">
-  <div class="col-xs-12">
-    <h1>Cerbere App</h1>
-  </div>
-</div>
+</br>
+</br>
+</br>
 <div class='row'>
 	<div class='col-md-6'>
 		<h2>Une solution de gestion de documents</h2>
@@ -25,33 +24,29 @@
 			<thead>
     		<tr>
       		<th>Fonctionalités</th>
-      		<th class="success text-center">Essai</th>
-      		<th class="warning text-center">Silver</th>
-      		<th class="warning text-center">Gold</th>
-      		<th class="warning text-center">Platinium</th>
+      		<th class="info text-center">Essai</th>
+      		<th class="success text-center">Silver</th>
+      		<th class="success text-center">VIP</th>
     		</tr>
   		</thead>
     	<tbody>
       	<tr>
 	        <th scope="row">Nombre de personnel maximum</th>
-	        <td class="success text-center">1 - 3</td>
-	        <td class="warning text-center">1 - 50</td>
-	        <td class="warning text-center">1 - 100</td>
-      		<td class="warning text-center">illimité</td>
+	        <td class=" text-center">1 - 3</td>
+	        <td class=" text-center">1 - 100</td>
+      		<td class=" text-center">illimité</td>
 		    </tr>
 		    <tr>
 	        <th scope="row">Notifications par e-mail</th>
-	        <td class="success text-center">Non</td>
-	        <td class="warning text-center">Non</td>
-	        <td class="warning text-center">Oui</td>
-      		<td class="warning text-center">Oui</td>
+	        <td class=" text-center">Non</td>
+	        <td class=" text-center">Non</td>
+      		<td class=" text-center">Oui</td>
 		    </tr>
         <tr>
           <th scope="row">Abonnement mensuel</th>
-          <td class="success text-center">0€/mois </br>  <a href="#" class="btn btn-success btn-xs">Offre d'essai</a> </td>
-          <td class="warning text-center">39€/mois </br> <a href="#" class="btn btn-warning btn-xs">Choisir abonnement</a> </td>
-          <td class="warning text-center">69€/mois </br> <a href="#" class="btn btn-warning btn-xs">Choisir abonnement</a> </td>
-          <td class="warning text-center">99€/mois </br> <a href="#" class="btn btn-warning btn-xs">Choisir abonnement</a> </td>
+          <td class=" text-center">0€/mois </br>  <%= link_to "Offre d'essai", new_user_session_path, class: "btn btn-info btn-xs"%></td>
+          <td class=" text-center">99€/mois </br> <%= link_to "Choisir abonnement", new_user_session_path, class: "btn btn-success btn-xs"%></td>
+          <td class=" text-center">149€/mois </br> <%= link_to "Choisir abonnement", new_user_session_path, class: "btn btn-success btn-xs"%></td>
         </tr>
 		  </tbody>
 		</table>

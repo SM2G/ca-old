@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails',        '4.2.0'
 gem 'pg',           '~> 0.18.1'
+#gem 'sqlite3',       '~> 1.3.11'
 
 gem 'bcrypt-ruby' , '~> 3.1.5' # Use ActiveModel has_secure_password
 gem 'devise',       '~> 3.5.2'
