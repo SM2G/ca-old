@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
-    <h1>Employé <%= @employee.first_name %> <%= @employee.last_name %></h1>
+    <h1>Employé <%= @employee.full_name %></h1>
     <%= render 'form' %>
 
     <%= link_to 'Annuler', @employee , class: "btn btn-warning"%>

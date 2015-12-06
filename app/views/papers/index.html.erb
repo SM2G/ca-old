@@ -15,7 +15,7 @@
         <% if @papers.exists? %>
           <% @papers.each do |paper| %>
             <tr>
-              <td><%= link_to "#{paper.employee.last_name} #{paper.employee.first_name}", paper.employee %></td>
+              <td><%= link_to paper.employee.full_name, paper.employee %></td>
               <td><%= paper.document.name %></td>
               <td>
                 <p class="<%= paper_status_css_class(paper) %>">
