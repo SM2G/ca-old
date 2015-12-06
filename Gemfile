@@ -1,17 +1,23 @@
 source 'https://rubygems.org'
 
-gem 'rails',        '4.2.0'
-gem 'pg',           '~> 0.18.1'
+gem 'rails',                '4.2.0'
+gem 'pg',                   '~> 0.18.1'
 
-gem 'bcrypt-ruby' , '~> 3.1.5' # Use ActiveModel has_secure_password
-gem 'devise',       '~> 3.5.2'
-gem 'devise-i18n',  '~> 0.12.1'
-gem 'high_voltage', '~> 2.4.0'
-gem 'paperclip',    '~> 4.2.1'
-gem 'rails-i18n',   '~> 4.0.6'
-gem 'responders',   '~> 2.0'
-gem 'simple_form',  '~> 3.2.0'
+gem 'bcrypt-ruby' ,         '~> 3.1.5' # Use ActiveModel has_secure_password
+gem 'config',               '~> 1.0.0'
+gem 'devise',               '~> 3.5.2'
+gem 'devise-i18n',          '~> 0.12.1'
 gem 'enumerize',            '~> 1.1.0'
+gem 'figaro',               '~> 1.1.1'
+gem 'foreman',              '~> 0.78.0'
+gem 'high_voltage',         '~> 2.4.0'
+gem 'paperclip',            '~> 4.2.1'
+gem 'rails-i18n',           '~> 4.0.6'
+gem 'redis-namespace',      '~> 1.5.2'
+gem 'responders',           '~> 2.0'
+gem 'sidekiq',              '~> 4.0.1'
+gem 'sidekiq-scheduler',    '~> 2.0.0'
+gem 'simple_form',          '~> 3.2.0'
 
 ## ASSETS
 ## ==========
