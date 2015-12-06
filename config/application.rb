@@ -14,7 +14,7 @@ module CerbereApp
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
-    # config.time_zone = 'Central Time (US & Canada)'
+    config.time_zone = 'Europe/Paris'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     config.i18n.load_path      += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
@@ -23,10 +23,13 @@ module CerbereApp
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    # Mailer
+    config.action_mailer.default_url_options = { host: ENV['HOST'], port: ENV['PORT'] }
+
     ## Rails serve assets
     ## ==============================
-    config.serve_static_files = true
     config.assets.initialize_on_precompile = false
-    config.assets.js_compressor = :uglifier
+    config.assets.js_compressor            = :uglifier
+    config.serve_static_files              = true
   end
 end
