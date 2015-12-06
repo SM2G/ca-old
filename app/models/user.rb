@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  extend Enumerize
+
+  ## DSL
+  ## ==============================
   devise  :database_authenticatable,
           :recoverable,
           :registerable,
@@ -8,6 +10,11 @@ class User < ActiveRecord::Base
           :trackable,
           :validatable
 
+  enumerize :mail_notification_frequency, in: [:none, :daily, :weekly], default: :none
+  enumerize :plan,                        in: Settings.plans.list.keys, default: Settings.plans.default
+
+  ## Relationships
+  ## ==============================
   has_many :documents,   dependent: :destroy
   has_many :profiles,    dependent: :destroy
 

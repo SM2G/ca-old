@@ -1,0 +1,12 @@
+fr:
+  enumerize:
+    user:
+      mail_notification_frequency:
+        none: "Aucune"
+        daily: "Quotidienne"
+        weekly: "Hebdomadaire"
+      plan:
+        trial: Essai
+        silver: Silver
+        gold: Gold
+        platinum: Platinum

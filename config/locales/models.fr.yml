@@ -30,9 +30,11 @@ fr:
         name: Nom
       user:
         email: Email
+        mail_notification_frequency: Notification mail
         name: Nom
         password: Mot de passe
         password_confirmation: Confirmation mot de passe
+        plan: Abonnement
     models:
       admin_user: Administrateur
       assignment: Assignement

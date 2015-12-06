@@ -1,0 +1,23 @@
+mails:
+  from: contact@cerbereapp.com
+
+plans:
+  default: trial
+  list:
+    trial:
+      max_employees: 3
+      mail_notifications_enabled: false
+      monthly_price: 0
+    silver:
+      max_employees: 50
+      mail_notifications_enabled: false
+      monthly_price: 39
+    gold:
+      max_employees: 100
+      mail_notifications_enabled: true
+      monthly_price: 69
+    platinum:
+      max_employees: unlimited
+      mail_notifications_enabled: true
+      monthly_price: 99
+

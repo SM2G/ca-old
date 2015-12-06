@@ -11,6 +11,7 @@ gem 'paperclip',    '~> 4.2.1'
 gem 'rails-i18n',   '~> 4.0.6'
 gem 'responders',   '~> 2.0'
 gem 'simple_form',  '~> 3.2.0'
+gem 'enumerize',            '~> 1.1.0'
 
 ## ASSETS
 ## ==========
