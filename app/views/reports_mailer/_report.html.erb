@@ -1,0 +1,36 @@
+<table>
+  <thead>
+    <tr>
+      <th>Employé</th>
+      <th>Document</th>
+      <th>Date d'expiration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @papers.exists? %>
+      <% @papers.each do |paper| %>
+        <tr>
+          <td><%= link_to paper.employee.full_name, employee_url(paper.employee) %></td>
+          <td><%= paper.document.name %></td>
+          <td>
+            <p class="<%= paper_status_css_style(paper) %>">
+              <%= l(paper.expiration_date) %>
+
+              <% if paper.expiration_date > Date.current %>
+                reste <%= paper_days_to_expire(paper) %> <%= 'jour'.pluralize(paper_days_to_expire(paper)) %>
+              <% else %>
+                expiré depuis <%= paper_expiration_days(paper) %> <%= 'jour'.pluralize(paper_expiration_days(paper)) %>
+              <% end %>
+            </p>
+          </td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+        <td colspan="4">Aucun document</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Voir en ligne', papers_url %>

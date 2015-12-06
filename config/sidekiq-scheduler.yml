@@ -1,0 +1,9 @@
+reports_daily:
+  cron: "7 10 * * * Europe/Paris" # everyday at 10:07 am
+  class: Reports::DailyWorker
+  description: "Sends daily reports to all User that subscribed to daily notifications"
+
+reports_weekly:
+  cron: "7 10 * * 1 Europe/Paris" # every monday at 10:07 am
+  class: Reports::WeeklyWorker
+  description: "Sends weekly reports to all User that subscribed to weekly notifications"

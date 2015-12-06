@@ -1,0 +1,5 @@
+<% if flash[:alert].present? %>
+  $('.js-mail-notification-flash').html("<%= j render 'flash', type: :alert %>");
+<% else %>
+  $('.js-mail-notification-flash').html("<%= j render 'flash', type: :notice %>");
+<% end %>

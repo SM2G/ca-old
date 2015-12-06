@@ -21,7 +21,7 @@
                   <span class="<%= employee.is_active ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"%> aria-hidden=true>"</span>
                 </p>
               </td>
-              <td><%= employee.first_name %> <%= employee.last_name %></td>
+              <td><%= employee.full_name %></td>
               <td><%= employee.papers.count %></td>
               <td><%= employee.profile.name %></td>
               <td>

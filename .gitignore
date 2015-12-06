@@ -41,3 +41,10 @@ Thumbs.db
 /config/initializers/devise.rb
 /public/system/*
 /project_mgmt.txt
+
+# Ignore application configuration
+/config/application.yml
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
