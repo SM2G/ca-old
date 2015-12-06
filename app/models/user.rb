@@ -20,4 +20,9 @@ class User < ActiveRecord::Base
 
   has_many :employees,   through: :profiles
   has_many :papers,      through: :employees
+
+  ## Scopes
+  ## ==============================
+  scope :with_daily_notification,   -> { where(mail_notification_frequency: 'daily') }
+  scope :with_weekly_notification,  -> { where(mail_notification_frequency: 'weekly') }
 end
