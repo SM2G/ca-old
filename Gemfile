@@ -18,6 +18,7 @@ gem 'responders',           '~> 2.0'
 gem 'sidekiq',              '~> 4.0.1'
 gem 'sidekiq-scheduler',    '~> 2.0.0'
 gem 'simple_form',          '~> 3.2.0'
+gem 'sinatra',              '~> 1.4.6', require: false # For Sidekiq
 
 ## ASSETS
 ## ==========
