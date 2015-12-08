@@ -1,0 +1,12 @@
+development:
+  HOST: 'localhost'
+  PORT: '3000'
+  SIDEKIQ_USERNAME: 'admin'
+  SIDEKIQ_PASSWORD: 'admin'
+  REDIS_NAMESPACE: 'cerbereapp_development'
+  REDIS_URL: 'redis://127.0.0.1:6379/12'
+
+production:
+  HOST: 'cerbereapp.herokuapp.com' # NDD or herokuapp url
+  SIDEKIQ_USERNAME: <%= ENV["SECRET_SIDEKIQ_USERNAME"] %>
+  SIDEKIQ_PASSWORD: <%= ENV["SECRET_SIDEKIQ_PASSWORD"] %>
