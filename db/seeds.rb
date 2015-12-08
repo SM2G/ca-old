@@ -10,7 +10,7 @@ Paper.destroy_all
 ## ==============================
 user = User.where(email: 'manager@company.com').first_or_initialize
 
-user.assign_attributes(name: 'James Bond', password: '12345678', password_confirmation: '12345678', plan: 'gold')
+user.assign_attributes(name: 'James Bond', password: '12345678', password_confirmation: '12345678', plan: 'vip')
 user.save!
 
 ## Document models

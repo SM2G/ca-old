@@ -37,7 +37,7 @@ Thumbs.db
 
 # Ignore secret config files
 /config/database.yml
-/config/secrets.yml
+#/config/secrets.yml
 #/config/initializers/devise.rb
 /public/system/*
 /project_mgmt.txt
