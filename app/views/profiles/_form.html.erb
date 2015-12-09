@@ -1,27 +1,33 @@
 <%= simple_form_for(@profile) do |f| %>
-  <% if @profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
-      <ul>
-        <% @profile.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% if @profile.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+  <ul>
+    <% @profile.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <%= f.input :name %>
 
-  <h2>Documents associés</h2>
-  <p>Sélectionner les documents correspondant au profil.</p>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= f.input :name, autofocus: true %>
 
-  <% if @documents.exists? %>
+    <h2>Documents associés</h2>
+    <p>Sélectionner les documents correspondant au profil.</p>
+
+    <% if @documents.exists? %>
     <%= f.association :documents, collection: @documents, as: :check_boxes, label_method: :name %>
-  <% else %>
+    <% else %>
     <div>
       <%= link_to 'Créer des documents', new_document_path, class: 'btn btn-warning' %>
     </div>
-  <% end %>
+    <% end %>
 
-  <%= submit_tag 'Valider', class: "btn btn-primary" %>
-<% end %>
+    <%= submit_tag 'Valider', class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

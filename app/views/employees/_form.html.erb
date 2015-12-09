@@ -1,17 +1,19 @@
 <%= simple_form_for(@employee) do |f| %>
-  <% if @employee.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+<% if @employee.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
 
-      <ul>
-        <% @employee.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @employee.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-    <%= f.input :first_name %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= f.input :first_name, autofocus: true %>
     <%= f.input :last_name %>
     <%= f.input :birthdate %>
     <%= f.input :is_active %>
@@ -19,4 +21,6 @@
 
     <%= f.button :submit, 'Valider', class: 'btn btn-primary' %>
 
-<% end %>
+    <% end %>
+  </div>
+</div>
