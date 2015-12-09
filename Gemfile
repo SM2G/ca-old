@@ -22,6 +22,7 @@ gem 'sinatra',              '~> 1.4.6', require: false # For Sidekiq
 
 ## ASSETS
 ## ==========
+gem 'rack-cache',           '~> 1.5.1'      # Assets caching
 gem 'coffee-rails',         '~> 4.1.0'      # Use CoffeeScript for .coffee assets and views
 gem 'jbuilder',             '~> 2.0'        # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jquery-rails'                          # Use jquery as the JavaScript library
