@@ -11,21 +11,13 @@ class Document < ActiveRecord::Base
   ## Structure
   ## ==============================
   validates :critical_days, presence: true, numericality: true
-  validates :expire_days,   presence: true, numericality: true
   validates :name,          presence: true, length: { minimum: 2, maximum: 50 }
   validates :warning_days,  presence: true, numericality: true
 
   validate :critical_under_warning
-  validate :warning_under_expire
 
   def full_document_naming
     "#{name} (#{id})"
-  end
-
-  def warning_under_expire
-    if warning_days > expire_days
-      errors.add(:warning_days, "Seuil alerte au dessus du délai d'expiration")
-    end
   end
 
   def critical_under_warning

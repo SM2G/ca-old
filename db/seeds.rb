@@ -15,17 +15,17 @@ user.save!
 
 ## Document models
 ## ==============================
-id_card             = user.documents.create!(name: 'Piece d\'identité',                 warning_days: 20,   critical_days: 7,   expire_days: 5475)
-explosive_detection = user.documents.create!(name: 'Détection d\'explosifs',            warning_days: 15,   critical_days: 3,   expire_days: 365)
-xray_detection      = user.documents.create!(name: 'Détection rayons X',                warning_days: 15,   critical_days: 3,   expire_days: 365)
-cyno_init_formation = user.documents.create!(name: 'Formation initiale cyno',           warning_days: 30,   critical_days: 15,  expire_days: 365)
-tca_formation       = user.documents.create!(name: 'TCA ou habilitation préfectorale',  warning_days: 660,  critical_days: 60,  expire_days: 720)
-cyno_formation      = user.documents.create!(name: 'Formation continue cyno',           warning_days: 32,   critical_days: 22,  expire_days: 42)
-cqp_formation       = user.documents.create!(name: 'CQP',                               warning_days: 30,   critical_days: 15,  expire_days: 365)
-professional_card   = user.documents.create!(name: 'Carte professionnelle',             warning_days: 20,   critical_days: 7,   expire_days: 365)
-cqp_init_formation  = user.documents.create!(name: 'Formation initiale CQP',            warning_days: 30,   critical_days: 15,  expire_days: 365)
-img_formation       = user.documents.create!(name: 'Formation continue imagerie',       warning_days: 150,  critical_days: 120, expire_days: 180)
-non_img_formation   = user.documents.create!(name: 'Formation continue hors imagerie',  warning_days: 150,  critical_days: 120, expire_days: 180)
+id_card             = user.documents.create!(name: 'Piece d\'identité',                 warning_days: 20,   critical_days: 7,   )
+explosive_detection = user.documents.create!(name: 'Détection d\'explosifs',            warning_days: 15,   critical_days: 3,   )
+xray_detection      = user.documents.create!(name: 'Détection rayons X',                warning_days: 15,   critical_days: 3,   )
+cyno_init_formation = user.documents.create!(name: 'Formation initiale cyno',           warning_days: 30,   critical_days: 15,  )
+tca_formation       = user.documents.create!(name: 'TCA ou habilitation préfectorale',  warning_days: 60,   critical_days: 30,  )
+cyno_formation      = user.documents.create!(name: 'Formation continue cyno',           warning_days: 32,   critical_days: 22,  )
+cqp_formation       = user.documents.create!(name: 'CQP',                               warning_days: 30,   critical_days: 15,  )
+professional_card   = user.documents.create!(name: 'Carte professionnelle',             warning_days: 20,   critical_days: 7,   )
+cqp_init_formation  = user.documents.create!(name: 'Formation initiale CQP',            warning_days: 30,   critical_days: 15,  )
+img_formation       = user.documents.create!(name: 'Formation continue imagerie',       warning_days: 150,  critical_days: 120, )
+non_img_formation   = user.documents.create!(name: 'Formation continue hors imagerie',  warning_days: 150,  critical_days: 120, )
 
 puts "#{Document.count} Documents créés."
 

@@ -7,9 +7,8 @@
         <tr>
           <th>Document</th>
           <th>Profils attachés</th>
-          <th class="text-warning">Alerte</th>
-          <th class="text-danger">Critique</th>
-          <th class="text-muted">Expiration</th>
+          <th class="text-warning">Seuil Alerte</th>
+          <th class="text-danger">Seuil Critique</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -27,8 +26,6 @@
               </td>
               <td class="text-warning"> <%= document.warning_days %> jours </td>
               <td class="text-danger"> <%= document.critical_days %> jours </td>
-              <td class="text-muted"> <%= document.expire_days %> jours </td>
-              <td><%= link_to 'Détails', document, class: "btn btn-default" %></td>
               <td><%= link_to 'Modifier', edit_document_path(document) , class: "btn btn-default" %></td>
               <td>
                 <% if document.profiles.empty? %>
