@@ -31,5 +31,6 @@ module CerbereApp
     config.assets.initialize_on_precompile = false
     config.assets.js_compressor            = :uglifier
     config.serve_static_files              = true
+    config.serve_static_assets             = true
   end
 end
