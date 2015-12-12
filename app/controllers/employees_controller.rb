@@ -52,7 +52,6 @@ class EmployeesController < ApplicationController
   def employee_params
     profile         = @profiles.find(params[:employee][:profile_id])
     employee_params = params.require(:employee).permit(
-      :birthdate,
       :first_name,
       :is_active,
       :last_name,

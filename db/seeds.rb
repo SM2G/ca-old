@@ -53,22 +53,22 @@ Assignment.create!(profile: xray_operator,  document: img_formation)
 
 ## Employees
 ## ==============================
-agent_brand                = Employee.create!(is_active: true,  last_name: 'Brand',        first_name: 'Gala',    birthdate: '1975-01-27', profile: security_agent)
-agent_case                 = Employee.create!(is_active: true,  last_name: 'Case',         first_name: 'Tiffany', birthdate: '1975-01-27', profile: security_agent)
-agent_lynd                 = Employee.create!(is_active: false, last_name: 'Lynd',         first_name: 'Vesper',  birthdate: '1975-01-27', profile: security_agent)
-agent_rider                = Employee.create!(is_active: true,  last_name: 'Rider',        first_name: 'Honey',   birthdate: '1975-01-27', profile: security_agent)
-agent_romanova             = Employee.create!(is_active: true,  last_name: 'Romanova',     first_name: 'Tatiana', birthdate: '1975-01-27', profile: security_agent)
+agent_brand                = Employee.create!(is_active: true,  last_name: 'Brand',        first_name: 'Gala',    profile: security_agent)
+agent_case                 = Employee.create!(is_active: true,  last_name: 'Case',         first_name: 'Tiffany', profile: security_agent)
+agent_lynd                 = Employee.create!(is_active: false, last_name: 'Lynd',         first_name: 'Vesper',  profile: security_agent)
+agent_rider                = Employee.create!(is_active: true,  last_name: 'Rider',        first_name: 'Honey',   profile: security_agent)
+agent_romanova             = Employee.create!(is_active: true,  last_name: 'Romanova',     first_name: 'Tatiana', profile: security_agent)
 
-dog_trainer_baum           = Employee.create!(is_active: true,  last_name: 'Baum',         first_name: 'Lisl',    birthdate: '1975-01-27', profile: dog_trainer)
-dog_trainer_havelock       = Employee.create!(is_active: true,  last_name: 'Havelock',     first_name: 'Judy',    birthdate: '1975-01-27', profile: dog_trainer)
-dog_trainer_masterton_j    = Employee.create!(is_active: true,  last_name: 'Masterton',    first_name: 'Jill',    birthdate: '1975-01-27', profile: dog_trainer)
-dog_trainer_masterton_t    = Employee.create!(is_active: true,  last_name: 'Masterton',    first_name: 'Tilly',   birthdate: '1975-01-27', profile: dog_trainer)
-dog_trainer_russell        = Employee.create!(is_active: true,  last_name: 'Russell',      first_name: 'Mary',    birthdate: '1975-01-27', profile: dog_trainer)
+dog_trainer_baum           = Employee.create!(is_active: true,  last_name: 'Baum',         first_name: 'Lisl',    profile: dog_trainer)
+dog_trainer_havelock       = Employee.create!(is_active: true,  last_name: 'Havelock',     first_name: 'Judy',    profile: dog_trainer)
+dog_trainer_masterton_j    = Employee.create!(is_active: true,  last_name: 'Masterton',    first_name: 'Jill',    profile: dog_trainer)
+dog_trainer_masterton_t    = Employee.create!(is_active: true,  last_name: 'Masterton',    first_name: 'Tilly',   profile: dog_trainer)
+dog_trainer_russell        = Employee.create!(is_active: true,  last_name: 'Russell',      first_name: 'Mary',    profile: dog_trainer)
 
-xray_operator_freudenstein = Employee.create!(is_active: true,  last_name: 'Freudenstein', first_name: 'Maria',   birthdate: '1975-01-27', profile: xray_operator)
-xray_operator_goodnight    = Employee.create!(is_active: true,  last_name: 'Goodnight',    first_name: 'Mary',    birthdate: '1975-01-27', profile: xray_operator)
-xray_operator_krest        = Employee.create!(is_active: true,  last_name: 'Krest',        first_name: 'Liz',     birthdate: '1975-01-27', profile: xray_operator)
-xray_operator_suzuki       = Employee.create!(is_active: true,  last_name: 'Suzuki',       first_name: 'Kissy',   birthdate: '1975-01-27', profile: xray_operator)
+xray_operator_freudenstein = Employee.create!(is_active: true,  last_name: 'Freudenstein', first_name: 'Maria',   profile: xray_operator)
+xray_operator_goodnight    = Employee.create!(is_active: true,  last_name: 'Goodnight',    first_name: 'Mary',    profile: xray_operator)
+xray_operator_krest        = Employee.create!(is_active: true,  last_name: 'Krest',        first_name: 'Liz',     profile: xray_operator)
+xray_operator_suzuki       = Employee.create!(is_active: true,  last_name: 'Suzuki',       first_name: 'Kissy',   profile: xray_operator)
 
 puts "#{Employee.count} James bond girls créées."
 

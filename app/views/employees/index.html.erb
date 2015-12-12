@@ -21,8 +21,14 @@
                   <span class="<%= employee.is_active ? "glyphicon glyphicon-ok" : "glyphicon glyphicon-remove"%> aria-hidden=true>"</span>
                 </p>
               </td>
-              <td><%= employee.full_name %></td>
-              <td><%= employee.papers.count %></td>
+              <td><%= link_to employee.full_name, employee %></td>
+              <td>
+              <% if employee.papers.where("expiration_date < NOW()").count > 0 %>
+                <i class="fa fa-times-circle text-muted"></i>
+                <% else %>
+                <i class="fa fa-check-circle text-success"></i>
+              <% end %>
+              </td>
               <td><%= employee.profile.name %></td>
               <td>
                 <div class="btn-group">

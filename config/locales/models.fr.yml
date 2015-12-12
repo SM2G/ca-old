@@ -15,7 +15,6 @@ fr:
         name: Nom
         warning_days: Délai d'alerte en jours
       employee:
-        birthdate: Date de naissance
         first_name: Prénom
         is_active: Actif
         last_name: Nom

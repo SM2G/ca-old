@@ -9,7 +9,6 @@
     <span class="<%= @employee.is_active ? "text-success" : "text-danger"%>">
       <%= @employee.is_active ? "Employé actif" : "Employé inactif"%>
     </span></br>
-    <strong>Date de naissance :</strong> <%= l(@employee.birthdate) %></br>
     <strong>Profil :</strong> <%= @employee.profile.name %>
 
     <h2>Documents</h2>
@@ -23,7 +22,7 @@
       <tbody>
         <% @employee.papers.each do |paper| %>
         <tr>
-          <td> <%= paper.document.name %> </td>
+          <td> <%= link_to paper.document.name, edit_paper_path(paper) %></td>
           <td> <p class="<%= paper_status_css_class(paper) %>"><%= l(paper.expiration_date) %> </p></td>
         </tr>
         <% end %>
