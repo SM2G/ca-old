@@ -54,6 +54,8 @@
     <%= link_to 'Nouveau Personnel', new_employee_path, class: "btn btn-primary disabled" %>
     <% elsif (current_user.plan == 'silver' && @employees.count >= 100) %>
     <%= link_to 'Nouveau Personnel', new_employee_path, class: "btn btn-primary disabled" %>
+    <% elsif (current_user.profiles.count <= 0) %>
+    <%= link_to 'Nouveau Personnel', new_employee_path, class: "btn btn-primary disabled" %><p class="text-danger">Aucun profil défini</p>
     <% else %>
     <%= link_to 'Nouveau Personnel', new_employee_path, class: "btn btn-primary " %>
     <% end %>

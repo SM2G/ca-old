@@ -1,18 +1,28 @@
-<%= simple_form_for(@paper) do |f| %>
-  <% if @paper.errors.any? %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <p>
+      <strong><%= @paper.employee.full_name %></strong> - <%= @paper.document.name %>
+    </p>
+
+    <%= simple_form_for(@paper) do |f| %>
+    <% if @paper.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@paper.errors.count, "error") %> prohibited this paper from being saved:</h2>
 
       <ul>
-      <% @paper.errors.full_messages.each do |message| %>
+        <% @paper.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <%= f.input :expiration_date %>
-  <%= f.input :document_file %>
+    <%= f.input :expiration_date %>
+    <!-- % = f.input :document_file % > -->
 
-  <%= f.button :submit, 'Valider', class: 'btn btn-primary' %>
-<% end %>
+    <%= f.button :submit, 'Valider', class: 'btn btn-primary' %>
+    <%= link_to 'Annuler', @paper, class: 'btn btn-default' %>
+    <% end %>
+  </div>
+</div>

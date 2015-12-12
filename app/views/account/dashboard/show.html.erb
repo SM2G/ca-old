@@ -5,19 +5,26 @@
     <h2>Information personnelles</h2>
     <div class="row">
       <div class="col-xs-12 col-md-8">
+
         <p>
-          <strong>Nom :</strong>
-          <%= @user.name %>
+          <strong>Email de contact :</strong>
+          <%= @user.email %>
         </p>
 
         <p>
-          <strong>Email :</strong>
-          <%= @user.email %>
+          <strong>Abonnement :</strong>
+          <%= @user.plan %>
         </p>
+
+        <p>
+          <strong>Nombre d'employés gérés :</strong>
+          <%= @user.employees.count %>
+        </p>
+
       </div>
-      <div class="col-xs-12 col-md-4 text-right">
-        <%= link_to 'Editer', '#', class: 'btn btn-primary' %>
-      </div>
+      <!--<div class="col-xs-12 col-md-4 text-right">
+        < % = link_to 'Editer', '#', class: 'btn btn-primary' % >
+      </div>-->
     </div>
 
     <h2>Notifications</h2>

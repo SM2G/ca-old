@@ -16,9 +16,9 @@
     <%= f.input :name, autofocus: true %>
     <%= f.input :warning_days %>
     <%= f.input :critical_days %>
-    <%= f.input :expire_days %>
 
     <%= f.button :submit, 'Valider', class: 'btn btn-primary' %>
     <% end %>
+    <%= link_to 'Annuler', @document, class: "btn btn-default" %>
   </div>
 </div>

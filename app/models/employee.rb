@@ -1,15 +1,10 @@
 class Employee < ActiveRecord::Base
 
-  ## Bug
-  ## ==========
-  # When first creating the db, employees#index results in bug.
 
   ## Relationships
   ## ==============================
   belongs_to :profile
-
   has_many :papers,     dependent: :destroy
-
   has_many :documents,  through: :papers
 
   ## Validations
@@ -21,4 +16,5 @@ class Employee < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+  
 end

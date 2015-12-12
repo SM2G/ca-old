@@ -15,9 +15,6 @@
   <div class="col-md-6 col-md-offset-3">
     <%= f.input :name, autofocus: true %>
 
-    <h2>Documents associés</h2>
-    <p>Sélectionner les documents correspondant au profil.</p>
-
     <% if @documents.exists? %>
     <%= f.association :documents, collection: @documents, as: :check_boxes, label_method: :name %>
     <% else %>
@@ -28,6 +25,6 @@
 
     <%= submit_tag 'Valider', class: "btn btn-primary" %>
     <% end %>
-
+    <%= link_to 'Annuler', profiles_path, class: "btn btn-default" %>
   </div>
 </div>

@@ -32,11 +32,6 @@
 
     <%= link_to 'Retour Liste', employees_path , class: "btn btn-default" %>
     <%= link_to 'Modifier', edit_employee_path(@employee) , class: "btn btn-primary"%>
-  </div>
-
-  <div class="col-xs-12 col-md-3">
-    <span class="pull-right">
-      <%= link_to "Supprimer", @employee, method: :delete, data: { confirm: 'Etes-vous sûr ?' }, class: "btn btn-danger" %>
-    </span>
+    <%= link_to "Supprimer", @employee, method: :delete, data: { confirm: 'Etes-vous sûr ?' }, class: "btn btn-danger" %>
   </div>
 </div>

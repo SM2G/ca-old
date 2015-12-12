@@ -1,26 +1,21 @@
 <div class="row">
   <div class="col-xs-12">
+    <h1>Détails document</h1>
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
     <p>
-      <strong>Document :</strong>
-      <%= @paper.document.name %>
+      <strong><%= @paper.employee.full_name %></strong> - <%= @paper.document.name %>
     </p>
 
-    <p>
-      <strong>Personnel :</strong>
-      <%= @paper.employee.full_name %>
-    </p>
-
-    <p>
-      <strong>Fichier :</strong>
-      <%= link_to @paper.document_file.original_filename, @paper.document_file.url, target: '_blank' %>
-    </p>
+      <!-- % = link_to @ paper.document_file.original_filename, @ paper.document_file.url, target: '_blank' % -->
 
     <p>
       <strong>Date d'expiration :</strong>
       <%= l(@paper.expiration_date) %>
     </p>
 
-    <%= link_to 'Retour Liste', papers_path, class: "btn btn-default" %>
     <%= link_to 'Editer', edit_paper_path(@paper), class: "btn btn-primary" %>
+    <%= link_to 'Retour Liste', papers_path, class: "btn btn-default" %>
   </div>
 </div>

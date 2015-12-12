@@ -1,9 +1,8 @@
 <div class="row">
   <div class="col-xs-12">
-    <h1>Edition modèle de document</h1>
+    <h1>Edition <%= @document.name %></h1>
 
     <%= render 'form' %>
 
-    <%= link_to 'Annuler', @document, class: "btn btn-warning" %>
   </div>
 </div>
