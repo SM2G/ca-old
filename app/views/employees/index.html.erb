@@ -44,7 +44,18 @@
         <% end %>
       </tbody>
     </table>
-
-    <%= link_to 'Nouveau Personnel', new_employee_path, class: "btn btn-primary" %>
+    <%= @employees.count %> / <% if current_user.plan == "vip" %>Illimité
+    <% elsif current_user.plan == "silver" %>100
+    <% elsif current_user.plan == "trial" %>3
+    <% end %>
+(<%= current_user.plan %>)
+  </br>
+  <% if ( current_user.plan == "trial" && @employees.count >= 3) %>
+    <%= link_to 'Nouveau Personnel', new_employee_path, class: "btn btn-primary disabled" %>
+    <% elsif (current_user.plan == 'silver' && @employees.count >= 100) %>
+    <%= link_to 'Nouveau Personnel', new_employee_path, class: "btn btn-primary disabled" %>
+    <% else %>
+    <%= link_to 'Nouveau Personnel', new_employee_path, class: "btn btn-primary " %>
+    <% end %>
   </div>
 </div>
