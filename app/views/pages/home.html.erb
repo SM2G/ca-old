@@ -1,67 +1,70 @@
 </div><!-- /.container -->
 
-	<!-- Carousel
-	================================================== -->
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-			<li data-target="#myCarousel" data-slide-to="2"></li>
-		</ol>
-		<div class="carousel-inner" role="listbox">
-			<div class="item active">
-				<%= image_tag "carousel/carousel-security.png",  class: "first-slide img-responsive", alt: "First Slide"%>
-				<div class="container">
-					<div class="carousel-caption">
-						<h1>La sureté, notre ADN</h1>
-						<p>Cerbere App vous permet de garder votre personnel efficace et en conformité avec les reglementations en vigeur. Concentrez-vous sur votre activité, nous garons un oeil sur les accréditations qui vous sont indispensables.</p>
-						<p><%= link_to "Essai gratuit", new_user_session_path, class: "btn btn-primary btn-sm"%></p>
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<%= image_tag "carousel/carousel-papers.png",  class: "second-slide img-responsive", alt: "Second slide"%>
-				<div class="container">
-					<div class="carousel-caption">
-						<h1>Simplifier la gestion de documents</h1>
-						<p>CerbereApp vous offre <b>une interface élégante et claire</b> pour gérér vos accréditations et rester en conformité avec les législations en vigeur.</p>
-						<p><%= link_to "Essai gratuit", new_user_session_path, class: "btn btn-primary btn-sm"%></p>
-					</div>
-				</div>
-			</div>
-			<div class="item">
-				<%= image_tag "carousel/carousel-server.png",  class: "third-slide img-responsive", alt: "Third slide"%>
-				<div class="container">
-					<div class="carousel-caption">
-						<h1>Une infrastructure à toute épreuve.</h1>
-						<p>Les serveurs de Cerbere App sont hébergés sur une des infrastructures les plus résistantes qui existe. La redondance multiniveaux vous assure que l'application continuera de fonctionner <b>quoi qu'il arrive</b>.</p>
-						<p><%= link_to "Essai gratuit", new_user_session_path, class: "btn btn-primary btn-sm"%></p>
-					</div>
+<!-- Carousel
+================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel"></a>
+	<!-- Indicators -->
+	<ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+	</ol>
+	<div class="carousel-inner" role="listbox">
+		<div class="item active">
+			<%= image_tag "carousel/carousel-security.png",  class: "first-slide img-responsive", alt: "First Slide"%>
+			<div class="container">
+				<div class="carousel-caption">
+					<h1>La sureté, notre ADN</h1>
+					<p>Cerbere App vous permet de garder votre personnel efficace et en conformité avec les reglementations en vigeur. Concentrez-vous sur votre activité, nous garons un oeil sur les accréditations qui vous sont indispensables.</p>
+					<p><%= link_to "Essai gratuit", new_user_session_path, class: "btn btn-primary btn-sm"%></p>
 				</div>
 			</div>
 		</div>
-		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div><!-- /.carousel -->
-
-
+		<div class="item">
+			<%= image_tag "carousel/carousel-papers.png",  class: "second-slide img-responsive", alt: "Second slide"%>
+			<div class="container">
+				<div class="carousel-caption">
+					<h1>Simplifier la gestion de documents</h1>
+					<p>CerbereApp vous offre <b>une interface élégante et claire</b> pour gérér vos accréditations et rester en conformité avec les législations en vigeur.</p>
+					<p><%= link_to "Essai gratuit", new_user_session_path, class: "btn btn-primary btn-sm"%></p>
+				</div>
+			</div>
+		</div>
+		<div class="item">
+			<%= image_tag "carousel/carousel-server.png",  class: "third-slide img-responsive", alt: "Third slide"%>
+			<div class="container">
+				<div class="carousel-caption">
+					<h1>Une infrastructure à toute épreuve.</h1>
+					<p>Les serveurs de Cerbere App sont hébergés sur une des infrastructures les plus résistantes qui existe. La redondance multiniveaux vous assure que l'application continuera de fonctionner <b>quoi qu'il arrive</b>.</p>
+					<p><%= link_to "Essai gratuit", new_user_session_path, class: "btn btn-primary btn-sm"%></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
+</div><!-- /.carousel -->
+<!-- Home -->
 <div class="container">
 	<div class="page-header">
+		<div class="row">
+		<h1><a name="contact">CerbereApp</a>
+		  <small>Une solution de gestion de documents</small></h1>
+		</div>
+		<div class="row">
+		  <div class="col-md-6 col-md-offset-3">
+			<%= image_tag "logo/logo_v2.png",  class: "img-responsive"%>
+		</div>
+	</div>
+	</div>
 
-	<h1>Cerbere App</br>
-		<small>Une solution de gestion de documents</small>
-		<%= image_tag "logo/logo_v2.png",  class: "img-responsive"%>
-	</h1>
-</div>
-
-	<div class='row'>
+	<div class="row">
 		<div class='col-md-4 text-center'> 
 			<h3><i class="fa fa-files-o fa-3x fa-fw text-info"></i> </br>Une gestion de documents efficace</h3>
 			Cerbere App gère le cycle de vie de vos documents. </br>Vous pouvez vous concentrer sur <em>votre activité</em>.

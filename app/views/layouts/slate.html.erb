@@ -85,23 +85,23 @@
   <div class='row'>
     <div class='col-md-6 col-sm-4 col-xs-6'>
       <h4 class="lead">La société</h4>
-      <p><i>Cerbere App</i> est une application web. <a href='tickets.html'>Consultez nos abonnements.</a>!</p>
-      <p><a href='about.html'>More About Us</a></p>
+      <p><i>Cerbere App</i> est une application web. <%= link_to "consultez nos abonnements", page_path('pricing') %>!</p>
+      <p><%= link_to "Nous contacter", page_path('contact') %></p>
       <p>Cerbere App &copy;2015.</p>
     </div>
     <div class='col-md-3 col-sm-2 col-xs-6'>
-      <h4>Liens</h4>
-        <i class="fa fa-caret-right fa-fw"></i><%= link_to "Accueil", page_path('home') %></br>
-        <i class="fa fa-caret-right fa-fw"></i><%= link_to "Fonctionnalités", page_path('features') %></br>
-        <i class="fa fa-caret-right fa-fw"></i><%= link_to "Abonnements", page_path('pricing') %></br>
-        <i class="fa fa-caret-right fa-fw"></i><%= link_to "Contact", page_path('contact') %>
+      <h4>Partenaires</h4>
     </div>
 
     <div class='col-md-3 col-sm-2 col-xs-6'>
       <h4>Social</h4>
       <a href='http://twitter.com/cerbereapp'><%= image_tag "basic_social/colored/32/square/email.png"%></a>
       <a href='http://twitter.com/cerbereapp'><%= image_tag "basic_social/colored/32/square/twitter.png"%></a>
-      <h4>Partenaires</h4>
+      <h4>Liens</h4>
+        <i class="fa fa-caret-right fa-fw"></i><%= link_to "Accueil", page_path('home') %></br>
+        <i class="fa fa-caret-right fa-fw"></i><%= link_to "Fonctionnalités", page_path('features') %></br>
+        <i class="fa fa-caret-right fa-fw"></i><%= link_to "Abonnements", page_path('pricing') %></br>
+        <i class="fa fa-caret-right fa-fw"></i><%= link_to "Contact", page_path('contact') %>
     </div>
   </div>
 </div>
